@@ -15,5 +15,5 @@ jobs:
       uses: srggrs/assign-one-project-github-action@1.2.0
       if: github.event.action == 'opened'
       with:
-        project: 'https://github.com/orgs/Frame-One-Software/projects/1'
+        project: 'https://github.com/orgs/Frame-One-Software/projects/4'
         column_name: 'Backlog'
