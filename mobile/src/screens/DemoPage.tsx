@@ -58,7 +58,7 @@ const DemoPage: React.FC = () => {
 
 			<View>
 				<View style={{alignItems: "center"}}>
-					<IndoText style={{color: colors.navy, paddingVertical: 10}}>Inputs</IndoText>
+					<IndoText style={{color: colors.navy, paddingVertical: 10}}>Field Inputs</IndoText>
 				</View>
 
 				<IndoLabel>Test Label</IndoLabel>
@@ -84,8 +84,6 @@ const DemoPage: React.FC = () => {
 				<IndoButton color={"outline-gray"} onPress={() => {}}>Hello</IndoButton>
 				<IndoButton color={"navy"} bubble={"!"} onPress={() => {}}>Hello</IndoButton>
 				<IndoButton color={"outline-navy"} bubble={"!"} onPress={() => {}}>Hello</IndoButton>
-
-				<IndoText style={{color: colors.navy, paddingVertical: 10}}>Field Inputs</IndoText>
 
 			</View>
 			</KeyboardAwareScrollView>
