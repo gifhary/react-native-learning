@@ -4,7 +4,6 @@ import colors from "../../theme/colors";
 import indoInputStyles from "./indoInputStyles";
 
 interface IProps extends TextInputProps {
-
 }
 
 export const IndoTextInput: React.FC<IProps> = (props) => {

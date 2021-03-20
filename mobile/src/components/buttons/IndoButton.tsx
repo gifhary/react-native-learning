@@ -12,9 +12,10 @@ import colors from "../../theme/colors";
 
 interface IProps extends TouchableHighlightProps {
 	color?: "cyan" | "outline-cyan" | "lime" | "outline-lime" | "navy" | "outline-navy" | "gray" | "outline-gray",
-	viewStyle?: ViewStyle;
-	textStyle?: TextStyle;
-	bubble?: string;
+	viewStyle?: ViewStyle,
+	textStyle?: TextStyle,
+	bubble?: string,
+	size?: "sm" | "md",
 }
 
 const IndoButton: React.FC<IProps> = (props) => {
@@ -100,7 +101,7 @@ const IndoButton: React.FC<IProps> = (props) => {
 	}
 
 	return(
-		<TouchableHighlight {...props} style={style.touchable}>
+		<TouchableHighlight {...props} style={[style.touchable, {width: props.size === "sm" ? 197 : 240}]}>
 			{typeof props.children === "string" ? (
 				<View style={[style.view, viewStyle, props.disabled && {backgroundColor: colors.gray}, props.viewStyle]}>
 					<IndoText style={[style.text, textStyle, props.textStyle, props.disabled && {color: colors.black, opacity: 0.25}]}>{props.children}</IndoText>
@@ -130,7 +131,6 @@ const style = StyleSheet.create({
 		alignItems: "center",
 		borderRadius: 7,
 		paddingVertical: 10,
-		width: 240,
 	},
 	text: {
 		fontWeight: "600",
