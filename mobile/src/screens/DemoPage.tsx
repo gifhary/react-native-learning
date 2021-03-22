@@ -27,7 +27,7 @@ const DemoPage: React.FC = () => {
 	const [test1, setTest1] = useState([]);
 	const [test2, setTest2] = useState([]);
 	const [test3, setTest3] = useState(false);
-	const [test4, setTest4] = useState(ERadio.test1);
+	const [test4, setTest4] = useState<ERadio| undefined>(undefined);
 
 	return (
 		<SafeAreaView style={[globalStyles.safeArea, globalStyles.pagePaddingHorizontal]}>
@@ -65,7 +65,7 @@ const DemoPage: React.FC = () => {
 				<IndoTextInput placeholder="Test Placeholder..." />
 
 				<IndoLabel>Test Multi Dropdown</IndoLabel>
-				<IndoSelectDropdown value={test1} setValue={setTest1} data={dummyData} multiSelection={true} placeholder="Test Dropdown..." />
+				<IndoSelectDropdown value={test1} setValue={setTest1} data={dummyData} multiSelection={true} placeholder="Test Dropdown" />
 
 				<IndoLabel>Test Dropdown</IndoLabel>
 				<IndoSelectDropdown value={test2} setValue={setTest2} data={dummyData} />

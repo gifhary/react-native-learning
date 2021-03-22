@@ -100,21 +100,29 @@ const IndoButton: React.FC<IProps> = (props) => {
 			break;
 	}
 
-	return(
-		<TouchableHighlight {...props} style={[style.touchable, {width: props.size === "sm" ? 197 : 240}]}>
+	return (
+		<TouchableHighlight {...props} style={[style.touchable, {width: props.size === "sm" ? 180 : 240}]}>
 			{typeof props.children === "string" ? (
-				<View style={[style.view, viewStyle, props.disabled && {backgroundColor: colors.gray}, props.viewStyle]}>
-					<IndoText style={[style.text, textStyle, props.textStyle, props.disabled && {color: colors.black, opacity: 0.25}]}>{props.children}</IndoText>
-					<View style={[style.bubble, bubbleStyle]}>
-						<IndoText style={style.bubbleText}>{props.bubble}</IndoText>
-					</View>
+				<View
+					style={[style.view, viewStyle, props.disabled && {backgroundColor: colors.gray}, props.viewStyle]}>
+					<IndoText style={[style.text, textStyle, props.textStyle, props.disabled && {
+						color: colors.black,
+						opacity: 0.25
+					}]}>{props.children}</IndoText>
+					{typeof props.bubble !== "undefined" &&
+                    <View style={[style.bubble, bubbleStyle]}>
+                        <IndoText style={style.bubbleText}>{props.bubble}</IndoText>
+                    </View>
+					}
 				</View>
 			) : (
 				<React.Fragment>
 					{props.children}
-					<View style={[style.bubble, bubbleStyle]}>
-						<IndoText style={style.bubbleText}>{props.bubble}</IndoText>
-					</View>
+					{typeof props.bubble !== "undefined" &&
+                    <View style={[style.bubble, bubbleStyle]}>
+                        <IndoText style={style.bubbleText}>{props.bubble}</IndoText>
+                    </View>
+					}
 				</React.Fragment>
 			)}
 		</TouchableHighlight>
@@ -122,8 +130,7 @@ const IndoButton: React.FC<IProps> = (props) => {
 }
 
 
-IndoButton.defaultProps = {
-}
+IndoButton.defaultProps = {}
 
 const style = StyleSheet.create({
 	view: {

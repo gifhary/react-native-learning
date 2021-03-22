@@ -6,9 +6,7 @@ import {
 	View,
 	Platform,
 	Keyboard,
-	Text,
 	TouchableOpacity,
-	TouchableWithoutFeedback
 } from "react-native";
 import colors from "../../../theme/colors";
 import {Picker} from "@react-native-picker/picker";
@@ -24,19 +22,20 @@ interface IProps extends TextInputProps {
 	data: any,
 	multiSelection?: boolean,
 	placeholder?: string,
+	enabled?: boolean
 }
 
 export const IndoSelectDropdown: React.FC<IProps> = (props) => {
 
-	const {value, setValue, data, multiSelection, placeholder} = props;
+	const {value, setValue, data, multiSelection, placeholder, enabled} = props;
 	const [open, setOpen] = useState(false);
 	const keyboardVisible = useKeyboardVisible();
-	const [tempValue, setTempValue] = useState();
+	const [tempValue, setTempValue] = useState(undefined);
 	const [pristine, setPristine] = useState(true);
 
 	useEffect(() => {
 		if (!pristine) {
-			onChangeHelperIOS(data[0].value);
+			if (Platform.OS === "ios") onChangeHelperIOS(data[0].value);
 		}
 	}, [pristine]);
 
@@ -58,7 +57,22 @@ export const IndoSelectDropdown: React.FC<IProps> = (props) => {
 		} else {
 			setTempValue(itemValue);
 		}
-		console.log("itemValue", itemValue);
+	}
+
+	function onChangeHelperAndroid(itemValue: any): void {
+		if (multiSelection === false) {
+			const selectedOption = data.filter((item: any) => item.value === itemValue);
+			setValue(selectedOption);
+			setTempValue(itemValue);
+		} else {
+			const selectedOption = data.filter((item: any) => item.value === itemValue);
+			if (value.some((item: any) => item.value === selectedOption[0].value)) {
+				setValue(value.filter((item: any) => item.value !== selectedOption[0].value));
+			} else {
+				setValue([...value, ...selectedOption]);
+			}
+		}
+
 	}
 
 	function selectOption() {
@@ -79,12 +93,12 @@ export const IndoSelectDropdown: React.FC<IProps> = (props) => {
 	function renderPickerItems(item: any, i: number) {
 		const selected = !!value.find((current: any) => current.label === item.label);
 		return (
-			<Picker.Item
-				key={`picker-item_${i}`}
-				label={item.label}
-				value={item.value}
-				color={selected ? colors.lime : undefined}
-			/>
+				<Picker.Item
+					key={`picker-item_${i}`}
+					label={item.label}
+					value={item.value}
+					color={(selected ? colors.lime : undefined)}
+				/>
 		);
 	}
 
@@ -138,7 +152,9 @@ export const IndoSelectDropdown: React.FC<IProps> = (props) => {
 					staticPlaceholder={multiSelection}
 					placeholder={placeholder && placeholder}
 					value={!multiSelection ? value : undefined} onPress={toggleOpen}
-					onPressOut={() => {setPristine(false)}}
+					onPressOut={() => {
+						setPristine(false);
+					}}
 					open={open}
 				/>
 			{!!multiSelection && value.length > 0 &&
@@ -146,12 +162,31 @@ export const IndoSelectDropdown: React.FC<IProps> = (props) => {
 					{value.map(createDropdownItem)}
 				</View>
 			}
+			{Platform.OS !== "ios" && (
+				<View style={style.androidPickerAdjuster}>
+					<Picker
+						selectedValue={value}
+						onValueChange={onChangeHelperAndroid}
+						prompt={placeholder}
+						enabled={enabled}
+					>
+						<Picker.Item
+							key={`picker-default-item`}
+							label={"Options:"}
+							value={undefined}
+							color={colors.black}
+						/>
+						{data.map(renderPickerItems)}
+					</Picker>
+				</View>
+			)}
 		</View>
 	);
 };
 
 IndoSelectDropdown.defaultProps = {
 	multiSelection: false,
+	enabled: true,
 };
 
 const style = StyleSheet.create({
@@ -194,5 +229,13 @@ const style = StyleSheet.create({
 		backgroundColor: colors.lime,
 		overflow: "hidden",
 		color: colors.white,
+	},
+	androidPickerAdjuster: {
+		position: "absolute",
+		top: 0,
+		left: 0,
+		zIndex: 40,
+		opacity: 0,
+		width: "100%",
 	},
 });

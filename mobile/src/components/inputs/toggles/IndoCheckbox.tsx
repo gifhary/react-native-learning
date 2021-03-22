@@ -39,6 +39,7 @@ const styles = StyleSheet.create({
 	},
 	touchable: {
 		flexDirection: "row",
+		alignItems: "center"
 	},
 	checkbox: {
 		width: 20,
@@ -51,11 +52,8 @@ const styles = StyleSheet.create({
 		marginRight: 13,
 	},
 	check: {
-		fontSize: 20,
 		fontWeight: "900",
 		color: colors.white,
-		justifyContent: "center",
-		alignItems: "center",
 	},
 })
 

@@ -41,6 +41,7 @@ const styles = StyleSheet.create({
 	},
 	touchable: {
 		flexDirection: "row",
+		alignItems: "center"
 	},
 	radio: {
 		width: 20,
