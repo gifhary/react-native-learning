@@ -34,13 +34,13 @@ const DemoPage: React.FC = () => {
 	const [sliderTest, setSliderTest] = useState(0);
 
 	return (
-		<SafeAreaView style={[globalStyles.safeArea, globalStyles.pagePaddingHorizontal]}>
+		<SafeAreaView style={globalStyles.safeArea}>
 			<KeyboardAwareScrollView>
 
 				<View>
 					<View style={{alignItems: "center"}}>
 						<IndoText style={{color: colors.navy, paddingVertical: 10}}>Sliders</IndoText>
-						<IndoSlider value={sliderTest} setValue={setSliderTest} label="Slider Name" valueSuffix="%"/>
+						<IndoSlider controlledValue={sliderTest} setValue={setSliderTest} label="Slider Name" valueSuffix="%"/>
 					</View>
 				</View>
 

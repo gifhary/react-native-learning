@@ -9,7 +9,7 @@ import IndoText from "../../IndoText";
 interface IProps {
 	min?: number;
 	max?: number;
-	value: number;
+	controlledValue: number;
 	setValue: any;
 	valueSuffix?: string;
 	label?: string;
@@ -18,7 +18,7 @@ interface IProps {
 const IndoSlider: React.FC<IProps> = (props) => {
 
 	const window = useWindowDimensions();
-	const {min, max, value, setValue, label, valueSuffix} = props;
+	const {min, max, controlledValue, setValue, label, valueSuffix} = props;
 
 	function setSliderValue(e: any) {
 		const tempValue = Math.round(e);
@@ -41,7 +41,7 @@ const IndoSlider: React.FC<IProps> = (props) => {
 				onValueChange={setSliderValue}
 			/>
 			<View style={[style.valueContainer, {width: window.width}]}>
-				<IndoText style={style.valueStyle}>{value}{valueSuffix}</IndoText>
+				<IndoText style={style.valueStyle}>{controlledValue}{valueSuffix}</IndoText>
 			</View>
 		</>
 	);
