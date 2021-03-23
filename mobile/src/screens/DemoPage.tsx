@@ -10,6 +10,7 @@ import {IndoSelectDropdown} from "../components/inputs/SelectDropdown/IndoSelect
 import {KeyboardAwareScrollView} from "react-native-keyboard-aware-scroll-view";
 import IndoCheckBox from "../components/inputs/toggles/IndoCheckbox";
 import IndoRadioButton from "../components/inputs/toggles/IndoRadio";
+import StepTracker, {EStepTracker} from "../components/elements/StepTracker";
 
 const dummyData = [
 	{label: "test", value: "test"},
@@ -32,6 +33,13 @@ const DemoPage: React.FC = () => {
 	return (
 		<SafeAreaView style={[globalStyles.safeArea, globalStyles.pagePaddingHorizontal]}>
 			<KeyboardAwareScrollView>
+
+				<View>
+					<View style={{alignItems: "center"}}>
+						<IndoText style={{color: colors.navy, paddingVertical: 10}}>Step Tracker</IndoText>
+						<StepTracker progress={EStepTracker.START} />
+					</View>
+				</View>
 
 				<View>
 					<View style={{alignItems: "center"}}>
