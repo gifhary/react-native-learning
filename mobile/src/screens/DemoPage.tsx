@@ -1,15 +1,86 @@
 import {SafeAreaView, View} from "react-native";
-import React from "react";
+import React, {useState} from "react";
 import globalStyles from "../theme/globalStyles";
 import IndoText from "../components/IndoText";
 import IndoButton from "../components/buttons/IndoButton";
 import colors from "../theme/colors";
+import {IndoTextInput} from "../components/inputs/IndoInput";
+import IndoLabel from "../components/inputs/IndoLabel";
+import {IndoSelectDropdown} from "../components/inputs/SelectDropdown/IndoSelectDropdown";
+import {KeyboardAwareScrollView} from "react-native-keyboard-aware-scroll-view";
+import IndoCheckBox from "../components/inputs/toggles/IndoCheckbox";
+import IndoRadioButton from "../components/inputs/toggles/IndoRadio";
+import StepTracker, {EStepTracker} from "../components/elements/StepTracker";
 
+const dummyData = [
+	{label: "test", value: "test"},
+	{label: "nest", value: "nest"},
+	{label: "best", value: "best"},
+	{label: "pest", value: "pest"},
+];
+
+enum ERadio {
+	test1,
+	test2
+}
 const DemoPage: React.FC = () => {
+
+	const [test1, setTest1] = useState([]);
+	const [test2, setTest2] = useState([]);
+	const [test3, setTest3] = useState(false);
+	const [test4, setTest4] = useState<ERadio| undefined>(undefined);
 
 	return (
 		<SafeAreaView style={[globalStyles.safeArea, globalStyles.pagePaddingHorizontal]}>
+			<KeyboardAwareScrollView>
+
+				<View>
+					<View style={{alignItems: "center"}}>
+						<IndoText style={{color: colors.navy, paddingVertical: 10}}>Step Tracker</IndoText>
+						<StepTracker progress={EStepTracker.START} />
+					</View>
+				</View>
+
+				<View>
+					<View style={{alignItems: "center"}}>
+						<IndoText style={{color: colors.navy, paddingVertical: 10}}>Checkbox/Radios</IndoText>
+					</View>
+
+					<IndoCheckBox value={test3} setValue={setTest3}>Checkbox Label</IndoCheckBox>
+
+					<View style={{flexDirection: "row", justifyContent: "space-between", width: "50%"}}>
+						<IndoRadioButton
+							value={test4 === ERadio.test1}
+							setValue={() => setTest4(ERadio.test1)}
+						>
+							Radio 1
+						</IndoRadioButton>
+						<IndoRadioButton
+							value={test4 === ERadio.test2}
+							setValue={() => setTest4(ERadio.test2)}
+						>
+							Radio 2
+						</IndoRadioButton>
+					</View>
+				</View>
+
+			<View>
+				<View style={{alignItems: "center"}}>
+					<IndoText style={{color: colors.navy, paddingVertical: 10}}>Field Inputs</IndoText>
+				</View>
+
+				<IndoLabel>Test Label</IndoLabel>
+				<IndoTextInput placeholder="Test Placeholder..." />
+
+				<IndoLabel>Test Multi Dropdown</IndoLabel>
+				<IndoSelectDropdown value={test1} setValue={setTest1} data={dummyData} multiSelection={true} placeholder="Test Dropdown" />
+
+				<IndoLabel>Test Dropdown</IndoLabel>
+				<IndoSelectDropdown value={test2} setValue={setTest2} data={dummyData} />
+			</View>
+
 			<View style={{alignItems: "center"}}>
+
 				<IndoText style={{color: colors.navy, paddingVertical: 10}}>Buttons</IndoText>
 				<IndoButton color={"navy"} onPress={() => {}}>Primary Button</IndoButton>
 				<IndoButton color={"outline-navy"} onPress={() => {}}>Border Variant</IndoButton>
@@ -20,7 +91,10 @@ const DemoPage: React.FC = () => {
 				<IndoButton disabled onPress={() => {}}>Hello</IndoButton>
 				<IndoButton color={"outline-gray"} onPress={() => {}}>Hello</IndoButton>
 				<IndoButton color={"navy"} bubble={"!"} onPress={() => {}}>Hello</IndoButton>
+				<IndoButton color={"outline-navy"} bubble={"!"} onPress={() => {}}>Hello</IndoButton>
+
 			</View>
+			</KeyboardAwareScrollView>
 		</SafeAreaView>
 	)
 }

@@ -60,6 +60,7 @@ const style = StyleSheet.create({
 		fontFamily: "Titillium Web",
 		fontSize: 16,
 		fontWeight: "600",
+		textAlign: "center",
 	},
 });
 
