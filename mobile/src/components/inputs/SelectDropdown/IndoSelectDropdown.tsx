@@ -106,7 +106,10 @@ export const IndoSelectDropdown: React.FC<IProps> = (props) => {
 
 		return (
 			<TouchableOpacity key={Math.random()} onPress={() => deleteOption(item)}>
-				<IndoText key={`dropdown-item-${index}`} style={style.dropdownItem}>{item.label}</IndoText>
+				<View key={`dropdown-item-${index}`}  style={style.dropdownItem} >
+					<IndoText style={[style.dropdownItemLabel, {paddingRight: 5}]}>{item.label}</IndoText>
+					<IndoText style={style.dropdownItemLabel}>✕</IndoText>
+				</View>
 			</TouchableOpacity>
 		);
 	}
@@ -221,6 +224,9 @@ const style = StyleSheet.create({
 		flexWrap: "wrap",
 	},
 	dropdownItem: {
+		flexDirection: "row",
+		justifyContent: "center",
+		alignItems: "center",
 		paddingVertical: 5,
 		paddingHorizontal: 10,
 		borderRadius: 5,
@@ -228,6 +234,8 @@ const style = StyleSheet.create({
 		marginRight: 10,
 		backgroundColor: colors.lime,
 		overflow: "hidden",
+	},
+	dropdownItemLabel: {
 		color: colors.white,
 	},
 	androidPickerAdjuster: {

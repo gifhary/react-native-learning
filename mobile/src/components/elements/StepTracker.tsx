@@ -4,42 +4,36 @@ import {
 	View,
 } from "react-native";
 import colors from "../../theme/colors";
-import IndoText from "../IndoText";
 
 interface IProps {
 	progress: EStepTracker,
 }
 
 export enum EStepTracker {
-	START,
+	START ,
 	MIDDLE,
 	END,
 }
 const StepTracker: React.FC<IProps> = (props) => {
 
+	const {progress} = props;
 	const window = useWindowDimensions();
 
-	function progressElement() {
-		const renderItem = <View style={[style.limeBox, {width: window.width / 3}]} />;
-		const renderArray = []
-		switch (props.progress) {
-			case EStepTracker.END:
-				renderArray.push(renderItem);
-			case EStepTracker.MIDDLE:
-				renderArray.push(renderItem);
-			case EStepTracker.START:
-				renderArray.push(renderItem);
-				break;
-			default:
-				return <View/>;
-
+	function renderBars(progress: EStepTracker) {
+		const tempArray = [];
+		for (let i = 0; i <= 2; i++) {
+			if (i <= progress) {
+				tempArray.push(<View style={[style.limeBox, {width: (window.width / 3 - 15)}]} />);
+			} else {
+				tempArray.push(<View style={[style.grayBox, {width: (window.width / 3 - 15)}]} />);
+			}
 		}
-		return renderArray.map(item => item);
+		return tempArray;
 	}
 
 	return (
 		<View style={style.view}>
-			{progressElement}
+			{renderBars(progress).map(item => item)}
 		</View>
 	);
 }
@@ -52,11 +46,20 @@ StepTracker.defaultProps = {
 const style = StyleSheet.create({
 	view: {
 		flexDirection: "row",
+		height: 15,
+	},
+	grayBox: {
+		marginHorizontal: 5,
+		backgroundColor: colors.gray,
+		height: 3,
+		borderWidth: 1,
+		borderColor: colors.gray,
+		borderRadius: 5,
 	},
 	limeBox: {
 		marginHorizontal: 5,
 		backgroundColor: colors.lime,
-		height: 2,
+		height: 3,
 		borderWidth: 1,
 		borderColor: colors.lime,
 		borderRadius: 5,

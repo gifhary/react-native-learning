@@ -38,6 +38,8 @@ const DemoPage: React.FC = () => {
 					<View style={{alignItems: "center"}}>
 						<IndoText style={{color: colors.navy, paddingVertical: 10}}>Step Tracker</IndoText>
 						<StepTracker progress={EStepTracker.START} />
+						<StepTracker progress={EStepTracker.MIDDLE} />
+						<StepTracker progress={EStepTracker.END} />
 					</View>
 				</View>
 
