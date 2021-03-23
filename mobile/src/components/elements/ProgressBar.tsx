@@ -22,7 +22,7 @@ const ProgressBar: React.FC<IProps> = (props) => {
 				<View style={[style.limeBar, {flex: progress / total}]}/>
 			</View>
 			<View style={{width: window.width}}>
-				<IndoText style={style.progressText}>{(progress / total) * 100}%</IndoText>
+				<IndoText style={style.progressText}>{Math.round((progress / total) * 100)}%</IndoText>
 			</View>
 		</View>
 	);
