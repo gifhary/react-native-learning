@@ -12,6 +12,7 @@ import IndoCheckBox from "../components/inputs/toggles/IndoCheckbox";
 import IndoRadioButton from "../components/inputs/toggles/IndoRadio";
 import StepTracker, {EStepTracker} from "../components/elements/StepTracker";
 import IndoSlider from "../components/inputs/Slider/IndoSlider";
+import ProgressBar from "../components/elements/ProgressBar";
 
 const dummyData = [
 	{label: "test", value: "test"},
@@ -36,6 +37,13 @@ const DemoPage: React.FC = () => {
 	return (
 		<SafeAreaView style={globalStyles.safeArea}>
 			<KeyboardAwareScrollView>
+
+				<View>
+					<View style={{alignItems: "center"}}>
+						<IndoText style={{color: colors.navy, paddingVertical: 10}}>Progress Bar</IndoText>
+						<ProgressBar progress={50} total={100} />
+					</View>
+				</View>
 
 				<View>
 					<View style={{alignItems: "center"}}>

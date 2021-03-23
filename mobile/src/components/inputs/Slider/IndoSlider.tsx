@@ -59,6 +59,8 @@ const style = StyleSheet.create({
 	},
 	labelStyle: {
 		paddingRight: 20,
+		color: colors.navy,
+		textDecorationLine: "underline",
 	},
 	valueContainer: {
 		alignItems: "flex-start",
