@@ -11,6 +11,7 @@ import {KeyboardAwareScrollView} from "react-native-keyboard-aware-scroll-view";
 import IndoCheckBox from "../components/inputs/toggles/IndoCheckbox";
 import IndoRadioButton from "../components/inputs/toggles/IndoRadio";
 import StepTracker, {EStepTracker} from "../components/elements/StepTracker";
+import IndoSlider from "../components/inputs/Slider/IndoSlider";
 
 const dummyData = [
 	{label: "test", value: "test"},
@@ -30,16 +31,16 @@ const DemoPage: React.FC = () => {
 	const [test3, setTest3] = useState(false);
 	const [test4, setTest4] = useState<ERadio| undefined>(undefined);
 
+	const [sliderTest, setSliderTest] = useState(0);
+
 	return (
 		<SafeAreaView style={[globalStyles.safeArea, globalStyles.pagePaddingHorizontal]}>
 			<KeyboardAwareScrollView>
 
 				<View>
 					<View style={{alignItems: "center"}}>
-						<IndoText style={{color: colors.navy, paddingVertical: 10}}>Step Tracker</IndoText>
-						<StepTracker progress={EStepTracker.START} />
-						<StepTracker progress={EStepTracker.MIDDLE} />
-						<StepTracker progress={EStepTracker.END} />
+						<IndoText style={{color: colors.navy, paddingVertical: 10}}>Sliders</IndoText>
+						<IndoSlider value={sliderTest} setValue={setSliderTest} label="Slider Name" valueSuffix="%"/>
 					</View>
 				</View>
 
@@ -63,6 +64,15 @@ const DemoPage: React.FC = () => {
 						>
 							Radio 2
 						</IndoRadioButton>
+					</View>
+				</View>
+
+				<View>
+					<View style={{alignItems: "center"}}>
+						<IndoText style={{color: colors.navy, paddingVertical: 10}}>Step Tracker</IndoText>
+						<StepTracker progress={EStepTracker.START} />
+						<StepTracker progress={EStepTracker.MIDDLE} />
+						<StepTracker progress={EStepTracker.END} />
 					</View>
 				</View>
 

@@ -23,9 +23,9 @@ const StepTracker: React.FC<IProps> = (props) => {
 		const tempArray = [];
 		for (let i = 0; i <= 2; i++) {
 			if (i <= progress) {
-				tempArray.push(<View style={[style.limeBox, {width: (window.width / 3 - 15)}]} />);
+				tempArray.push(<View key={i} style={[style.limeBox, {width: (window.width / 3 - 15)}]} />);
 			} else {
-				tempArray.push(<View style={[style.grayBox, {width: (window.width / 3 - 15)}]} />);
+				tempArray.push(<View key={i} style={[style.grayBox, {width: (window.width / 3 - 15)}]} />);
 			}
 		}
 		return tempArray;
