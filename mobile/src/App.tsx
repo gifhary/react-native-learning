@@ -3,22 +3,21 @@ import { StatusBar } from 'react-native';
 import {Provider} from "react-redux";
 import {persistor, store} from './redux';
 import {PersistGate} from "redux-persist/integration/react";
-import {DefaultTheme, NavigationContainer, useNavigation} from "@react-navigation/native";
-import {createStackNavigator} from "@react-navigation/stack";
+import {DefaultTheme, NavigationContainer} from "@react-navigation/native";
 import colors from './theme/colors';
 import LoadingManager from "./components/LoadingManager";
-import DemoPage from './screens/DemoPage';
-
-const RootStackNavigator = createStackNavigator();
+import RootNavigator from "./navigators/RootNavigator";
 
 const App: React.FC = () => {
 	return (
 		<React.Fragment>
-			<StatusBar barStyle={"dark-content"}/>
+			<StatusBar barStyle="dark-content"/>
 
 			<Provider store={store}>
-				<PersistGate loading={null} persistor={persistor}>
-
+				<PersistGate
+					loading={null}
+					persistor={persistor}
+				>
 					<NavigationContainer
 						theme={{
 							...DefaultTheme,
@@ -28,17 +27,10 @@ const App: React.FC = () => {
 							},
 						}}
 					>
-						<RootStackNavigator.Navigator headerMode="none">
-
-							<RootStackNavigator.Screen
-								name="DemoPage"
-								component={DemoPage}
-							/>
-						</RootStackNavigator.Navigator>
+						<RootNavigator/>
 					</NavigationContainer>
 
 					<LoadingManager/>
-
 				</PersistGate>
 			</Provider>
 		</React.Fragment>
