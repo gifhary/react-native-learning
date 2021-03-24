@@ -130,7 +130,10 @@ const IndoButton: React.FC<IProps> = (props) => {
 }
 
 
-IndoButton.defaultProps = {}
+IndoButton.defaultProps = {
+	color: "cyan",
+	size: "md",
+};
 
 const style = StyleSheet.create({
 	view: {
@@ -167,7 +170,7 @@ const style = StyleSheet.create({
 		fontSize: 17,
 		fontWeight: "bold",
 		color: colors.gray,
-	}
+	},
 });
 
 export default IndoButton;

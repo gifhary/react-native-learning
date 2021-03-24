@@ -14,6 +14,7 @@ interface IProps extends ImageProps {
 
 const ProfileImage: React.FC<IProps> = (props) => {
 
+
 	const {source, mod} = props;
 	const imageSize: number = getWidth(mod);
 
@@ -45,11 +46,9 @@ ProfileImage.defaultProps = {
 
 const style = StyleSheet.create({
 	view: {
-		flex: 1,
 		overflow: "hidden",
 	},
 	image: {
-		flex: 1,
 		resizeMode: 'contain',
 	},
 });
