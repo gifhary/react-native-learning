@@ -13,6 +13,8 @@ import IndoRadioButton from "../components/inputs/toggles/IndoRadio";
 import StepTracker, {EStepTracker} from "../components/elements/StepTracker";
 import IndoSlider from "../components/inputs/Slider/IndoSlider";
 import ProgressBar from "../components/elements/ProgressBar";
+import ProfileImage from "../components/elements/ProfileImage";
+const profileTest = require("../../assets/icons/Artboard_1_copy_188x.png");
 
 const dummyData = [
 	{label: "test", value: "test"},
@@ -37,6 +39,13 @@ const DemoPage: React.FC = () => {
 	return (
 		<SafeAreaView style={globalStyles.safeArea}>
 			<KeyboardAwareScrollView>
+
+				<View>
+					<View style={{alignItems: "center"}}>
+						<IndoText style={{color: colors.navy, paddingVertical: 10}}>Progress Bar</IndoText>
+						<ProfileImage source={profileTest} />
+					</View>
+				</View>
 
 				<View>
 					<View style={{alignItems: "center"}}>
