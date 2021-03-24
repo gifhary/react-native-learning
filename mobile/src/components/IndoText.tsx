@@ -4,7 +4,7 @@ import {RFValue} from "react-native-responsive-fontsize";
 import { isNil, cloneDeep } from "lodash";
 
 interface IProps extends TextProps {
-	autoScaleFontSize?: boolean
+	autoScaleFontSize?: boolean;
 }
 
 
