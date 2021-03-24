@@ -17,6 +17,7 @@ import ProfileImage from "../components/elements/ProfileImage";
 import MessageBubble, {EMessageProfilePosition} from "../components/elements/MessageBubble";
 import AchievementCard from "../components/elements/AchievementCard";
 import AchievementCardDetailed from "../components/elements/AchievementCardDetailed";
+import ProductsCard from "../components/elements/ProductsCard";
 
 const profileTest = require("../../assets/icons/Artboard_1_copy_188x.png");
 
@@ -47,8 +48,34 @@ const DemoPage: React.FC = () => {
 
 				<View>
 					<View style={{alignItems: "center"}}>
+						<IndoText style={{color: colors.navy, paddingVertical: 10}}>Products Card</IndoText>
+						<ProductsCard
+							header="Name"
+							subHeader="Lorem Ipsum Equity Fund"
+							leftHeader="Left Label"
+							leftSubHeader="Left SubHeader"
+							rightHeader="Right Label"
+							rightSubHeader="Right SubHeader"
+						/>
+					</View>
+				</View>
+
+				<View>
+					<View style={{alignItems: "center"}}>
 						<IndoText style={{color: colors.navy, paddingVertical: 10}}>Achievement Card Detailed</IndoText>
-						<AchievementCardDetailed profileImage={profileTest} source={profileTest} header="Test Header" subHeader="Test text for subheader..." labelHeader="Name" label="Test Label" subLabel="Sub Label" />
+						<AchievementCardDetailed
+							profileImage={profileTest}
+							source={profileTest}
+							header="Test Header"
+							subHeader="Test text for subheader..."
+							labelHeader="Name"
+							label="Lorem Ipsum Label"
+							subLabel="Sub Label"
+							leftHeader="Left Label"
+							leftSubHeader="Left SubHeader"
+							rightHeader="Right Label"
+							rightSubHeader="Right SubHeader"
+						/>
 					</View>
 				</View>
 

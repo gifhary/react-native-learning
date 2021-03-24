@@ -21,7 +21,7 @@ const AchievementCard: React.FC<IProps> = (props) => {
 
 	if (onPress) {
 		return (
-			<TouchableOpacity style={[style.view, {width: window.width / 2.3}]} activeOpacity={0.8}>
+			<TouchableOpacity style={[style.view, {width: window.width / 2.3}]} onPress={onPress} activeOpacity={0.8}>
 				<Image source={source}
 					   style={[style.image]}
 				/>

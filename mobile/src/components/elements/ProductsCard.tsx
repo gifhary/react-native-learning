@@ -1,21 +1,14 @@
 import React from "react";
 import {
-	Image, ImageSourcePropType,
 	StyleSheet, TouchableOpacity, useWindowDimensions,
 	View,
 } from "react-native";
 import colors from "../../theme/colors";
 import IndoText from "../IndoText";
-import ProfileImage from "./ProfileImage";
 
 interface IProps {
-	profileImage: ImageSourcePropType;
-	source: ImageSourcePropType;
 	header: string;
 	subHeader: string;
-	labelHeader: string;
-	label: string;
-	subLabel: string;
 	leftHeader: string;
 	leftSubHeader: string;
 	rightHeader: string;
@@ -23,43 +16,34 @@ interface IProps {
 	onPress?: any;
 }
 
-const AchievementCardDetailed: React.FC<IProps> = (props) => {
+const ProductsCard: React.FC<IProps> = (props) => {
 
-	const {source, profileImage, header, subHeader, labelHeader, label, subLabel, leftHeader, leftSubHeader, rightHeader, rightSubHeader, onPress} = props;
+	const {header, subHeader, leftHeader, leftSubHeader, rightHeader, rightSubHeader, onPress} = props;
 	const window = useWindowDimensions();
 
 	const renderElement = (
 		<View style={style.container}>
-			<View style={[style.header]}>
-				<View>
-					<ProfileImage source={profileImage} mod={0.09}/>
-				</View>
-				<View style={{flex: 1, paddingHorizontal: 15}}>
-					<IndoText style={style.headerText}>{header}</IndoText>
-					<IndoText style={style.subHeaderText}>{subHeader}</IndoText>
-				</View>
-			</View>
-
 			<View style={[style.footer]}>
-				<View style={{flex: 1}}>
-					<Image source={source} style={style.image}
-					/>
-				</View>
-				<View style={{flex: 2, backgroundColor: colors.white, alignItems: "flex-start", padding: 15}}>
-					<IndoText style={{fontWeight: "400", color: colors.navy}}>{labelHeader}</IndoText>
+				<View style={{flex: 1, backgroundColor: colors.white, alignItems: "flex-start", padding: 15}}>
+					<IndoText style={{fontWeight: "400", color: colors.navy}}>{header}</IndoText>
 
 					<View style={{alignItems: "flex-start", paddingVertical: 2}}>
-						<IndoText style={{fontWeight: "700", color: colors.navy}}>{label}</IndoText>
-						<IndoText style={{fontWeight: "700", color: colors.navy}}>{subLabel}</IndoText>
+						<IndoText style={{fontWeight: "700", color: colors.navy}}>{subHeader}</IndoText>
 					</View>
-					<View style={{paddingVertical: 2, flexDirection: "row", width: "100%", justifyContent: "space-between"}}>
+					<View style={{
+						paddingVertical: 2,
+						flexDirection: "row",
+						width: "100%",
+						justifyContent: "space-between"
+					}}>
 						<View style={{alignItems: "flex-start"}}>
 							<IndoText style={{color: colors.navy, fontWeight: "400"}}>{leftHeader}</IndoText>
 							<IndoText style={{color: colors.lime, fontWeight: "400"}}>{leftSubHeader}</IndoText>
 						</View>
 						<View style={{alignItems: "flex-end"}}>
 							<IndoText style={{color: colors.navy, fontWeight: "400"}}>{rightHeader}</IndoText>
-							<IndoText style={{color: colors.lime, fontWeight: "400"}}>{rightSubHeader}</IndoText>
+							<IndoText
+								style={{color: colors.lime, fontWeight: "400"}}>{rightSubHeader}</IndoText>
 						</View>
 					</View>
 				</View>
@@ -83,12 +67,12 @@ const AchievementCardDetailed: React.FC<IProps> = (props) => {
 }
 
 
-AchievementCardDetailed.defaultProps = {}
+ProductsCard.defaultProps = {}
 
 const style = StyleSheet.create({
 	view: {
 		flex: 1,
-		minHeight: 200,
+		minHeight: 150,
 		padding: 15,
 		justifyContent: "center",
 		alignItems: "center",
@@ -135,4 +119,4 @@ const style = StyleSheet.create({
 	},
 });
 
-export default AchievementCardDetailed;
+export default ProductsCard;
