@@ -11,9 +11,20 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		24942922BB7C4CE69D650C00 /* TitilliumWeb-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 55D5AD294FAC4A64AAD24C00 /* TitilliumWeb-BoldItalic.ttf */; };
+		30702C5F693B4E4AB3187182 /* TitilliumWeb-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0428BDE931574685B632CB00 /* TitilliumWeb-Light.ttf */; };
+		5D3128D0153443F48F22EDFF /* TitilliumWeb-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E32EC7C5E7B64CF785EDA75D /* TitilliumWeb-Regular.ttf */; };
+		61022EFBDA8C411885711C03 /* TitilliumWeb-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1246FCDCDB794063BA908786 /* TitilliumWeb-ExtraLight.ttf */; };
+		677A4AF55D6246AD8A4ABC13 /* TitilliumWeb-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A48C59B511AA4BB29CE0974C /* TitilliumWeb-SemiBold.ttf */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		82A38428796200A6E64BA752 /* libPods-IndoFintech-IndoFintechTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 65B9D79321ABF868DF164355 /* libPods-IndoFintech-IndoFintechTests.a */; };
+		8372A36C198C43BF9FB4FE4D /* TitilliumWeb-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1FE4DE97281C4E5EA4AF9BCA /* TitilliumWeb-SemiBoldItalic.ttf */; };
 		8C1FD7DE2C573CCE79EFDAC4 /* libPods-IndoFintech.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5B9A5B2CD65E535D2AFB96D /* libPods-IndoFintech.a */; };
+		8D40358A81C04049BA2B8646 /* TitilliumWeb-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E2C30A7C2E694EFBB6493959 /* TitilliumWeb-Italic.ttf */; };
+		A5ABAC1056B94F6DB0D32701 /* TitilliumWeb-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D63AE2F51600493CB41019DD /* TitilliumWeb-ExtraLightItalic.ttf */; };
+		C9330C33CA2D4C2ABB0FB89D /* TitilliumWeb-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CB95EDC7F36E4F94BFE61D25 /* TitilliumWeb-Black.ttf */; };
+		D27228066A994410AEBEEB88 /* TitilliumWeb-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BB4F727B0A764F5BB212CAEB /* TitilliumWeb-LightItalic.ttf */; };
+		FE295482DC6D4253A61A9771 /* TitilliumWeb-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BCA76AABE8AD4D71BB044F79 /* TitilliumWeb-Bold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,6 +41,8 @@
 		00E356EE1AD99517003FC87E /* IndoFintechTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IndoFintechTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* IndoFintechTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IndoFintechTests.m; sourceTree = "<group>"; };
+		0428BDE931574685B632CB00 /* TitilliumWeb-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "TitilliumWeb-Light.ttf"; path = "../assets/fonts/TitilliumWeb-Light.ttf"; sourceTree = "<group>"; };
+		1246FCDCDB794063BA908786 /* TitilliumWeb-ExtraLight.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "TitilliumWeb-ExtraLight.ttf"; path = "../assets/fonts/TitilliumWeb-ExtraLight.ttf"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* IndoFintech.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IndoFintech.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = IndoFintech/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = IndoFintech/AppDelegate.m; sourceTree = "<group>"; };
@@ -37,10 +50,19 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = IndoFintech/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = IndoFintech/main.m; sourceTree = "<group>"; };
 		1752DE696B1A52223E53FDC9 /* Pods-IndoFintech-IndoFintechTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IndoFintech-IndoFintechTests.release.xcconfig"; path = "Target Support Files/Pods-IndoFintech-IndoFintechTests/Pods-IndoFintech-IndoFintechTests.release.xcconfig"; sourceTree = "<group>"; };
+		1FE4DE97281C4E5EA4AF9BCA /* TitilliumWeb-SemiBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "TitilliumWeb-SemiBoldItalic.ttf"; path = "../assets/fonts/TitilliumWeb-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
+		55D5AD294FAC4A64AAD24C00 /* TitilliumWeb-BoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "TitilliumWeb-BoldItalic.ttf"; path = "../assets/fonts/TitilliumWeb-BoldItalic.ttf"; sourceTree = "<group>"; };
 		65B9D79321ABF868DF164355 /* libPods-IndoFintech-IndoFintechTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-IndoFintech-IndoFintechTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FEF71DABB7DD2896AE4FD32 /* Pods-IndoFintech.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IndoFintech.debug.xcconfig"; path = "Target Support Files/Pods-IndoFintech/Pods-IndoFintech.debug.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = IndoFintech/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A48C59B511AA4BB29CE0974C /* TitilliumWeb-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "TitilliumWeb-SemiBold.ttf"; path = "../assets/fonts/TitilliumWeb-SemiBold.ttf"; sourceTree = "<group>"; };
 		B71A8D63FF91F06212E848DE /* Pods-IndoFintech.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IndoFintech.release.xcconfig"; path = "Target Support Files/Pods-IndoFintech/Pods-IndoFintech.release.xcconfig"; sourceTree = "<group>"; };
+		BB4F727B0A764F5BB212CAEB /* TitilliumWeb-LightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "TitilliumWeb-LightItalic.ttf"; path = "../assets/fonts/TitilliumWeb-LightItalic.ttf"; sourceTree = "<group>"; };
+		BCA76AABE8AD4D71BB044F79 /* TitilliumWeb-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "TitilliumWeb-Bold.ttf"; path = "../assets/fonts/TitilliumWeb-Bold.ttf"; sourceTree = "<group>"; };
+		CB95EDC7F36E4F94BFE61D25 /* TitilliumWeb-Black.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "TitilliumWeb-Black.ttf"; path = "../assets/fonts/TitilliumWeb-Black.ttf"; sourceTree = "<group>"; };
+		D63AE2F51600493CB41019DD /* TitilliumWeb-ExtraLightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "TitilliumWeb-ExtraLightItalic.ttf"; path = "../assets/fonts/TitilliumWeb-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
+		E2C30A7C2E694EFBB6493959 /* TitilliumWeb-Italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "TitilliumWeb-Italic.ttf"; path = "../assets/fonts/TitilliumWeb-Italic.ttf"; sourceTree = "<group>"; };
+		E32EC7C5E7B64CF785EDA75D /* TitilliumWeb-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "TitilliumWeb-Regular.ttf"; path = "../assets/fonts/TitilliumWeb-Regular.ttf"; sourceTree = "<group>"; };
 		E5B9A5B2CD65E535D2AFB96D /* libPods-IndoFintech.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-IndoFintech.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA7527A3AE4FD3EF02ECB2C0 /* Pods-IndoFintech-IndoFintechTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IndoFintech-IndoFintechTests.debug.xcconfig"; path = "Target Support Files/Pods-IndoFintech-IndoFintechTests/Pods-IndoFintech-IndoFintechTests.debug.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
@@ -122,6 +144,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				CB67074EB11C9E0E66DBC354 /* Pods */,
+				9104AA71D36E447E9CB957A9 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -137,6 +160,25 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		9104AA71D36E447E9CB957A9 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CB95EDC7F36E4F94BFE61D25 /* TitilliumWeb-Black.ttf */,
+				BCA76AABE8AD4D71BB044F79 /* TitilliumWeb-Bold.ttf */,
+				55D5AD294FAC4A64AAD24C00 /* TitilliumWeb-BoldItalic.ttf */,
+				1246FCDCDB794063BA908786 /* TitilliumWeb-ExtraLight.ttf */,
+				D63AE2F51600493CB41019DD /* TitilliumWeb-ExtraLightItalic.ttf */,
+				E2C30A7C2E694EFBB6493959 /* TitilliumWeb-Italic.ttf */,
+				0428BDE931574685B632CB00 /* TitilliumWeb-Light.ttf */,
+				BB4F727B0A764F5BB212CAEB /* TitilliumWeb-LightItalic.ttf */,
+				E32EC7C5E7B64CF785EDA75D /* TitilliumWeb-Regular.ttf */,
+				A48C59B511AA4BB29CE0974C /* TitilliumWeb-SemiBold.ttf */,
+				1FE4DE97281C4E5EA4AF9BCA /* TitilliumWeb-SemiBoldItalic.ttf */,
+			);
+			name = Resources;
+			path = "";
+			sourceTree = "<group>";
+		};
 		CB67074EB11C9E0E66DBC354 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -145,7 +187,6 @@
 				EA7527A3AE4FD3EF02ECB2C0 /* Pods-IndoFintech-IndoFintechTests.debug.xcconfig */,
 				1752DE696B1A52223E53FDC9 /* Pods-IndoFintech-IndoFintechTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -201,7 +242,7 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1210;
+				LastUpgradeCheck = 1240;
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
@@ -245,6 +286,17 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				C9330C33CA2D4C2ABB0FB89D /* TitilliumWeb-Black.ttf in Resources */,
+				FE295482DC6D4253A61A9771 /* TitilliumWeb-Bold.ttf in Resources */,
+				24942922BB7C4CE69D650C00 /* TitilliumWeb-BoldItalic.ttf in Resources */,
+				61022EFBDA8C411885711C03 /* TitilliumWeb-ExtraLight.ttf in Resources */,
+				A5ABAC1056B94F6DB0D32701 /* TitilliumWeb-ExtraLightItalic.ttf in Resources */,
+				8D40358A81C04049BA2B8646 /* TitilliumWeb-Italic.ttf in Resources */,
+				30702C5F693B4E4AB3187182 /* TitilliumWeb-Light.ttf in Resources */,
+				D27228066A994410AEBEEB88 /* TitilliumWeb-LightItalic.ttf in Resources */,
+				5D3128D0153443F48F22EDFF /* TitilliumWeb-Regular.ttf in Resources */,
+				677A4AF55D6246AD8A4ABC13 /* TitilliumWeb-SemiBold.ttf in Resources */,
+				8372A36C198C43BF9FB4FE4D /* TitilliumWeb-SemiBoldItalic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,13 +483,14 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = EA7527A3AE4FD3EF02ECB2C0 /* Pods-IndoFintech-IndoFintechTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = IndoFintechTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -458,10 +511,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1752DE696B1A52223E53FDC9 /* Pods-IndoFintech-IndoFintechTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = IndoFintechTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -577,7 +631,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
 					"$(inherited)",
@@ -635,7 +689,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
 					"$(inherited)",
