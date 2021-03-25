@@ -1,10 +1,10 @@
-import React, {useEffect} from "react";
-import Slider from '@react-native-community/slider';
+import React from "react";
 import {
 	StyleSheet, useWindowDimensions, View,
 } from "react-native";
 import colors from "../../../theme/colors";
 import IndoText from "../../IndoText";
+import Slider from "@react-native-community/slider";
 
 interface IProps {
 	min?: number;

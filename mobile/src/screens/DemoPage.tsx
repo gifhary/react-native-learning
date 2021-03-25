@@ -46,46 +46,6 @@ const DemoPage: React.FC = () => {
 		<SafeAreaView style={globalStyles.safeArea}>
 			<KeyboardAwareScrollView>
 
-				<View>
-					<View style={{alignItems: "center"}}>
-						<IndoText style={{color: colors.navy, paddingVertical: 10}}>Products Card</IndoText>
-						<ProductsCard
-							header="Name"
-							subHeader="Lorem Ipsum Equity Fund"
-							leftHeader="Left Label"
-							leftSubHeader="Left SubHeader"
-							rightHeader="Right Label"
-							rightSubHeader="Right SubHeader"
-						/>
-					</View>
-				</View>
-
-				<View>
-					<View style={{alignItems: "center"}}>
-						<IndoText style={{color: colors.navy, paddingVertical: 10}}>Achievement Card Detailed</IndoText>
-						<AchievementCardDetailed
-							profileImage={profileTest}
-							source={profileTest}
-							header="Test Header"
-							subHeader="Test text for subheader..."
-							labelHeader="Name"
-							label="Lorem Ipsum Label"
-							subLabel="Sub Label"
-							leftHeader="Left Label"
-							leftSubHeader="Left SubHeader"
-							rightHeader="Right Label"
-							rightSubHeader="Right SubHeader"
-						/>
-					</View>
-				</View>
-
-				<View>
-					<View style={{alignItems: "center"}}>
-						<IndoText style={{color: colors.navy, paddingVertical: 10}}>Achievement Card</IndoText>
-						<AchievementCard source={profileTest} label="Test Label"/>
-					</View>
-				</View>
-
 				<View style={{alignItems: "center"}}>
 
 					<IndoText style={{color: colors.navy, paddingVertical: 10}}>Buttons</IndoText>
@@ -192,6 +152,46 @@ const DemoPage: React.FC = () => {
 						<MessageBubble source={profileTest}
 									   text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In mi nisi, euismod ut massa nec, porta sollicitudin ex."
 									   imagePosition={EMessageProfilePosition.LEFT}/>
+					</View>
+				</View>
+
+				<View>
+					<View style={{alignItems: "center"}}>
+						<IndoText style={{color: colors.navy, paddingVertical: 10}}>Achievement Card</IndoText>
+						<AchievementCard source={profileTest} label="Test Label"/>
+					</View>
+				</View>
+
+				<View>
+					<View style={{alignItems: "center"}}>
+						<IndoText style={{color: colors.navy, paddingVertical: 10}}>Achievement Card Detailed</IndoText>
+						<AchievementCardDetailed
+							profileImage={profileTest}
+							source={profileTest}
+							header="Test Header"
+							subHeader="Test text for subheader..."
+							labelHeader="Name"
+							label="Lorem Ipsum Label"
+							subLabel="Sub Label"
+							leftHeader="Left Label"
+							leftSubHeader="Left SubHeader"
+							rightHeader="Right Label"
+							rightSubHeader="Right SubHeader"
+						/>
+					</View>
+				</View>
+
+				<View>
+					<View style={{alignItems: "center"}}>
+						<IndoText style={{color: colors.navy, paddingVertical: 10}}>Products Card</IndoText>
+						<ProductsCard
+							header="Name"
+							subHeader="Lorem Ipsum Equity Fund"
+							leftHeader="Left Label"
+							leftSubHeader="Left SubHeader"
+							rightHeader="Right Label"
+							rightSubHeader="Right SubHeader"
+						/>
 					</View>
 				</View>
 
