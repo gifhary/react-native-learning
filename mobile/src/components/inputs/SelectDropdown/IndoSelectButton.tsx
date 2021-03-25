@@ -2,7 +2,7 @@ import React, {useEffect, useRef} from "react";
 import {StyleSheet, View, TouchableOpacity, TouchableOpacityProps, Animated, Easing, Image} from "react-native";
 import colors from "../../../theme/colors";
 import IndoText from "../../IndoText";
-const test = require("../../../../assets/icons/Artboard_1_copy_188x.png");
+const triangle = require("../../../../assets/icons/Cyan-Triangle.png");
 
 interface IProps extends TouchableOpacityProps {
 	placeholder?: string,
@@ -42,7 +42,7 @@ export const IndoSelectButton: React.FC<IProps> = (props) => {
 					width: 20,
 					height: 20,
 				}]}
-				source={test} />
+				source={triangle} />
 			</View>
 		</TouchableOpacity>
 	);

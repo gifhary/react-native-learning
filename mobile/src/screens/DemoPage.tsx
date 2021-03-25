@@ -20,12 +20,13 @@ import AchievementCardDetailed from "../components/elements/AchievementCardDetai
 import ProductsCard from "../components/elements/ProductsCard";
 
 const profileTest = require("../../assets/icons/Artboard_1_copy_188x.png");
+const car2Test = require("../../assets/icons/download.jpeg");
 
 const dummyData = [
 	{label: "test", value: "test"},
 	{label: "nest", value: "nest"},
 	{label: "best", value: "best"},
-	{label: "pest", value: "pest"},
+	{label: "rest", value: "rest"},
 ];
 
 enum ERadio {
@@ -58,17 +59,17 @@ const DemoPage: React.FC = () => {
 					<IndoButton color={"outline-cyan"} onPress={() => {
 					}}>Secondary Button</IndoButton>
 					<IndoButton color={"lime"} onPress={() => {
-					}}>Hello</IndoButton>
+					}}>Alternate Button</IndoButton>
 					<IndoButton color={"outline-lime"} onPress={() => {
-					}}>Hello</IndoButton>
+					}}>Alternate Button</IndoButton>
 					<IndoButton disabled onPress={() => {
-					}}>Hello</IndoButton>
+					}}>Option Unavailable</IndoButton>
 					<IndoButton color={"outline-gray"} onPress={() => {
-					}}>Hello</IndoButton>
+					}}>Border Variant</IndoButton>
 					<IndoButton color={"navy"} bubble={"!"} onPress={() => {
-					}}>Hello</IndoButton>
+					}}>Alert Button</IndoButton>
 					<IndoButton color={"outline-navy"} bubble={"!"} onPress={() => {
-					}}>Hello</IndoButton>
+					}}>Alert Variant</IndoButton>
 
 				</View>
 
@@ -158,7 +159,7 @@ const DemoPage: React.FC = () => {
 				<View>
 					<View style={{alignItems: "center"}}>
 						<IndoText style={{color: colors.navy, paddingVertical: 10}}>Achievement Card</IndoText>
-						<AchievementCard source={profileTest} label="Test Label"/>
+						<AchievementCard source={car2Test} label="Test Label"/>
 					</View>
 				</View>
 
@@ -167,7 +168,7 @@ const DemoPage: React.FC = () => {
 						<IndoText style={{color: colors.navy, paddingVertical: 10}}>Achievement Card Detailed</IndoText>
 						<AchievementCardDetailed
 							profileImage={profileTest}
-							source={profileTest}
+							source={car2Test}
 							header="Test Header"
 							subHeader="Test text for subheader..."
 							labelHeader="Name"

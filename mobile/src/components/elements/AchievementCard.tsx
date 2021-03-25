@@ -54,7 +54,7 @@ const style = StyleSheet.create({
 		flexDirection: "row",
 		justifyContent: "center",
 		alignItems: "center",
-		backgroundColor: colors.gray,
+		backgroundColor: colors.black,
 		overflow: "hidden",
 		borderRadius: 5,
 	},
@@ -70,6 +70,7 @@ const style = StyleSheet.create({
 	},
 	image: {
 		flex: 1,
+		height: "100%",
 		resizeMode: 'cover',
 	},
 });
