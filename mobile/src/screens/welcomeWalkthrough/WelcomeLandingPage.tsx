@@ -1,16 +1,42 @@
-import React from "react";
-import {View} from "react-native";
+import React, {useEffect, useRef, useState} from "react";
+import {Alert, NativeSyntheticEvent, StyleSheet, TextInputChangeEventData, View} from "react-native";
 import IndoText from "../../components/IndoText";
 import globalStyles from "../../theme/globalStyles";
 import SafeAreaView from "react-native-safe-area-view";
+import {IndoTextInput} from "../../components/inputs/IndoInput";
+import IndoButton from "../../components/buttons/IndoButton";
+import {useInput} from "../../utils/hooks/useInput";
 
 const WelcomeLandingPage: React.FC = () => {
 
+	const [email, setEmail] = useState<string>();
+
+	useEffect(() => {
+		console.log(email);
+	}, [email]);
+
 	return (
-		<SafeAreaView style={globalStyles.safeArea}>
-			<IndoText>Welcome Landing Page (Login/Signup)</IndoText>
+		<SafeAreaView style={[globalStyles.safeArea, {justifyContent: "center"}]}>
+			<View style={{flex: 1}}/>
+			<View style={style.center}>
+				<IndoTextInput value={email} onChangeText={(e) => setEmail(e)} />
+				<IndoTextInput secureTextEntry={true} autoCompleteType="password" />
+				<IndoText style={{paddingVertical: 15}}>Forgot Password?</IndoText>
+			</View>
+			<View style={style.center}>
+				<IndoButton onPress={() => {Alert.alert("Make sign in")}} >Sign In</IndoButton>
+				<IndoButton onPress={() => {Alert.alert("Make sign up")}} color="outline-cyan">Sign Up</IndoButton>
+			</View>
 		</SafeAreaView>
 	);
 };
+
+const style = StyleSheet.create({
+	center: {
+		flex: 1,
+		justifyContent: "center",
+		alignItems: "center",
+	},
+});
 
 export default WelcomeLandingPage;

@@ -21,7 +21,7 @@ const DashboardNavigator: React.FC<IProps> = (props) => {
 		<DashboardTabs.Navigator
 			screenOptions={(props) => ({
 				tabBarIcon: () => {
-					return <BottomTabIcons {...props} />;
+					return <BottomTabIcons navigation={props.navigation} route={props.route} />;
 				},
 			})}
 

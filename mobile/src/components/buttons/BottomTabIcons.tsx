@@ -1,9 +1,10 @@
 import React from "react";
 import {NavigationRoute} from "@react-navigation/native";
-import {Image, StyleSheet, View} from "react-native";
+import {StyleSheet, View} from "react-native";
 import ProfileImage from "../../../assets/icons/Artboard_1_copy_188x.png";
 import test from "../../../assets/icons/Cyan-Triangle.png";
 import colors from "../../theme/colors";
+import Svg, {Rect} from "react-native-svg";
 
 interface IProps {
 	route: any;
@@ -32,16 +33,37 @@ const BottomTabIcons: React.FC<IProps> = (props) => {
 
 	return (
 		<View style={{flex: 1, padding: 5}}>
-			<View style={{justifyContent: "center", alignItems: "center", height: 20, width: 20, backgroundColor: highlight}} />
+			<View style={[style.imageContainer]} >
+				{/*<Image source={getIcon(props.route.name)} style={style.image} />*/}
+				<Svg width={100} height={100} viewBox="0 0 300 300">
+					<Rect
+						x={100}
+						y={125}
+						width={100}
+						height={50}
+						fill={highlight}
+						fillRule="evenodd"
+					/>
+				</Svg>
+			</View>
+
 		</View>
 	);
 };
 
 const style = StyleSheet.create({
-	icon: {
+	imageContainer: {
+		flex: 1,
+		justifyContent: "center",
+		alignItems: "center",
+		height: 20,
 		width: 20,
-		height: 20
 	},
+	image: {
+		width: "100%",
+		height: "100%",
+		resizeMode: "contain",
+	}
 });
 
 export default BottomTabIcons;
