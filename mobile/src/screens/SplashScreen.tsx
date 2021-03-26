@@ -5,7 +5,6 @@ import {Image, StyleSheet, View} from "react-native";
 import test from "../../assets/icons/Artboard_1_copy_188x.png";
 import {StackNavigationProp} from "@react-navigation/stack";
 import IndoText from "../components/IndoText";
-import {getHeight, getWidth} from "../utils/getDimensions";
 
 interface IProps {
 	navigation: StackNavigationProp<any>;

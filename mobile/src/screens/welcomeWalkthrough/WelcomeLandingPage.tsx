@@ -1,11 +1,10 @@
-import React, {useEffect, useRef, useState} from "react";
-import {Alert, NativeSyntheticEvent, StyleSheet, TextInputChangeEventData, View} from "react-native";
+import React, {useEffect, useState} from "react";
+import {Alert, StyleSheet, View} from "react-native";
 import IndoText from "../../components/IndoText";
 import globalStyles from "../../theme/globalStyles";
 import SafeAreaView from "react-native-safe-area-view";
 import {IndoTextInput} from "../../components/inputs/IndoInput";
 import IndoButton from "../../components/buttons/IndoButton";
-import {useInput} from "../../utils/hooks/useInput";
 
 const WelcomeLandingPage: React.FC = () => {
 

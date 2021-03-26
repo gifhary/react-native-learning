@@ -1,5 +1,4 @@
 import React from "react";
-import {NavigationRoute} from "@react-navigation/native";
 import {StyleSheet, View} from "react-native";
 import ProfileImage from "../../../assets/icons/Artboard_1_copy_188x.png";
 import test from "../../../assets/icons/Cyan-Triangle.png";
