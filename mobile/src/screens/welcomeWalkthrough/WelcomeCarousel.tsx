@@ -47,7 +47,7 @@ const WelcomeCarousel: React.FC<IProps> = (props) => {
 		{
 			progress: EStepTracker.END,
 			image: testImage,
-			body: "About us, we make things simple, easy, safe and fun",
+			body: "About us, we make things simple, easy, safe and fun!",
 		},
 	];
 
