@@ -69,7 +69,7 @@ const WelcomeCarousel: React.FC<IProps> = (props) => {
 				<Image source={data.image} style={{width: "100%", height: window.height / 3, resizeMode: "cover"}}/>
 			</View>
 			<View style={{flex: 1, justifyContent: "center"}}>
-				<IndoText>{data.body}</IndoText>
+				<IndoText style={{textAlign: "center"}}>{data.body}</IndoText>
 			</View>
 		</View>);
 	}
