@@ -17,6 +17,7 @@ const WelcomeLogin: React.FC<IProps> = (props) => {
 	function next() {
 		props.navigation.replace("WelcomeLandingPage");
 	}
+
 	return (
 		<SafeAreaView style={[globalStyles.safeArea, {justifyContent: "center"}]}>
 			<View style={{flex: 1}}/>

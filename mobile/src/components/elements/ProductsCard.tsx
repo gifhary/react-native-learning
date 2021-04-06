@@ -1,6 +1,6 @@
 import React from "react";
 import {
-	StyleSheet, TouchableOpacity, useWindowDimensions,
+	StyleSheet, TouchableOpacity,
 	View,
 } from "react-native";
 import colors from "../../theme/colors";
@@ -13,69 +13,67 @@ interface IProps {
 	leftSubHeader: string;
 	rightHeader: string;
 	rightSubHeader: string;
+	aside?: string;
 	onPress?: any;
+	selected?: boolean;
 }
 
 const ProductsCard: React.FC<IProps> = (props) => {
 
-	const {header, subHeader, leftHeader, leftSubHeader, rightHeader, rightSubHeader, onPress} = props;
-	const window = useWindowDimensions();
+	const {header, subHeader, leftHeader, leftSubHeader, rightHeader, rightSubHeader, aside, selected, onPress} = props;
 
 	const renderElement = (
-		<View style={style.container}>
-			<View style={[style.footer]}>
-				<View style={{flex: 1, backgroundColor: colors.white, alignItems: "flex-start", padding: 15}}>
-					<IndoText style={{fontWeight: "400", color: colors.navy}}>{header}</IndoText>
+		<View style={[style.container]}>
+			<View style={[style.cardContainer, selected ? {borderWidth: 1, borderColor: colors.navy} : null]}>
+				<IndoText style={style.textStyleNavy}>{header}</IndoText>
 
-					<View style={{alignItems: "flex-start", paddingVertical: 2}}>
-						<IndoText style={{fontWeight: "700", color: colors.navy}}>{subHeader}</IndoText>
+				<View>
+					<IndoText style={{fontWeight: "700", color: colors.navy}}>{subHeader}</IndoText>
+				</View>
+				<View style={style.cardSubHeaderContainer}>
+					<View>
+						<IndoText style={style.textStyleNavy}>{leftHeader}</IndoText>
+						<IndoText style={style.textStyleLime}>{leftSubHeader}</IndoText>
 					</View>
-					<View style={{
-						paddingVertical: 2,
-						flexDirection: "row",
-						width: "100%",
-						justifyContent: "space-between"
-					}}>
-						<View style={{alignItems: "flex-start"}}>
-							<IndoText style={{color: colors.navy, fontWeight: "400"}}>{leftHeader}</IndoText>
-							<IndoText style={{color: colors.lime, fontWeight: "400"}}>{leftSubHeader}</IndoText>
-						</View>
-						<View style={{alignItems: "flex-end"}}>
-							<IndoText style={{color: colors.navy, fontWeight: "400"}}>{rightHeader}</IndoText>
-							<IndoText
-								style={{color: colors.lime, fontWeight: "400"}}>{rightSubHeader}</IndoText>
-						</View>
+					<View style={{alignItems: "flex-end"}}>
+						<IndoText style={style.textStyleNavy}>{rightHeader}</IndoText>
+						<IndoText style={style.textStyleLime}>{rightSubHeader}</IndoText>
 					</View>
 				</View>
 			</View>
+			{aside &&
+            <View style={{paddingVertical: 10}}>
+                <IndoText>{aside} people invest with this product</IndoText>
+            </View>
+			}
 		</View>
 	);
 
 	if (onPress) {
 		return (
-			<TouchableOpacity style={[style.view, {width: window.width}]} onPress={onPress} activeOpacity={0.8}>
+			<TouchableOpacity style={style.view} onPress={onPress} activeOpacity={0.8}>
 				{renderElement}
 			</TouchableOpacity>
 		);
 	} else {
 		return (
-			<View style={[style.view, {width: window.width}]}>
+			<View style={[style.view]}>
 				{renderElement}
 			</View>
+
 		);
 	}
 }
 
 
-ProductsCard.defaultProps = {}
+ProductsCard.defaultProps = {
+	selected: false,
+}
 
 const style = StyleSheet.create({
 	view: {
-		flex: 1,
 		minHeight: 150,
-		padding: 15,
-		justifyContent: "center",
-		alignItems: "center",
+		paddingHorizontal: 15,
 		shadowColor: colors.black,
 		shadowOffset: {
 			width: 0,
@@ -85,18 +83,9 @@ const style = StyleSheet.create({
 		shadowOpacity: 0.5,
 	},
 	container: {
+		flex: 1,
 		width: "100%",
 		height: "100%",
-		borderRadius: 5,
-		overflow: "hidden",
-	},
-	header: {
-		flex: 1,
-		backgroundColor: colors.lime,
-		minHeight: 10,
-		flexDirection: "row",
-		alignItems: "center",
-		paddingHorizontal: 15,
 	},
 	headerText: {
 		textAlign: "left",
@@ -107,15 +96,24 @@ const style = StyleSheet.create({
 		textAlign: "left",
 		color: colors.white,
 	},
-	footer: {
-		flexDirection: "row",
-		flex: 3,
+	cardContainer: {
+		backgroundColor: colors.white,
+		padding: 15,
+		borderRadius: 5,
+		overflow: "hidden",
 	},
-	image: {
-		flex: 1,
-		resizeMode: "cover",
+	cardSubHeaderContainer: {
+		flexDirection: "row",
 		width: "100%",
-		height: "100%",
+		justifyContent: "space-between",
+	},
+	textStyleNavy: {
+		color: colors.navy,
+		fontWeight: "400",
+	},
+	textStyleLime: {
+		color: colors.lime,
+		fontWeight: "400",
 	},
 });
 

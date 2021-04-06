@@ -9,6 +9,7 @@ interface IProps {
 	children: ReactNode;
 	activeOpacity?: number;
 	style?: ViewStyle;
+	radioAlign?: "flex-start" | "flex-end" | "center" | "stretch" | "baseline" | undefined;
 }
 
 const IndoRadioButton: React.FC<IProps> = (props) => {
@@ -16,7 +17,7 @@ const IndoRadioButton: React.FC<IProps> = (props) => {
 	return (
 		<View style={[styles.view, props.style]}>
 			<TouchableOpacity
-				style={styles.touchable}
+				style={[styles.touchable, {alignItems: props?.radioAlign}]}
 				activeOpacity={props.value ? 1 : props.activeOpacity}
 				onPress={props.setValue}
 			>
@@ -41,7 +42,6 @@ const styles = StyleSheet.create({
 	},
 	touchable: {
 		flexDirection: "row",
-		alignItems: "center"
 	},
 	radio: {
 		width: 20,
@@ -62,6 +62,7 @@ const styles = StyleSheet.create({
 
 IndoRadioButton.defaultProps = {
 	activeOpacity: 0.6,
+	radioAlign: "center",
 };
 
 export default IndoRadioButton;

@@ -1,6 +1,5 @@
 import React from "react";
 import {
-	Image,
 	ImageSourcePropType,
 	StyleSheet, useWindowDimensions,
 	View,
@@ -17,7 +16,6 @@ interface IProps {
 
 const OffsetImageHeader: React.FC<IProps> = (props) => {
 
-	const window = useWindowDimensions();
 	const {source, header, subHeader} = props;
 
 	return (

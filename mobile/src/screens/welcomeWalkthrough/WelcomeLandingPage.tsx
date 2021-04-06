@@ -1,12 +1,10 @@
 import React, {useEffect, useState} from "react";
-import {Alert, StyleSheet, View} from "react-native";
+import {View} from "react-native";
 import IndoText from "../../components/IndoText";
 import globalStyles from "../../theme/globalStyles";
 import SafeAreaView from "react-native-safe-area-view";
-import {IndoTextInput} from "../../components/inputs/IndoInput";
 import IndoButton from "../../components/buttons/IndoButton";
 import Svg, {Rect} from "react-native-svg";
-import colors from "../../theme/colors";
 
 const WelcomeLandingPage: React.FC = () => {
 
