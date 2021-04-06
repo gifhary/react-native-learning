@@ -30,7 +30,7 @@ const WelcomeCarousel: React.FC<IProps> = (props) => {
 	const [page, setPage] = useState(EPage.PAGE1);
 
 	function navigateToLandingPage() {
-		props.navigation.replace("WelcomeLandingPage");
+		props.navigation.replace("WelcomeLogin");
 	}
 
 	const pageData: PageInfo[] = [

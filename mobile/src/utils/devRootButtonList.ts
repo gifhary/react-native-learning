@@ -37,7 +37,17 @@ const welcomeWalkthroughButtons: IDemoButtonGroup = {
 			},
 		},
 		{
-			label: "Welcome Landing/Login",
+			label: "Welcome Login",
+			screen: "AuthenticationNavigator",
+			params: {
+				screen: "WelcomeWalkthroughNavigator",
+				params: {
+					screen: "WelcomeLogin",
+				},
+			},
+		},
+		{
+			label: "Welcome Landing",
 			screen: "AuthenticationNavigator",
 			params: {
 				screen: "WelcomeWalkthroughNavigator",

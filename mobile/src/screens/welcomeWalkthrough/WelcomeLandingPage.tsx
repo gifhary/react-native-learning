@@ -5,6 +5,8 @@ import globalStyles from "../../theme/globalStyles";
 import SafeAreaView from "react-native-safe-area-view";
 import {IndoTextInput} from "../../components/inputs/IndoInput";
 import IndoButton from "../../components/buttons/IndoButton";
+import Svg, {Rect} from "react-native-svg";
+import colors from "../../theme/colors";
 
 const WelcomeLandingPage: React.FC = () => {
 
@@ -15,27 +17,27 @@ const WelcomeLandingPage: React.FC = () => {
 	}, [email]);
 
 	return (
-		<SafeAreaView style={[globalStyles.safeArea, {justifyContent: "center"}]}>
-			<View style={{flex: 1}}/>
-			<View style={style.center}>
-				<IndoTextInput value={email} onChangeText={(e) => setEmail(e)} />
-				<IndoTextInput secureTextEntry={true} autoCompleteType="password" />
-				<IndoText style={{paddingVertical: 15}}>Forgot Password?</IndoText>
-			</View>
-			<View style={style.center}>
-				<IndoButton onPress={() => {Alert.alert("Make sign in")}} >Sign In</IndoButton>
-				<IndoButton onPress={() => {Alert.alert("Make sign up")}} color="outline-cyan">Sign Up</IndoButton>
+		<SafeAreaView style={[globalStyles.safeArea, globalStyles.pagePadding, {justifyContent: "center"}]}>
+			<View style={{alignItems: "center"}}>
+				<IndoText style={[globalStyles.h1, {paddingHorizontal: 10}]}>Welcome!</IndoText>
+				<IndoText style={{paddingBottom: 50}}>Make your best financial decisions, whether you're saving for a trip, looking to pay off debt or start a business.</IndoText>
+				<View style={{paddingVertical: 25}}>
+					<Svg width={250} height={150} viewBox="0 0 350 300">
+						<Rect
+							x={100}
+							y={0}
+							width={150}
+							height={200}
+							fill={"gray"}
+							fillRule="evenodd"
+						/>
+					</Svg>
+				</View>
+				<IndoText style={{paddingBottom: 50}}>Please try out our game feature. It will give you <IndoText style={{fontWeight: "bold"}}>Rp50,000</IndoText> after every level!</IndoText>
+				<IndoButton color="outline-cyan">Play Now!</IndoButton>
 			</View>
 		</SafeAreaView>
 	);
 };
-
-const style = StyleSheet.create({
-	center: {
-		flex: 1,
-		justifyContent: "center",
-		alignItems: "center",
-	},
-});
 
 export default WelcomeLandingPage;

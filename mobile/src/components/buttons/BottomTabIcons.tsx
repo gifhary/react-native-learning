@@ -4,10 +4,11 @@ import ProfileImage from "../../../assets/icons/Artboard_1_copy_188x.png";
 import test from "../../../assets/icons/Cyan-Triangle.png";
 import colors from "../../theme/colors";
 import Svg, {Rect} from "react-native-svg";
+import {StackNavigationProp} from "@react-navigation/stack";
 
 interface IProps {
 	route: any;
-	navigation: any;
+	navigation: StackNavigationProp<any>;
 }
 
 function getIcon(_icon?: string): any {
