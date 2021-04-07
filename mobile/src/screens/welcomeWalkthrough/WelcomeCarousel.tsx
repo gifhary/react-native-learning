@@ -2,9 +2,8 @@ import React, {ReactNode, useState} from "react";
 import IndoText from "../../components/IndoText";
 import SafeAreaView from "react-native-safe-area-view";
 import globalStyles from "../../theme/globalStyles";
-import {Image, ImageProps, TouchableOpacity, useWindowDimensions, View} from "react-native";
+import {Image, TouchableOpacity, useWindowDimensions, View} from "react-native";
 import StepTracker, {EStepTracker} from "../../components/elements/StepTracker";
-import testImage from "../../../assets/icons/Artboard_1_copy_188x.png";
 import {StackNavigationProp} from "@react-navigation/stack";
 import colors from "../../theme/colors";
 import IndoButton from "../../components/buttons/IndoButton";
@@ -15,7 +14,7 @@ interface IProps {
 
 interface PageInfo {
 	progress: EStepTracker;
-	image: ImageProps;
+	image: string;
 	body: string;
 }
 
@@ -36,17 +35,17 @@ const WelcomeCarousel: React.FC<IProps> = (props) => {
 	const pageData: PageInfo[] = [
 		{
 			progress: EStepTracker.START,
-			image: testImage,
+			image: "https://via.placeholder.com/500",
 			body: "We sell Mutual Funds (This is important to mention) Introduction about our Company",
 		},
 		{
 			progress: EStepTracker.MIDDLE,
-			image: testImage,
+			image: "https://via.placeholder.com/500",
 			body: "Attract users with our attractive reward system. Tell users we will help them achieve their dreams (inspiring way)",
 		},
 		{
 			progress: EStepTracker.END,
-			image: testImage,
+			image: "https://via.placeholder.com/500",
 			body: "About us, we make things simple, easy, safe and fun!",
 		},
 	];
@@ -66,7 +65,7 @@ const WelcomeCarousel: React.FC<IProps> = (props) => {
 				</TouchableOpacity>
 			</View>
 			<View style={{flex: 1, justifyContent: "center"}}>
-				<Image source={data.image} style={{width: "100%", height: window.height / 3, resizeMode: "cover"}}/>
+				<Image source={{uri: data.image}} style={{width: "100%", height: window.height / 3, resizeMode: "cover"}}/>
 			</View>
 			<View style={{flex: 1, justifyContent: "center"}}>
 				<IndoText style={{textAlign: "center"}}>{data.body}</IndoText>
@@ -93,7 +92,7 @@ const WelcomeCarousel: React.FC<IProps> = (props) => {
 						}}
 						onPress={page === EPage.PAGE1 ? () => togglePage(EPage.PAGE2) : () => togglePage(EPage.PAGE3)}
 					>
-						<Image source={testImage} style={{width: "100%", height: "100%"}}/>
+						<Image source={{uri: "https://via.placeholder.com/500"}} style={{width: "100%", height: "100%"}}/>
 					</TouchableOpacity>
 				</View>
 			)}

@@ -1,5 +1,5 @@
 import React from "react";
-import {View} from "react-native";
+import {Image, View} from "react-native";
 import IndoText from "../../components/IndoText";
 import globalStyles from "../../theme/globalStyles";
 import SafeAreaView from "react-native-safe-area-view";
@@ -24,16 +24,7 @@ const RiskAssessmentResults: React.FC<IProps> = (props) => {
 				<IndoText style={globalStyles.h1}>Moderate</IndoText>
 				<IndoText>This portfolio was selected based on your answers and goals. Your investments will be diversified across the buckets below.</IndoText>
 				<View style={{paddingVertical: 50}}>
-					<Svg width={200} height={150} viewBox="0 0 350 300">
-						<Rect
-							x={0}
-							y={100}
-							width={450}
-							height={200}
-							fill={"gray"}
-							fillRule="evenodd"
-						/>
-					</Svg>
+					<Image style={{width: 200, height: 200}} source={{uri: "https://via.placeholder.com/300"}} />
 				</View>
 				<IndoText style={globalStyles.h2}>What this means:</IndoText>
 				<IndoText style={[globalStyles.h3, {fontWeight: "normal", fontStyle: "italic", paddingVertical: 10}]}>"Balance is key."</IndoText>

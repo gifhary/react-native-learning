@@ -22,9 +22,11 @@ const WelcomeLogin: React.FC<IProps> = (props) => {
 		<SafeAreaView style={[globalStyles.safeArea, {justifyContent: "center"}]}>
 			<View style={{flex: 1}}/>
 			<View style={style.center}>
-				<IndoTextInput value={email} onChangeText={(e) => setEmail(e)} />
-				<IndoTextInput secureTextEntry={true} autoCompleteType="password" />
-				<IndoText style={{paddingVertical: 15}}>Forgot Password?</IndoText>
+				<IndoText style={style.label}>Email</IndoText>
+				<IndoTextInput value={email} onChangeText={(e) => setEmail(e)} placeholder="Email..."/>
+				<IndoText style={style.label}>Password</IndoText>
+				<IndoTextInput secureTextEntry={true} autoCompleteType="password" placeholder="Password..."/>
+				<IndoText style={{textAlign: "center", paddingVertical: 15}}>Forgot Password?</IndoText>
 			</View>
 			<View style={style.center}>
 				<IndoButton onPress={next} >Sign In</IndoButton>
@@ -32,7 +34,7 @@ const WelcomeLogin: React.FC<IProps> = (props) => {
 			</View>
 		</SafeAreaView>
 	);
-};
+}
 
 const style = StyleSheet.create({
 	center: {
@@ -40,6 +42,10 @@ const style = StyleSheet.create({
 		justifyContent: "center",
 		alignItems: "center",
 	},
+	label: {
+		alignSelf: "flex-start",
+		paddingHorizontal: 15
+	}
 });
 
 export default WelcomeLogin;

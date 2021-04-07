@@ -43,10 +43,10 @@ const AmountToInvest: React.FC<IProps> = (props) => {
 					<IndoText>Rp500.00</IndoText>
 				</TouchableOpacity>
 				<TouchableOpacity style={[style.buttonItem, investmentAmount === "1000.00" && {borderWidth: 2, borderColor: colors.navy}]} onPress={() => setPresetAmount("1000.00")}>
-					<IndoText>Rp500.00</IndoText>
+					<IndoText>Rp1000.00</IndoText>
 				</TouchableOpacity>
 				<TouchableOpacity style={[style.buttonItem, investmentAmount === "1500.00" && {borderWidth: 2, borderColor: colors.navy}]}  onPress={() => setPresetAmount("1500.00")}>
-					<IndoText>Rp500.00</IndoText>
+					<IndoText>Rp1500.00</IndoText>
 				</TouchableOpacity>
 			</View>
 			<IndoText style={{textAlign: "center", paddingVertical: 10}}>Minimum Rp100.00</IndoText>

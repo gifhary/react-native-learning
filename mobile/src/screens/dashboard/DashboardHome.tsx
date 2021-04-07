@@ -13,7 +13,7 @@ import IndoCheckBox from "../../components/inputs/toggles/IndoCheckbox";
 import ProductsCard from "../../components/elements/ProductsCard";
 import AchievementCardDetailed from "../../components/elements/AchievementCardDetailed";
 const source = require("../../../assets/icons/Artboard_1_copy_188x.png");
-const car = require("../../../assets/icons/download.jpeg");
+const car = require("../../../assets/icons/car.jpeg");
 
 const placeholderCar = {
 	source: car,
@@ -22,7 +22,7 @@ const placeholderCar = {
 
 const placeholder1 = {
 	header: "Wall Street's Dilemma: What are Tesla's Shares Worth?",
-	source: source,
+	source: "https://via.placeholder.com/300",
 	buttonText: "View Article >",
 };
 
@@ -94,7 +94,10 @@ function createCrystalInstructionElement(item: any, index: number) {
 		<IndoCheckBox key={`instruction-item-${index}`} value={false} setValue={() => {console.log("do something", index)}}>
 			<View style={style.instructionElement}>
 				<IndoText style={{flex: 1}}>{item.header}</IndoText>
-				<IndoText style={{flex: 1, textAlign: "right", paddingHorizontal: 25}}>{item.value}</IndoText>
+				<View style={{justifyContent: "center", alignItems: "center", flexDirection: "row", paddingRight: 10}}>
+					<IndoText style={{paddingHorizontal: 15}}>{item.value}</IndoText>
+					<Image style={{width: 20, height: 20}} source={{uri: "https://via.placeholder.com/300"}}/>
+				</View>
 			</View>
 		</IndoCheckBox>
 	);
@@ -123,26 +126,28 @@ const DashboardHome: React.FC = () => {
 	return (
 		<SafeAreaView style={[globalStyles.safeArea]}>
 			<KeyboardAwareScrollView>
+
 				<View style={{position: "relative"}}>
 					<Image source={placeholderCar.source} style={style.heroImage}/>
 					<View style={style.fuelIcon}>
-						<IndoText>{placeholderCar.value}</IndoText>
+						<IndoText style={globalStyles.h4}>{placeholderCar.value}</IndoText>
+						<Image style={{width: 20, height: 20, marginLeft: 10}} source={{uri: "https://via.placeholder.com/50"}} />
 					</View>
 				</View>
 
-				<View style={[globalStyles.pagePadding, {backgroundColor: "gray", width: "100%"}]}>
+				<View style={[globalStyles.pagePadding, {backgroundColor: colors.cyan, width: "100%"}]}>
 					<View style={{flexDirection: "row", justifyContent: "space-between", paddingBottom: 10}}>
 						<IndoText>I'm saving for a BMW</IndoText>
 						<IndoText>Edit {">"}</IndoText>
 					</View>
-					<ProgressBar progress={0.25} total={100}/>
+					<ProgressBar progress={25} total={100}/>
 					<View>
-						<IndoText style={globalStyles.h1}>{0}</IndoText>
+						<IndoText style={globalStyles.h1}>${122}</IndoText>
 						<IndoText>Balance</IndoText>
 					</View>
 				</View>
 
-				<ArticleComponent header={placeholder1.header} buttonText={placeholder1.buttonText}/>
+				<ArticleComponent header={placeholder1.header} buttonText={placeholder1.buttonText} source={placeholder1.source}/>
 
 				<BannerImage
 					header={placeholder2.header}
@@ -160,7 +165,6 @@ const DashboardHome: React.FC = () => {
 				<BannerInstructions header={placeholder4.header} subHeader={placeholder4.subHeader}>
 					<View style={{justifyContent: "flex-start", width: "100%"}}>
 						{placeholder4.instructions.map(createCrystalInstructionElement)}
-
 					</View>
 				</BannerInstructions>
 
@@ -169,13 +173,13 @@ const DashboardHome: React.FC = () => {
 					{placeholder5Array.map(createAchievementCards)}
 				</ScrollView>
 
-				<View style={{flexDirection: "row", justifyContent: "space-between", paddingHorizontal: 20}}>
-					<IndoText>News</IndoText>
-					<IndoText>News</IndoText>
-					<IndoText>News</IndoText>
-					<IndoText>News</IndoText>
-					<IndoText>News</IndoText>
-					<IndoText>News</IndoText>
+				<View style={style.footerContainer}>
+					<IndoText style={globalStyles.h4}>News</IndoText>
+					<IndoText style={globalStyles.h4}>News</IndoText>
+					<IndoText style={globalStyles.h4}>News</IndoText>
+					<IndoText style={globalStyles.h4}>News</IndoText>
+					<IndoText style={globalStyles.h4}>News</IndoText>
+					<IndoText style={globalStyles.h4}>News</IndoText>
 				</View>
 			</KeyboardAwareScrollView>
 		</SafeAreaView>
@@ -190,6 +194,9 @@ const style = StyleSheet.create({
 	},
 	fuelIcon: {
 		position: "absolute",
+		flexDirection: "row",
+		justifyContent: "center",
+		alignItems: "center",
 		top: 20,
 		right: 20,
 		borderRadius: 10,
@@ -201,6 +208,12 @@ const style = StyleSheet.create({
 		flexDirection: "row",
 		justifyContent: "space-between",
 		width: "100%"
+	},
+	footerContainer: {
+		flexDirection: "row",
+		justifyContent: "space-around",
+		padding: 20,
+		backgroundColor: colors.gray
 	},
 })
 export default DashboardHome;

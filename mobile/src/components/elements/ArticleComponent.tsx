@@ -1,5 +1,6 @@
 import React from "react";
 import {
+	Image,
 	ImageSourcePropType,
 	StyleSheet,
 	View,
@@ -24,7 +25,7 @@ const placeholderSquare = (
 interface IProps {
 	header?: string;
 	subHeader?: string;
-	source?: ImageSourcePropType | any;
+	source?: string;
 	buttonText?: string;
 }
 
@@ -33,10 +34,10 @@ const ArticleComponent: React.FC<IProps> = (props) => {
 
 	return (
 		<View style={[globalStyles.pagePadding, style.view]}>
-			<View style={{flex: 1}}>
-				<View style={{width: 50, height: 50, backgroundColor: colors.cyan}} />
+			<View style={style.imageContainer}>
+				<Image style={style.image} source={{uri: props.source}} />
 			</View>
-			<View style={{flex: 4}}>
+			<View style={style.body}>
 				<IndoText style={globalStyles.h3}>{props.header}</IndoText>
 				<IndoText style={{paddingVertical: 10}}>{props.buttonText}</IndoText>
 			</View>
@@ -48,7 +49,7 @@ const ArticleComponent: React.FC<IProps> = (props) => {
 ArticleComponent.defaultProps = {
 	header: "Placeholder Header",
 	subHeader: "Placeholder SubHeader",
-	source: placeholderSquare,
+	source: "https://via.placeholder.com/300",
 	buttonText: "Placeholder Text"
 }
 
@@ -60,6 +61,19 @@ const style = StyleSheet.create({
 		backgroundColor: colors.gray,
 		paddingVertical: 30,
 	},
+	imageContainer: {
+		flex: 1,
+		maxHeight: 100,
+		paddingRight: 25
+	},
+	image: {
+		width: "100%",
+		height: "100%",
+		resizeMode: "contain"
+	},
+	body: {
+		flex: 4,
+	}
 });
 
 export default ArticleComponent;

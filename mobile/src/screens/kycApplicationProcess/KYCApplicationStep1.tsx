@@ -13,25 +13,25 @@ interface IProps {
 }
 
 const placeholder1 = {
-	image: image,
+	image: "https://via.placeholder.com/300",
 	header: "FDIC Insurance",
 	subHeader: "Savings are FDIC-insured up to $250,000 through our partner banks.",
 }
 
 const placeholder2 = {
-	image: image,
+	image: "https://via.placeholder.com/300",
 	header: "SIPC Protection",
 	subHeader: "Investments are SIPC protected up to $500,000",
 }
 
 const placeholder3 = {
-	image: image,
+	image: "https://via.placeholder.com/300",
 	header: "Powerful Security",
 	subHeader: "We protect your data like it's our own.",
 }
 
 const placeholder4 = {
-	image: image,
+	image: "https://via.placeholder.com/300",
 	header: "Serious Privacy",
 	subHeader: "We never see or store your login credentials.",
 }
@@ -46,10 +46,10 @@ const KYCApplicationStep1: React.FC<IProps> = (props) => {
 		<SafeAreaView style={[globalStyles.safeArea, globalStyles.pagePadding, {justifyContent: "space-between"}]}>
 			<View>
 				<IndoText style={[globalStyles.h1, {textAlign: "center"}]}>Committed to Safety</IndoText>
-				<OffsetImageHeader source={placeholder1.image} header={placeholder1.header} subHeader={placeholder1.subHeader} />
-				<OffsetImageHeader source={placeholder2.image} header={placeholder2.header} subHeader={placeholder2.subHeader} />
-				<OffsetImageHeader source={placeholder3.image} header={placeholder3.header} subHeader={placeholder3.subHeader} />
-				<OffsetImageHeader source={placeholder4.image} header={placeholder4.header} subHeader={placeholder4.subHeader} />
+				<OffsetImageHeader source={{uri: placeholder1.image}} header={placeholder1.header} subHeader={placeholder1.subHeader} />
+				<OffsetImageHeader source={{uri: placeholder2.image}} header={placeholder2.header} subHeader={placeholder2.subHeader} />
+				<OffsetImageHeader source={{uri: placeholder3.image}} header={placeholder3.header} subHeader={placeholder3.subHeader} />
+				<OffsetImageHeader source={{uri: placeholder4.image}} header={placeholder4.header} subHeader={placeholder4.subHeader} />
 			</View>
 			<View style={{alignItems: "center"}}>
 				<IndoText style={{paddingVertical: 15}}>by Continuing, you agree to E-Sign Consent and authorize our app to invest and save money for your goals.</IndoText>

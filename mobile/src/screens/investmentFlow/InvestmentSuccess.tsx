@@ -1,5 +1,5 @@
 import React from "react";
-import {StyleSheet, View} from "react-native";
+import {Image, StyleSheet, View} from "react-native";
 import IndoText from "../../components/IndoText";
 import globalStyles from "../../theme/globalStyles";
 import SafeAreaView from "react-native-safe-area-view";
@@ -42,16 +42,9 @@ const InvestmentSuccess: React.FC<IProps> = (props) => {
 	return (
 		<SafeAreaView style={[globalStyles.safeArea, globalStyles.pagePadding, {justifyContent: "space-between"}]}>
 			<View>
-				<Svg width={350} height={250} viewBox="0 0 300 300">
-					<Rect
-						x={0}
-						y={75}
-						width={300}
-						height={150}
-						fill={"gray"}
-						fillRule="evenodd"
-					/>
-				</Svg>
+				<View style={{justifyContent: "center", alignItems: "center", paddingVertical: 25}}>
+					<Image style={{width: 150, height: 150}} source={{uri: "https://via.placeholder.com/300"}} />
+				</View>
 				<IndoText style={[globalStyles.h1, {textAlign: "center"}]}>Congratulations!</IndoText>
 				<IndoText>Your goal is set and your order to invest in {placeholder.name} every month is scheduled. The
 					first order will tale place on {placeholder.investment.startDate}.</IndoText>

@@ -2,7 +2,6 @@ import React, {useEffect} from "react";
 import globalStyles from "../theme/globalStyles";
 import SafeAreaView from "react-native-safe-area-view";
 import {Image, StyleSheet, View} from "react-native";
-import test from "../../assets/icons/Artboard_1_copy_188x.png";
 import {StackNavigationProp} from "@react-navigation/stack";
 import IndoText from "../components/IndoText";
 
@@ -23,7 +22,7 @@ const SplashScreen: React.FC<IProps> = (props) => {
 			<View style={style.container}>
 				<IndoText>Loading screen</IndoText>
 				<Image
-					source={test}
+					source={{uri: "https://via.placeholder.com/300"}}
 					style={style.image}
 				/>
 			</View>

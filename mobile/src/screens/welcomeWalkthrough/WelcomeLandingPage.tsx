@@ -1,38 +1,31 @@
-import React, {useEffect, useState} from "react";
-import {View} from "react-native";
+import React from "react";
+import {Image, View} from "react-native";
 import IndoText from "../../components/IndoText";
 import globalStyles from "../../theme/globalStyles";
 import SafeAreaView from "react-native-safe-area-view";
 import IndoButton from "../../components/buttons/IndoButton";
-import Svg, {Rect} from "react-native-svg";
+import {StackNavigationProp} from "@react-navigation/stack";
 
-const WelcomeLandingPage: React.FC = () => {
+interface IProps {
+	navigation: StackNavigationProp<any>;
+}
 
-	const [email, setEmail] = useState<string>();
+const WelcomeLandingPage: React.FC<IProps> = (props) => {
 
-	useEffect(() => {
-		console.log(email);
-	}, [email]);
+	function next() {
+		props.navigation.replace("DashboardNavigator");
+	}
 
 	return (
 		<SafeAreaView style={[globalStyles.safeArea, globalStyles.pagePadding, {justifyContent: "center"}]}>
 			<View style={{alignItems: "center"}}>
 				<IndoText style={[globalStyles.h1, {paddingHorizontal: 10}]}>Welcome!</IndoText>
-				<IndoText style={{paddingBottom: 50}}>Make your best financial decisions, whether you're saving for a trip, looking to pay off debt or start a business.</IndoText>
+				<IndoText>Make your best financial decisions, whether you're saving for a trip, looking to pay off debt or start a business.</IndoText>
 				<View style={{paddingVertical: 25}}>
-					<Svg width={250} height={150} viewBox="0 0 350 300">
-						<Rect
-							x={100}
-							y={0}
-							width={150}
-							height={200}
-							fill={"gray"}
-							fillRule="evenodd"
-						/>
-					</Svg>
+					<Image style={{width: 200, height: 200}} source={{uri: "https://via.placeholder.com/300"}} />
 				</View>
 				<IndoText style={{paddingBottom: 50}}>Please try out our game feature. It will give you <IndoText style={{fontWeight: "bold"}}>Rp50,000</IndoText> after every level!</IndoText>
-				<IndoButton color="outline-cyan">Play Now!</IndoButton>
+				<IndoButton color="outline-cyan" onPress={next}>Play Now!</IndoButton>
 			</View>
 		</SafeAreaView>
 	);
