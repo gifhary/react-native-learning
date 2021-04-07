@@ -23,10 +23,7 @@ const IndoCheckBox: React.FC<IProps> = (props) => {
 						</IndoText>
 					)}
 				</View>
-
-				<View>
-					{typeof props.children === "string" ? <IndoText>{props.children}</IndoText>: props.children}
-				</View>
+				{typeof props.children === "string" ? <IndoText>{props.children}</IndoText>: props.children}
 			</TouchableOpacity>
 		</View>
 	);
@@ -36,10 +33,12 @@ const styles = StyleSheet.create({
 	view: {
 		paddingHorizontal: 10,
 		paddingVertical: 12,
+		width: "100%",
 	},
 	touchable: {
 		flexDirection: "row",
-		alignItems: "center"
+		alignItems: "center",
+		width: "100%",
 	},
 	checkbox: {
 		width: 20,

@@ -13,7 +13,6 @@ const KYCApplicationSuccess: React.FC = () => {
 		<SafeAreaView style={[globalStyles.safeArea, globalStyles.pagePadding, {justifyContent: "space-between"}]}>
 			<View style={style.container}>
 				<View>
-					{/*<Image source={getIcon(props.route.name)} style={style.image} />*/}
 					<Svg width={250} height={250} viewBox="0 0 300 300">
 						<Rect
 							x={100}

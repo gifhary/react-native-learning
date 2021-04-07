@@ -17,7 +17,7 @@ const ProgressBar: React.FC<IProps> = (props) => {
 	const {progress, total} = props;
 
 	return (
-		<View style={{width: window.width, paddingHorizontal: 15}}>
+		<View>
 			<View style={[style.view]}>
 				<View style={[style.limeBar, {flex: progress / total}]}/>
 			</View>

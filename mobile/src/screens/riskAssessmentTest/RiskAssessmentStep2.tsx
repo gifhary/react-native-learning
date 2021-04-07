@@ -52,6 +52,7 @@ const radioOptions: IInvestmentOption[] = [
 		subHeader: "Over 75% of my total available cash.",
 	},
 ]
+
 const RiskAssessmentStep2: React.FC<IProps> = (props) => {
 
 	const [investment, setInvestment] = useState<EInvestment | undefined>(undefined);

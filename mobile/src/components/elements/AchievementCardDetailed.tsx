@@ -15,7 +15,7 @@ interface IProps {
 	subHeader: string;
 	labelHeader: string;
 	label: string;
-	subLabel: string;
+	subLabel?: string;
 	leftHeader: string;
 	leftSubHeader: string;
 	rightHeader: string;
@@ -29,7 +29,7 @@ const AchievementCardDetailed: React.FC<IProps> = (props) => {
 	const window = useWindowDimensions();
 
 	const renderElement = (
-		<View style={style.container}>
+		<View style={[style.container]}>
 			<View style={[style.header]}>
 				<View>
 					<ProfileImage source={profileImage} mod={0.09}/>
@@ -69,7 +69,7 @@ const AchievementCardDetailed: React.FC<IProps> = (props) => {
 
 	if (onPress) {
 		return (
-			<TouchableOpacity style={[style.view, {width: window.width}]} onPress={onPress} activeOpacity={0.8}>
+			<TouchableOpacity style={[style.view]} onPress={onPress} activeOpacity={0.8}>
 				{renderElement}
 			</TouchableOpacity>
 		);

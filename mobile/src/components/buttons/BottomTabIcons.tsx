@@ -34,7 +34,6 @@ const BottomTabIcons: React.FC<IProps> = (props) => {
 	return (
 		<View style={{flex: 1, padding: 5}}>
 			<View style={[style.imageContainer]} >
-				{/*<Image source={getIcon(props.route.name)} style={style.image} />*/}
 				<Svg width={100} height={100} viewBox="0 0 300 300">
 					<Rect
 						x={100}
