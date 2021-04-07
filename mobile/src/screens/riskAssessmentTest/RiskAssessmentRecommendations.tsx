@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useLayoutEffect, useState} from "react";
 import IndoText from "../../components/IndoText";
 import globalStyles from "../../theme/globalStyles";
 import SafeAreaView from "react-native-safe-area-view";
@@ -95,6 +95,12 @@ const placeholderCardInfoArray: placeholderCardInfo[] = [
 const RiskAssessmentRecommendations: React.FC<IProps> = (props) => {
 
 	const [selectedProduct, setSelectedProduct] = useState<placeholderCardInfo>();
+
+	useLayoutEffect(() => {
+		props.navigation.setOptions({
+			headerShown: false
+		});
+	}, [props.navigation]);
 
 	function createProductsCard(item: placeholderCardInfo, index: number) {
 

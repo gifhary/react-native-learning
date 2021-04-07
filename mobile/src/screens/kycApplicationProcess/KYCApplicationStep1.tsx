@@ -45,7 +45,6 @@ const KYCApplicationStep1: React.FC<IProps> = (props) => {
 	return (
 		<SafeAreaView style={[globalStyles.safeArea, globalStyles.pagePadding, {justifyContent: "space-between"}]}>
 			<View>
-				<IndoText style={[globalStyles.h1, {textAlign: "center"}]}>Committed to Safety</IndoText>
 				<OffsetImageHeader source={{uri: placeholder1.image}} header={placeholder1.header} subHeader={placeholder1.subHeader} />
 				<OffsetImageHeader source={{uri: placeholder2.image}} header={placeholder2.header} subHeader={placeholder2.subHeader} />
 				<OffsetImageHeader source={{uri: placeholder3.image}} header={placeholder3.header} subHeader={placeholder3.subHeader} />

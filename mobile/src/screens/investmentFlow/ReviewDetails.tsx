@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useLayoutEffect} from "react";
 import {StyleSheet, View} from "react-native";
 import IndoText from "../../components/IndoText";
 import globalStyles from "../../theme/globalStyles";
@@ -23,6 +23,12 @@ const placeholder = {
 
 const ReviewDetails: React.FC<IProps> = (props) => {
 
+	useLayoutEffect(() => {
+		props.navigation.setOptions({
+			headerTitle: ""
+		});
+	}, [props.navigation]);
+
 	function next() {
 		props.navigation.replace("InvestmentSuccess");
 	}
@@ -32,9 +38,8 @@ const ReviewDetails: React.FC<IProps> = (props) => {
 	}
 
 	return (
-		<SafeAreaView style={[globalStyles.safeArea, globalStyles.pagePadding, {justifyContent: "space-between"}]}>
+		<SafeAreaView style={[globalStyles.safeArea, {paddingHorizontal: 30, justifyContent: "space-between"}]}>
 			<View>
-				<IndoText onPress={back} style={globalStyles.h1}>←</IndoText>
 				<IndoText style={[globalStyles.h1, {paddingBottom: 15}]}>Review</IndoText>
 				<View style={[globalStyles.hr, style.itemSpacer]}>
 					<IndoText style={{fontWeight: "bold"}}>Amount</IndoText>

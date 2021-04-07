@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useLayoutEffect, useState} from "react";
 import {StyleSheet, TouchableOpacity, View} from "react-native";
 import IndoText from "../../components/IndoText";
 import globalStyles from "../../theme/globalStyles";
@@ -16,6 +16,12 @@ const AmountToInvest: React.FC<IProps> = (props) => {
 
 	const [investmentAmount, setInvestmentAmount] = useState<string>();
 
+	useLayoutEffect(() => {
+		props.navigation.setOptions({
+			headerTitle: ""
+		});
+	}, [props.navigation]);
+
 	function setPresetAmount(amount: string) {
 		setInvestmentAmount(amount);
 	}
@@ -30,9 +36,8 @@ const AmountToInvest: React.FC<IProps> = (props) => {
 	}
 
 	return (
-		<SafeAreaView style={[globalStyles.safeArea, globalStyles.pagePadding]}>
+		<SafeAreaView style={[globalStyles.safeArea, {paddingHorizontal: 30}]}>
 			<View style={style.headerContainer}>
-				<IndoText onPress={back} style={globalStyles.h1}>←</IndoText>
 				<IndoText style={[globalStyles.h1, {textAlign: "center", paddingBottom: 15}]}>How much money can you
 					invest today?</IndoText>
 			</View>

@@ -13,7 +13,7 @@ const InvestmentFlowNavigator: React.FC = () => {
 	return (
 		<InvestmentFlowStack.Navigator
 			screenOptions={{
-				headerShown: false,
+				headerShown: true,
 			}}
 			initialRouteName="PaymentMethod"
 		>

@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useLayoutEffect, useState} from "react";
 import {StyleSheet, View} from "react-native";
 import IndoText from "../../components/IndoText";
 import globalStyles from "../../theme/globalStyles";
@@ -57,6 +57,12 @@ const PaymentMethod: React.FC<IProps> = (props) => {
 
 	const [schedule, setSchedule] = useState<ESchedule>();
 
+	useLayoutEffect(() => {
+		props.navigation.setOptions({
+			headerTitle: ""
+		});
+	}, [props.navigation]);
+
 	function next() {
 		props.navigation.push("AmountToInvest");
 	}
@@ -82,9 +88,8 @@ const PaymentMethod: React.FC<IProps> = (props) => {
 	}
 
 	return (
-		<SafeAreaView style={[globalStyles.safeArea, globalStyles.pagePadding, {justifyContent: "space-between"}]}>
+		<SafeAreaView style={[globalStyles.safeArea, {paddingHorizontal: 30, justifyContent: "space-between"}]}>
 			<View style={style.radioContainer}>
-				<IndoText onPress={back} style={globalStyles.h1}>←</IndoText>
 				<IndoText style={[globalStyles.h1, {textAlign: "center", paddingBottom: 15}]}>Choose Investment Schedule</IndoText>
 				<IndoText style={[{textAlign: "center", paddingBottom: 25}]}>Let us know how often you'd like to invest, we'll remind you accordingly!</IndoText>
 				{radioOptions.map(createRadioOption)}

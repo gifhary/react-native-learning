@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useLayoutEffect, useState} from "react";
 import {View} from "react-native";
 import IndoText from "../../components/IndoText";
 import globalStyles from "../../theme/globalStyles";
@@ -57,6 +57,12 @@ const RiskAssessmentStep2: React.FC<IProps> = (props) => {
 
 	const [investment, setInvestment] = useState<EInvestment | undefined>(undefined);
 
+	useLayoutEffect(() => {
+		props.navigation.setOptions({
+			headerTitle: ""
+		});
+	}, [props.navigation]);
+
 	function back() {
 		props.navigation.goBack();
 	}
@@ -82,10 +88,9 @@ const RiskAssessmentStep2: React.FC<IProps> = (props) => {
 	}
 
 	return (
-		<SafeAreaView style={[globalStyles.safeArea, globalStyles.pagePadding, {justifyContent: "space-between"}]}>
+		<SafeAreaView style={[globalStyles.safeArea, {paddingHorizontal: 30, justifyContent: "space-between"}]}>
 			<View style={{flexDirection: "column", justifyContent: "space-between", width: "100%"}}>
-				<IndoText onPress={back} style={globalStyles.h1}>←</IndoText>
-				<IndoText style={[globalStyles.h1, {textAlign: "center", paddingBottom: 25}]}>Initially, how much money do you plan to invest?</IndoText>
+				<IndoText style={[globalStyles.h1, {paddingBottom: 20}]}>Initially, how much money do you plan to invest?</IndoText>
 				{radioOptions.map(createRadioOption)}
 			</View>
 			<View style={{alignItems: "center"}}>

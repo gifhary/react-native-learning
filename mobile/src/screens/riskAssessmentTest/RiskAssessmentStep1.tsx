@@ -84,8 +84,6 @@ const RiskAssessmentStep1: React.FC<IProps> = (props) => {
 	return (
 		<SafeAreaView style={[globalStyles.safeArea, globalStyles.pagePadding, {justifyContent: "space-between"}]}>
 			<View style={{flexDirection: "column", justifyContent: "space-between", width: "100%"}}>
-				<IndoText onPress={back} style={globalStyles.h1}>←</IndoText>
-				<IndoText style={[globalStyles.h1, {textAlign: "center", paddingBottom: 25}]}>What is Your Risk?</IndoText>
 				{radioOptions.map(createRadioOption)}
 			</View>
 			<View style={{alignItems: "center"}}>

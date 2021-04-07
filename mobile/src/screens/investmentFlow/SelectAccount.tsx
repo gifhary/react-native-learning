@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useLayoutEffect, useState} from "react";
 import {StyleSheet, View} from "react-native";
 import IndoText from "../../components/IndoText";
 import globalStyles from "../../theme/globalStyles";
@@ -19,6 +19,12 @@ const placeholder1 = {
 const SelectAccount: React.FC<IProps> = (props) => {
 
 	const [account, setAccount] = useState();
+
+	useLayoutEffect(() => {
+		props.navigation.setOptions({
+			headerTitle: ""
+		});
+	}, [props.navigation]);
 
 	function back() {
 		props.navigation.goBack();
@@ -45,9 +51,8 @@ const SelectAccount: React.FC<IProps> = (props) => {
 	}
 
 	return (
-		<SafeAreaView style={[globalStyles.safeArea, globalStyles.pagePadding, {justifyContent: "space-between"}]}>
+		<SafeAreaView style={[globalStyles.safeArea, {paddingHorizontal: 30, justifyContent: "space-between"}]}>
 			<View style={style.headerContainer}>
-				<IndoText onPress={back} style={globalStyles.h1}>←</IndoText>
 				<IndoText style={[globalStyles.h1, {paddingBottom: 15}]}>Select an account</IndoText>
 				{createRadioOption(placeholder1, 1)}
 				{createRadioOption({header: "Add Account"}, 1)}

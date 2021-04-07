@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useLayoutEffect} from "react";
 import {Image, StyleSheet, View} from "react-native";
 import IndoText from "../../components/IndoText";
 import globalStyles from "../../theme/globalStyles";
@@ -12,9 +12,16 @@ interface IProps {
 
 const KYCApplicationSuccess: React.FC<IProps> = (props) => {
 
+	useLayoutEffect(() => {
+		props.navigation.setOptions({
+			headerShown: false
+		});
+	}, [props.navigation]);
+
 	function next() {
 		props.navigation.replace("DashboardNavigator");
 	}
+
 	return (
 		<SafeAreaView style={[globalStyles.safeArea, globalStyles.pagePadding, {justifyContent: "space-between"}]}>
 			<View style={style.container}>

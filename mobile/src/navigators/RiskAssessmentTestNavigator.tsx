@@ -4,6 +4,8 @@ import RiskAssessmentStep1 from "../screens/riskAssessmentTest/RiskAssessmentSte
 import RiskAssessmentStep2 from "../screens/riskAssessmentTest/RiskAssessmentStep2";
 import RiskAssessmentResults from "../screens/riskAssessmentTest/RiskAssessmentResults";
 import RiskAssessmentRecommendations from "../screens/riskAssessmentTest/RiskAssessmentRecommendations";
+import IndoText from "../components/IndoText";
+import globalStyles from "../theme/globalStyles";
 
 const RiskAssessmentStack = createStackNavigator();
 
@@ -12,13 +14,16 @@ const RiskAssessmentTestNavigator: React.FC = () => {
 	return (
 		<RiskAssessmentStack.Navigator
 			screenOptions={{
-				headerShown: false,
+				headerShown: true,
 			}}
 			initialRouteName="RiskAssessmentStep1"
 		>
 			<RiskAssessmentStack.Screen
 				name="RiskAssessmentStep1"
 				component={RiskAssessmentStep1}
+				options={{
+					headerTitle: () => <IndoText style={globalStyles.h1}>What is your Risk?</IndoText>
+				}}
 			/>
 
 			<RiskAssessmentStack.Screen

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useLayoutEffect} from "react";
 import {Image, StyleSheet, View} from "react-native";
 import IndoText from "../../components/IndoText";
 import globalStyles from "../../theme/globalStyles";
@@ -23,6 +23,12 @@ const placeholder = {
 }
 
 const InvestmentSuccess: React.FC<IProps> = (props) => {
+
+	useLayoutEffect(() => {
+		props.navigation.setOptions({
+			headerShown: false,
+		});
+	}, [props.navigation]);
 
 	function next() {
 		props.navigation.replace("DashboardNavigator");

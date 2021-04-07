@@ -66,10 +66,6 @@ const formData: formItem[] = [
 
 const _KYCApplicationStep2: React.FC<IProps & InjectedFormProps<any, any, any>> = (props) => {
 
-	function back() {
-		props.navigation.goBack();
-	}
-
 	function submitForm() {
 		console.log(props.formValues);
 		props.navigation.replace("KYCApplicationSuccess")
@@ -91,11 +87,6 @@ const _KYCApplicationStep2: React.FC<IProps & InjectedFormProps<any, any, any>> 
 	return (
 		<SafeAreaView style={[globalStyles.safeArea, globalStyles.pagePadding]}>
 			<KeyboardAwareScrollView>
-
-				<View style={style.header}>
-					<IndoText onPress={back} style={globalStyles.h1}>←</IndoText>
-					<IndoText style={globalStyles.h1}>Credentials Form</IndoText>
-				</View>
 				{formData.map(createFormInput)}
 				<View style={{alignItems: "center"}}>
 					<IndoButton onPress={submitForm}>Continue</IndoButton>
