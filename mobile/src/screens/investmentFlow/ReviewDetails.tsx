@@ -38,7 +38,7 @@ const ReviewDetails: React.FC<IProps> = (props) => {
 	}
 
 	return (
-		<SafeAreaView style={[globalStyles.safeArea, {paddingHorizontal: 30, justifyContent: "space-between"}]}>
+		<SafeAreaView style={[globalStyles.safeArea, style.customSpacing]}>
 			<View>
 				<IndoText style={[globalStyles.h1, {paddingBottom: 15}]}>Review</IndoText>
 				<View style={[globalStyles.hr, style.itemSpacer]}>
@@ -63,6 +63,10 @@ const ReviewDetails: React.FC<IProps> = (props) => {
 };
 
 const style = StyleSheet.create({
+	customSpacing: {
+		paddingHorizontal: 30,
+		justifyContent: "space-between"
+	},
 	itemSpacer: {
 		flexDirection: "row",
 		justifyContent: "space-between",

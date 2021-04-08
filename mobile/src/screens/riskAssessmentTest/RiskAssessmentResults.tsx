@@ -1,5 +1,5 @@
 import React, {useLayoutEffect} from "react";
-import {Image, ScrollView, View} from "react-native";
+import {Image, ScrollView, StyleSheet, View} from "react-native";
 import IndoText from "../../components/IndoText";
 import globalStyles from "../../theme/globalStyles";
 import SafeAreaView from "react-native-safe-area-view";
@@ -25,7 +25,7 @@ const RiskAssessmentResults: React.FC<IProps> = (props) => {
 	}
 
 	return (
-		<SafeAreaView style={[globalStyles.safeArea, {paddingHorizontal: 30, justifyContent: "space-between"}]}>
+		<SafeAreaView style={[globalStyles.safeArea, style.customSpacing]}>
 			<ScrollView>
 				<View style={{justifyContent: "center", alignItems: "center"}}>
 					<IndoText style={globalStyles.h2}>Your Risk Assessment type is:</IndoText>
@@ -54,5 +54,12 @@ const RiskAssessmentResults: React.FC<IProps> = (props) => {
 		</SafeAreaView>
 	);
 };
+
+const style = StyleSheet.create({
+	customSpacing: {
+		paddingHorizontal: 30,
+		justifyContent: "space-between"
+	}
+});
 
 export default RiskAssessmentResults;

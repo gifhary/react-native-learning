@@ -91,7 +91,7 @@ const placeholder5Array = [placeholder5, placeholder5];
 
 function createCrystalInstructionElement(item: any, index: number) {
 	return (
-		<IndoCheckBox key={`instruction-item-${index}`} value={false} setValue={() => {console.log("do something", index)}}>
+		<IndoCheckBox key={`instruction-item-${index}`} value={false} setValue={() => {}}>
 			<View style={style.instructionElement}>
 				<IndoText style={{flex: 1}}>{item.header}</IndoText>
 				<View style={{justifyContent: "center", alignItems: "center", flexDirection: "row", paddingRight: 10}}>
@@ -135,7 +135,7 @@ const DashboardHome: React.FC = () => {
 					</View>
 				</View>
 
-				<View style={[globalStyles.pagePadding, {backgroundColor: colors.cyan, width: "100%"}]}>
+				<View style={[globalStyles.pagePadding, {backgroundColor: colors.white, width: "100%"}]}>
 					<View style={{flexDirection: "row", justifyContent: "space-between", paddingBottom: 10}}>
 						<IndoText>I'm saving for a BMW</IndoText>
 						<IndoText>Edit {">"}</IndoText>

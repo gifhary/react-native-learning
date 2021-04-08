@@ -37,7 +37,7 @@ const SelectAccount: React.FC<IProps> = (props) => {
 	function createRadioOption(item: any, index: number) {
 		return (
 			<IndoRadioButton
-				key={`radio-item-${index}`}
+				key={`radio-item-${Math.random() * 100}-${index}`}
 				value={account === item.header}
 				setValue={() => setAccount(item.header)}
 				radioAlign="flex-start"
@@ -51,8 +51,8 @@ const SelectAccount: React.FC<IProps> = (props) => {
 	}
 
 	return (
-		<SafeAreaView style={[globalStyles.safeArea, {paddingHorizontal: 30, justifyContent: "space-between"}]}>
-			<View style={style.headerContainer}>
+		<SafeAreaView style={[globalStyles.safeArea, style.customSpacing]}>
+			<View>
 				<IndoText style={[globalStyles.h1, {paddingBottom: 15}]}>Select an account</IndoText>
 				{createRadioOption(placeholder1, 1)}
 				{createRadioOption({header: "Add Account"}, 1)}
@@ -66,8 +66,9 @@ const SelectAccount: React.FC<IProps> = (props) => {
 };
 
 const style = StyleSheet.create({
-	headerContainer: {
-
+	customSpacing: {
+		paddingHorizontal: 30,
+		justifyContent: "space-between"
 	}
 });
 export default SelectAccount;

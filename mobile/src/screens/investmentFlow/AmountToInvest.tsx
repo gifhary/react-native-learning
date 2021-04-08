@@ -36,7 +36,7 @@ const AmountToInvest: React.FC<IProps> = (props) => {
 	}
 
 	return (
-		<SafeAreaView style={[globalStyles.safeArea, {paddingHorizontal: 30}]}>
+		<SafeAreaView style={[globalStyles.safeArea, style.customSpacing]}>
 			<View style={style.headerContainer}>
 				<IndoText style={[globalStyles.h1, {textAlign: "center", paddingBottom: 15}]}>How much money can you
 					invest today?</IndoText>
@@ -63,6 +63,9 @@ const AmountToInvest: React.FC<IProps> = (props) => {
 };
 
 const style = StyleSheet.create({
+	customSpacing: {
+		paddingHorizontal: 30
+	},
 	headerContainer: {
 		flexDirection: "column",
 		justifyContent: "space-between",

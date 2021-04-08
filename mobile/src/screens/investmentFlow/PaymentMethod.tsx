@@ -74,7 +74,7 @@ const PaymentMethod: React.FC<IProps> = (props) => {
 	function createRadioOption(item: IInvestmentSchedule, index: number) {
 		return (
 			<IndoRadioButton
-				key={`radio-item-${index}`}
+				key={`radio-item-${Math.random() * 100}-${index}`}
 				value={schedule === item.schedule}
 				setValue={() => setSchedule(item.schedule)}
 				radioAlign="flex-start"
@@ -88,7 +88,7 @@ const PaymentMethod: React.FC<IProps> = (props) => {
 	}
 
 	return (
-		<SafeAreaView style={[globalStyles.safeArea, {paddingHorizontal: 30, justifyContent: "space-between"}]}>
+		<SafeAreaView style={[globalStyles.safeArea, style.customSpacing]}>
 			<View style={style.radioContainer}>
 				<IndoText style={[globalStyles.h1, {textAlign: "center", paddingBottom: 15}]}>Choose Investment Schedule</IndoText>
 				<IndoText style={[{textAlign: "center", paddingBottom: 25}]}>Let us know how often you'd like to invest, we'll remind you accordingly!</IndoText>
@@ -103,6 +103,10 @@ const PaymentMethod: React.FC<IProps> = (props) => {
 };
 
 const style = StyleSheet.create({
+	customSpacing: {
+		paddingHorizontal: 30,
+		justifyContent: "space-between"
+	},
 	radioContainer: {
 		flexDirection: "column",
 		justifyContent: "space-between",

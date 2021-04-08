@@ -1,5 +1,5 @@
 import React, {useLayoutEffect, useState} from "react";
-import {View} from "react-native";
+import {StyleSheet, View} from "react-native";
 import IndoText from "../../components/IndoText";
 import globalStyles from "../../theme/globalStyles";
 import SafeAreaView from "react-native-safe-area-view";
@@ -74,7 +74,7 @@ const RiskAssessmentStep2: React.FC<IProps> = (props) => {
 	function createRadioOption(item: IInvestmentOption, index: number) {
 		return (
 			<IndoRadioButton
-				key={`radio-item-${index}`}
+				key={`radio-item-${Math.random() * 100}-${index}`}
 				value={investment === item.risk}
 				setValue={() => setInvestment(item.risk)}
 				radioAlign="flex-start"
@@ -88,7 +88,7 @@ const RiskAssessmentStep2: React.FC<IProps> = (props) => {
 	}
 
 	return (
-		<SafeAreaView style={[globalStyles.safeArea, {paddingHorizontal: 30, justifyContent: "space-between"}]}>
+		<SafeAreaView style={[globalStyles.safeArea, style.customSpacing]}>
 			<View style={{flexDirection: "column", justifyContent: "space-between", width: "100%"}}>
 				<IndoText style={[globalStyles.h1, {paddingBottom: 20}]}>Initially, how much money do you plan to invest?</IndoText>
 				{radioOptions.map(createRadioOption)}
@@ -99,5 +99,12 @@ const RiskAssessmentStep2: React.FC<IProps> = (props) => {
 		</SafeAreaView>
 	);
 };
+
+const style = StyleSheet.create({
+	customSpacing: {
+		paddingHorizontal: 30,
+		justifyContent: "space-between"
+	}
+});
 
 export default RiskAssessmentStep2;

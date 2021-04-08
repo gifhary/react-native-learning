@@ -68,7 +68,7 @@ const RiskAssessmentStep1: React.FC<IProps> = (props) => {
 	function createRadioOption(item: IRiskOption, index: number) {
 		return (
 			<IndoRadioButton
-				key={`radio-item-${index}`}
+				key={`radio-item-${Math.random() * 100}-${index}`}
 				value={risk === item.risk}
 				setValue={() => setRisk(item.risk)}
 				radioAlign="flex-start"
