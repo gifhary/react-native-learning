@@ -61,6 +61,7 @@ const style = StyleSheet.create({
 		paddingVertical: 12,
 		borderWidth: 1.3,
 		borderRadius: 5,
+		borderColor: colors.orange,
 		backgroundColor: colors.white,
 	},
 });

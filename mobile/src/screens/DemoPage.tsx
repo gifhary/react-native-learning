@@ -47,35 +47,33 @@ const DemoPage: React.FC = () => {
 		<SafeAreaView style={globalStyles.safeArea}>
 			<KeyboardAwareScrollView>
 
+				<IndoText style={globalStyles.h1}>Buttons</IndoText>
+
 				<View style={{alignItems: "center"}}>
 
-					<IndoText style={{color: colors.navy, paddingVertical: 10}}>Buttons</IndoText>
-					<IndoButton color={"navy"} onPress={() => {
+					<IndoText style={{paddingVertical: 10}}>Buttons</IndoText>
+					<IndoButton color={"orange"} onPress={() => {
 					}}>Primary Button</IndoButton>
-					<IndoButton color={"outline-navy"} onPress={() => {
+					<IndoButton color={"outline-orange"} onPress={() => {
 					}}>Border Variant</IndoButton>
-					<IndoButton color={"cyan"} onPress={() => {
+					<IndoButton color={"yellow"} onPress={() => {
 					}}>Secondary Button</IndoButton>
-					<IndoButton color={"outline-cyan"} onPress={() => {
+					<IndoButton color={"outline-yellow"} onPress={() => {
 					}}>Secondary Button</IndoButton>
-					<IndoButton color={"lime"} onPress={() => {
-					}}>Alternate Button</IndoButton>
-					<IndoButton color={"outline-lime"} onPress={() => {
-					}}>Alternate Button</IndoButton>
 					<IndoButton disabled onPress={() => {
 					}}>Option Unavailable</IndoButton>
 					<IndoButton color={"outline-gray"} onPress={() => {
 					}}>Border Variant</IndoButton>
-					<IndoButton color={"navy"} bubble={"!"} onPress={() => {
+					<IndoButton color={"yellow"} bubble={"!"} onPress={() => {
 					}}>Alert Button</IndoButton>
-					<IndoButton color={"outline-navy"} bubble={"!"} onPress={() => {
+					<IndoButton color={"outline-yellow"} bubble={"!"} onPress={() => {
 					}}>Alert Variant</IndoButton>
 
 				</View>
 
 				<View>
 					<View style={{alignItems: "center"}}>
-						<IndoText style={{color: colors.navy, paddingVertical: 10}}>Field Inputs</IndoText>
+						<IndoText style={{paddingVertical: 10}}>Field Inputs</IndoText>
 					</View>
 
 					<IndoLabel>Test Label</IndoLabel>
@@ -91,7 +89,7 @@ const DemoPage: React.FC = () => {
 
 				<View>
 					<View style={{alignItems: "center"}}>
-						<IndoText style={{color: colors.navy, paddingVertical: 10}}>Checkbox/Radios</IndoText>
+						<IndoText style={{paddingVertical: 10}}>Checkbox/Radios</IndoText>
 					</View>
 
 					<IndoCheckBox value={test3} setValue={setTest3}>Checkbox Label</IndoCheckBox>
@@ -114,7 +112,7 @@ const DemoPage: React.FC = () => {
 
 				<View>
 					<View style={{alignItems: "center"}}>
-						<IndoText style={{color: colors.navy, paddingVertical: 10}}>Sliders</IndoText>
+						<IndoText style={{paddingVertical: 10}}>Sliders</IndoText>
 						<IndoSlider controlledValue={sliderTest} setValue={setSliderTest} label="Slider Name"
 									valueSuffix="%"/>
 					</View>
@@ -122,7 +120,7 @@ const DemoPage: React.FC = () => {
 
 				<View>
 					<View style={{alignItems: "center"}}>
-						<IndoText style={{color: colors.navy, paddingVertical: 10}}>Step Tracker</IndoText>
+						<IndoText style={{paddingVertical: 10}}>Step Tracker</IndoText>
 						<StepTracker progress={EStepTracker.START}/>
 						<StepTracker progress={EStepTracker.MIDDLE}/>
 						<StepTracker progress={EStepTracker.END}/>
@@ -130,8 +128,8 @@ const DemoPage: React.FC = () => {
 				</View>
 
 				<View>
-					<View style={{alignItems: "center"}}>
-						<IndoText style={{color: colors.navy, paddingVertical: 10}}>Progress Bar</IndoText>
+					<View style={{alignItems: "center", padding: 15}}>
+						<IndoText style={{paddingVertical: 10}}>Progress Bar</IndoText>
 						<ProgressBar progress={1} total={3}/>
 						<ProgressBar progress={50} total={100}/>
 						<ProgressBar progress={7} total={9}/>
@@ -140,14 +138,14 @@ const DemoPage: React.FC = () => {
 
 				<View>
 					<View style={{alignItems: "center"}}>
-						<IndoText style={{color: colors.navy, paddingVertical: 10}}>Profile Image</IndoText>
+						<IndoText style={{paddingVertical: 10}}>Profile Image</IndoText>
 						<ProfileImage source={profileTest}/>
 					</View>
 				</View>
 
 				<View>
 					<View style={{alignItems: "center"}}>
-						<IndoText style={{color: colors.navy, paddingVertical: 10}}>Messages</IndoText>
+						<IndoText style={{paddingVertical: 10}}>Messages</IndoText>
 						<MessageBubble source={profileTest}
 									   text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In mi nisi, euismod ut massa nec, porta sollicitudin ex."/>
 						<MessageBubble source={profileTest}
@@ -158,14 +156,14 @@ const DemoPage: React.FC = () => {
 
 				<View>
 					<View style={{alignItems: "center"}}>
-						<IndoText style={{color: colors.navy, paddingVertical: 10}}>Achievement Card</IndoText>
+						<IndoText style={{paddingVertical: 10}}>Achievement Card</IndoText>
 						<AchievementCard source={car2Test} label="Test Label"/>
 					</View>
 				</View>
 
 				<View>
 					<View style={{alignItems: "center"}}>
-						<IndoText style={{color: colors.navy, paddingVertical: 10}}>Achievement Card Detailed</IndoText>
+						<IndoText style={{paddingVertical: 10}}>Achievement Card Detailed</IndoText>
 						<AchievementCardDetailed
 							profileImage={profileTest}
 							source={car2Test}
@@ -182,9 +180,9 @@ const DemoPage: React.FC = () => {
 					</View>
 				</View>
 
-				<View>
+				<View style={{width: "100%"}}>
 					<View style={{alignItems: "center"}}>
-						<IndoText style={{color: colors.navy, paddingVertical: 10}}>Products Card</IndoText>
+						<IndoText style={{paddingVertical: 10}}>Products Card</IndoText>
 						<ProductsCard
 							header="Name"
 							subHeader="Lorem Ipsum Equity Fund"

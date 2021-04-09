@@ -35,9 +35,9 @@ const IndoSlider: React.FC<IProps> = (props) => {
 				style={{width: (window.width - 25), height: 40}}
 				minimumValue={min}
 				maximumValue={max}
-				minimumTrackTintColor={colors.lime}
+				minimumTrackTintColor={colors.yellow}
 				maximumTrackTintColor={colors.gray}
-				thumbTintColor={colors.lime}
+				thumbTintColor={colors.orange}
 				onValueChange={setSliderValue}
 			/>
 			<View style={[style.valueContainer, {width: window.width}]}>
@@ -59,7 +59,7 @@ const style = StyleSheet.create({
 	},
 	labelStyle: {
 		paddingRight: 20,
-		color: colors.navy,
+		color: colors.black,
 		textDecorationLine: "underline",
 	},
 	valueContainer: {

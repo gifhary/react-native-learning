@@ -1,7 +1,7 @@
 import React from "react";
 import {StyleSheet, View} from "react-native";
-import ProfileImage from "../../../assets/icons/Artboard_1_copy_188x.png";
-import test from "../../../assets/icons/Cyan-Triangle.png";
+const ProfileImage = require("../../../assets/icons/Artboard_1_copy_188x.png");
+const test = require("../../../assets/icons/Cyan-Triangle.png");
 import colors from "../../theme/colors";
 import Svg, {Rect} from "react-native-svg";
 import {StackNavigationProp} from "@react-navigation/stack";
@@ -28,7 +28,7 @@ const BottomTabIcons: React.FC<IProps> = (props) => {
 
 	let highlight = colors.gray;
 		if (props.navigation.isFocused()) {
-			highlight = colors.lime;
+			highlight = colors.orange;
 		}
 
 	return (

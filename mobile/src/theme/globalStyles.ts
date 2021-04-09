@@ -12,18 +12,22 @@ export default {
 		padding: 30,
 	},
 	h1: {
+		fontFamily: "Inter",
 		fontSize: 30,
 		fontWeight: "bold",
 	} as StyleProp<TextStyle>,
 	h2: {
+		fontFamily: "Inter",
 		fontSize: 26,
 		fontWeight: "bold",
 	} as StyleProp<TextStyle>,
 	h3: {
+		fontFamily: "Inter",
 		fontSize: 22,
 		fontWeight: "bold",
 	} as StyleProp<TextStyle>,
 	h4: {
+		fontFamily: "Inter",
 		fontSize: 18,
 		fontWeight: "600",
 	} as StyleProp<TextStyle>,

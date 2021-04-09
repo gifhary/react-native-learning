@@ -44,13 +44,13 @@ const AmountToInvest: React.FC<IProps> = (props) => {
 			<IndoTextInput keyboardType="decimal-pad" value={investmentAmount} onChangeText={(e) => setInvestmentAmount(e)} style={{alignSelf: "center", width: "50%"}} />
 			<View style={[globalStyles.hr, {marginBottom: 20, paddingBottom: 10}]}/>
 			<View style={style.buttonItemContainer}>
-				<TouchableOpacity style={[style.buttonItem, investmentAmount === "500.00" && {borderWidth: 2, borderColor: colors.navy}]} onPress={() => setPresetAmount("500.00")}>
+				<TouchableOpacity style={[style.buttonItem, investmentAmount === "500.00" && style.borderOrange]} onPress={() => setPresetAmount("500.00")}>
 					<IndoText>Rp500.00</IndoText>
 				</TouchableOpacity>
-				<TouchableOpacity style={[style.buttonItem, investmentAmount === "1000.00" && {borderWidth: 2, borderColor: colors.navy}]} onPress={() => setPresetAmount("1000.00")}>
+				<TouchableOpacity style={[style.buttonItem, investmentAmount === "1000.00" && style.borderOrange]} onPress={() => setPresetAmount("1000.00")}>
 					<IndoText>Rp1000.00</IndoText>
 				</TouchableOpacity>
-				<TouchableOpacity style={[style.buttonItem, investmentAmount === "1500.00" && {borderWidth: 2, borderColor: colors.navy}]}  onPress={() => setPresetAmount("1500.00")}>
+				<TouchableOpacity style={[style.buttonItem, investmentAmount === "1500.00" && style.borderOrange]}  onPress={() => setPresetAmount("1500.00")}>
 					<IndoText>Rp1500.00</IndoText>
 				</TouchableOpacity>
 			</View>
@@ -79,6 +79,10 @@ const style = StyleSheet.create({
 		paddingVertical: 10,
 		paddingHorizontal: 20,
 		borderWidth: 1
+	},
+	borderOrange: {
+		borderWidth: 2,
+		borderColor: colors.orange
 	},
 });
 

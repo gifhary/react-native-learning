@@ -5,6 +5,7 @@ import AmountToInvest from "../screens/investmentFlow/AmountToInvest";
 import SelectAccount from "../screens/investmentFlow/SelectAccount";
 import ReviewDetails from "../screens/investmentFlow/ReviewDetails";
 import InvestmentSuccess from "../screens/investmentFlow/InvestmentSuccess";
+import colors from "../theme/colors";
 
 const InvestmentFlowStack = createStackNavigator();
 

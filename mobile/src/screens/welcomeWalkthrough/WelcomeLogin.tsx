@@ -30,7 +30,7 @@ const WelcomeLogin: React.FC<IProps> = (props) => {
 			</View>
 			<View style={style.center}>
 				<IndoButton onPress={next} >Sign In</IndoButton>
-				<IndoButton onPress={() => {Alert.alert("Make sign up")}} color="outline-cyan">Sign Up</IndoButton>
+				<IndoButton onPress={() => {Alert.alert("Make sign up")}} color="outline-orange">Sign Up</IndoButton>
 			</View>
 		</SafeAreaView>
 	);

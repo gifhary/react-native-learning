@@ -6,7 +6,7 @@ import {
 } from "react-native";
 import colors from "../../theme/colors";
 import IndoText from "../IndoText";
-import chroma from "chroma-js";
+const chroma = require("chroma-js");
 
 interface IProps {
 	source: ImageSourcePropType;
@@ -61,7 +61,7 @@ const style = StyleSheet.create({
 	header: {
 		flex: 1,
 		alignSelf: "flex-end",
-		backgroundColor: `${chroma(colors.lime).alpha(0.6)}`,
+		backgroundColor: `${chroma(colors.yellow).alpha(0.6)}`,
 		minHeight: 55,
 		padding: 15,
 		position: "absolute",

@@ -1,10 +1,11 @@
 import React from "react";
 import {
-	StyleSheet, useWindowDimensions,
+	StyleSheet,
 	View,
 } from "react-native";
 import colors from "../../theme/colors";
 import IndoText from "../IndoText";
+import LinearGradient from "react-native-linear-gradient";
 
 interface IProps {
 	progress: number,
@@ -13,15 +14,14 @@ interface IProps {
 
 const ProgressBar: React.FC<IProps> = (props) => {
 
-	const window = useWindowDimensions();
 	const {progress, total} = props;
 
 	return (
-		<View>
+		<View style={{width: "100%"}}>
 			<View style={[style.view]}>
-				<View style={[style.limeBar, {flex: progress / total}]}/>
+				<LinearGradient  style={[style.orangeBar, {flex: progress / total}]} colors={[colors.yellow, colors.orange]} />
 			</View>
-			<View style={{width: window.width}}>
+			<View>
 				<IndoText style={style.progressText}>{Math.round((progress / total) * 100)}%</IndoText>
 			</View>
 		</View>
@@ -40,8 +40,7 @@ const style = StyleSheet.create({
 		overflow: "hidden",
 		borderRadius: 5,
 	},
-	limeBar: {
-		backgroundColor: colors.lime,
+	orangeBar: {
 		height: 20,
 	},
 	progressText: {

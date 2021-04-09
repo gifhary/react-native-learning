@@ -27,7 +27,7 @@ const DashboardNavigator: React.FC<IProps> = (props) => {
 
 			initialRouteName="Home"
 			tabBarOptions={{
-				activeTintColor: colors.cyan,
+				activeTintColor: colors.orange,
 			}}
 		>
 			<DashboardTabs.Screen

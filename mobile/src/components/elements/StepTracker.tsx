@@ -23,7 +23,7 @@ const StepTracker: React.FC<IProps> = (props) => {
 		const tempArray = [];
 		for (let i = 0; i <= 2; i++) {
 			if (i <= progress) {
-				tempArray.push(<View key={i} style={[style.limeBox, {width: (window.width / 3 - 15)}]} />);
+				tempArray.push(<View key={i} style={[style.orangeBox, {width: (window.width / 3 - 15)}]} />);
 			} else {
 				tempArray.push(<View key={i} style={[style.grayBox, {width: (window.width / 3 - 15)}]} />);
 			}
@@ -56,12 +56,12 @@ const style = StyleSheet.create({
 		borderColor: colors.gray,
 		borderRadius: 5,
 	},
-	limeBox: {
+	orangeBox: {
 		marginHorizontal: 5,
-		backgroundColor: colors.lime,
+		backgroundColor: colors.yellow,
 		height: 3,
 		borderWidth: 1,
-		borderColor: colors.lime,
+		borderColor: colors.yellow,
 		borderRadius: 5,
 	}
 });

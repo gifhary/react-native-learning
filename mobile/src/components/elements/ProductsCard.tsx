@@ -23,21 +23,21 @@ const ProductsCard: React.FC<IProps> = (props) => {
 	const {header, subHeader, leftHeader, leftSubHeader, rightHeader, rightSubHeader, aside, selected, onPress} = props;
 
 	const renderElement = (
-		<View style={[style.container]}>
-			<View style={[style.cardContainer, selected ? {borderWidth: 1, borderColor: colors.navy} : null]}>
-				<IndoText style={style.textStyleNavy}>{header}</IndoText>
+		<>
+			<View style={[style.cardContainer, selected ? {borderWidth: 1, borderColor: colors.orange} : null]}>
+				<IndoText style={style.textStyleBlack}>{header}</IndoText>
 
 				<View>
-					<IndoText style={{fontWeight: "700", color: colors.navy}}>{subHeader}</IndoText>
+					<IndoText style={{fontWeight: "700", color: colors.black}}>{subHeader}</IndoText>
 				</View>
 				<View style={style.cardSubHeaderContainer}>
 					<View>
-						<IndoText style={style.textStyleNavy}>{leftHeader}</IndoText>
-						<IndoText style={style.textStyleLime}>{leftSubHeader}</IndoText>
+						<IndoText style={style.textStyleBlack}>{leftHeader}</IndoText>
+						<IndoText style={style.textStyleOrange}>{leftSubHeader}</IndoText>
 					</View>
 					<View style={{alignItems: "flex-end"}}>
-						<IndoText style={style.textStyleNavy}>{rightHeader}</IndoText>
-						<IndoText style={style.textStyleLime}>{rightSubHeader}</IndoText>
+						<IndoText style={style.textStyleBlack}>{rightHeader}</IndoText>
+						<IndoText style={style.textStyleOrange}>{rightSubHeader}</IndoText>
 					</View>
 				</View>
 			</View>
@@ -46,7 +46,7 @@ const ProductsCard: React.FC<IProps> = (props) => {
                 <IndoText>{aside} people invest with this product</IndoText>
             </View>
 			}
-		</View>
+		</>
 	);
 
 	if (onPress) {
@@ -72,6 +72,7 @@ ProductsCard.defaultProps = {
 
 const style = StyleSheet.create({
 	view: {
+		width: "100%",
 		minHeight: 150,
 		paddingHorizontal: 15,
 		shadowColor: colors.black,
@@ -82,15 +83,10 @@ const style = StyleSheet.create({
 		shadowRadius: 3,
 		shadowOpacity: 0.5,
 	},
-	container: {
-		flex: 1,
-		width: "100%",
-		height: "100%",
-	},
 	headerText: {
 		textAlign: "left",
 		color: colors.white,
-		fontWeight: "bold"
+		fontWeight: "bold",
 	},
 	subHeaderText: {
 		textAlign: "left",
@@ -107,12 +103,12 @@ const style = StyleSheet.create({
 		width: "100%",
 		justifyContent: "space-between",
 	},
-	textStyleNavy: {
-		color: colors.navy,
+	textStyleBlack: {
+		color: colors.black,
 		fontWeight: "400",
 	},
-	textStyleLime: {
-		color: colors.lime,
+	textStyleOrange: {
+		color: colors.orange,
 		fontWeight: "400",
 	},
 });

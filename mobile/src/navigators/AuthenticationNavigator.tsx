@@ -15,6 +15,7 @@ const AuthenticationNavigator: React.FC = () => {
 				headerShown: false,
 			}}
 			initialRouteName="WelcomeWalkthroughNavigator"
+
 		>
 			<AuthenticationStack.Screen
 				name="WelcomeWalkthroughNavigator"

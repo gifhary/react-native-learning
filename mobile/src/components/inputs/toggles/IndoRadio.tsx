@@ -48,6 +48,7 @@ const styles = StyleSheet.create({
 		height: 20,
 		borderRadius: 3,
 		borderWidth: 1.3,
+		borderColor: colors.orange,
 		backgroundColor: colors.white,
 		justifyContent: "center",
 		alignItems: "center",
@@ -56,7 +57,7 @@ const styles = StyleSheet.create({
 	radioInner: {
 		width: 14,
 		height: 14,
-		backgroundColor: colors.navy,
+		backgroundColor: colors.orange,
 	},
 })
 

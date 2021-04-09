@@ -4,7 +4,7 @@ export default {
 	inputBox: {
 		borderRadius: 5,
 		borderWidth: 1.3,
-		borderColor: colors.navy,
+		borderColor: colors.orange,
 		width: "100%",
 		color: colors.black,
 		padding: 12,

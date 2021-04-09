@@ -16,7 +16,7 @@ const IndoCheckBox: React.FC<IProps> = (props) => {
 	return (
 		<View style={[styles.view, props.style]}>
 			<TouchableOpacity style={styles.touchable} onPress={() => props.setValue(!props.value)} activeOpacity={0.6}>
-				<View style={[styles.checkbox, {backgroundColor: props.value ? colors.navy : "transparent"}]}>
+				<View style={[styles.checkbox, {backgroundColor: props.value ? colors.orange : "transparent"}]}>
 					{props.value && (
 						<IndoText style={styles.check} allowFontScaling={false}>
 							✓
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
 		height: 20,
 		borderRadius: 3,
 		borderWidth: 1.3,
-		borderColor: colors.navy,
+		borderColor: colors.orange,
 		justifyContent: "center",
 		alignItems: "center",
 		marginRight: 13,

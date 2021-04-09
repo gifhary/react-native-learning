@@ -25,7 +25,7 @@ const WelcomeLandingPage: React.FC<IProps> = (props) => {
 					<Image style={{width: 200, height: 200}} source={{uri: "https://via.placeholder.com/300"}} />
 				</View>
 				<IndoText style={{paddingBottom: 50}}>Please try out our game feature. It will give you <IndoText style={{fontWeight: "bold"}}>Rp50,000</IndoText> after every level!</IndoText>
-				<IndoButton color="outline-cyan" onPress={next}>Play Now!</IndoButton>
+				<IndoButton color="outline-orange" onPress={next}>Play Now!</IndoButton>
 			</View>
 		</SafeAreaView>
 	);

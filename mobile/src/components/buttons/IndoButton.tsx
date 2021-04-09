@@ -11,7 +11,7 @@ import IndoText from "../IndoText";
 import colors from "../../theme/colors";
 
 interface IProps extends TouchableHighlightProps {
-	color?: "cyan" | "outline-cyan" | "lime" | "outline-lime" | "navy" | "outline-navy" | "gray" | "outline-gray",
+	color?: "yellow" | "outline-yellow" | "lime" | "outline-lime" | "orange" | "outline-orange" | "gray" | "outline-gray",
 	viewStyle?: ViewStyle,
 	textStyle?: TextStyle,
 	bubble?: string,
@@ -24,58 +24,40 @@ const IndoButton: React.FC<IProps> = (props) => {
 	let textStyle: TextStyle;
 	let bubbleStyle: ViewStyle = {display: props.bubble ? "flex" : "none", left: 240 - 15};
 	switch (props.color) {
-		case "navy":
+		case "orange":
 			viewStyle = {
-				backgroundColor: colors.navy,
+				backgroundColor: colors.orange,
 			};
 			textStyle = {
 				color: colors.white,
 			};
 			break;
-		case "outline-navy":
+		case "outline-orange":
 			viewStyle = {
 				backgroundColor: colors.white,
-				borderColor: colors.navy,
+				borderColor: colors.orange,
 				borderWidth: 1.3,
 			};
 			textStyle = {
-				color: colors.navy,
+				color: colors.orange,
 			};
 			break;
-		case "cyan":
+		case "yellow":
 			viewStyle = {
-				backgroundColor: colors.cyan,
+				backgroundColor: colors.yellow,
 			};
 			textStyle = {
 				color: colors.white,
 			};
 			break;
-		case "outline-cyan":
+		case "outline-yellow":
 			viewStyle = {
 				backgroundColor: colors.white,
-				borderColor: colors.cyan,
+				borderColor: colors.yellow,
 				borderWidth: 1.3,
 			};
 			textStyle = {
-				color: colors.cyan,
-			};
-			break;
-		case "lime":
-			viewStyle = {
-				backgroundColor: colors.lime,
-			};
-			textStyle = {
-				color: colors.white,
-			};
-			break;
-		case "outline-lime":
-			viewStyle = {
-				backgroundColor: colors.white,
-				borderColor: colors.lime,
-				borderWidth: 1.3,
-			};
-			textStyle = {
-				color: colors.lime,
+				color: colors.yellow,
 			};
 			break;
 		case "outline-gray":
@@ -90,12 +72,19 @@ const IndoButton: React.FC<IProps> = (props) => {
 			}
 			break;
 		case "gray":
-		default:
 			viewStyle = {
 				backgroundColor: colors.gray,
 			};
 			textStyle = {
 				color: colors.gray
+			};
+			break;
+		default:
+			viewStyle = {
+				backgroundColor: colors.orange,
+			};
+			textStyle = {
+				color: colors.white
 			};
 			break;
 	}
@@ -131,7 +120,7 @@ const IndoButton: React.FC<IProps> = (props) => {
 
 
 IndoButton.defaultProps = {
-	color: "cyan",
+	color: "orange",
 	size: "md",
 };
 
@@ -150,7 +139,7 @@ const style = StyleSheet.create({
 		borderRadius: 7,
 	},
 	bubble: {
-		backgroundColor: "lime",
+		backgroundColor: "orange",
 		width: 30,
 		height: 30,
 		borderRadius: 15,

@@ -5,6 +5,7 @@ import KYCApplicationStep2 from "../screens/kycApplicationProcess/KYCApplication
 import KYCApplicationSuccess from "../screens/kycApplicationProcess/KYCApplicationSuccess";
 import IndoText from "../components/IndoText";
 import globalStyles from "../theme/globalStyles";
+import colors from "../theme/colors";
 
 const KYCApplicationProcessStack = createStackNavigator();
 
