@@ -1,5 +1,6 @@
 import React from "react";
 import {
+	Pressable,
 	StyleSheet,
 	TextStyle,
 	TouchableHighlight,
@@ -15,7 +16,7 @@ interface IProps extends TouchableHighlightProps {
 	viewStyle?: ViewStyle,
 	textStyle?: TextStyle,
 	bubble?: string,
-	size?: "sm" | "md",
+	size?: "sm" | "md" | string,
 }
 
 const IndoButton: React.FC<IProps> = (props) => {
@@ -90,7 +91,7 @@ const IndoButton: React.FC<IProps> = (props) => {
 	}
 
 	return (
-		<TouchableHighlight {...props} style={[style.touchable, {width: props.size === "sm" ? 180 : 240}]}>
+		<Pressable {...props} style={[style.touchable, {width: (props.size === "sm" || props.size === "md") ? (props.size === "sm" ? 180 : 240) : props.size}]}>
 			{typeof props.children === "string" ? (
 				<View
 					style={[style.view, viewStyle, props.disabled && {backgroundColor: colors.gray}, props.viewStyle]}>
@@ -114,7 +115,7 @@ const IndoButton: React.FC<IProps> = (props) => {
 					}
 				</React.Fragment>
 			)}
-		</TouchableHighlight>
+		</Pressable>
 	);
 }
 
@@ -135,7 +136,7 @@ const style = StyleSheet.create({
 		fontWeight: "600",
 	},
 	touchable: {
-		margin: 5,
+		padding: 5,
 		borderRadius: 7,
 	},
 	bubble: {
