@@ -1,60 +1,82 @@
-import React from "react";
+import React, {ReactNode} from "react";
 import {
-	ImageSourcePropType,
+	ImageSourcePropType, Pressable,
 	StyleSheet, useWindowDimensions,
 	View,
 } from "react-native";
 import IndoText from "../IndoText";
 import ProfileImage from "./ProfileImage";
-const image = require("../../../assets/icons/Artboard_1_copy_188x.png");
+import globalStyles from "../../theme/globalStyles";
 
-interface IProps {
-	source: ImageSourcePropType;
-	header: string;
-	subHeader: string,
+export interface OffsetImageHeaderProps {
+    source: string | ImageSourcePropType;
+    header: string;
+    subHeader?: string;
+    onPress?: any;
+    rightElement?: ReactNode;
 }
 
-const OffsetImageHeader: React.FC<IProps> = (props) => {
+const OffsetImageHeader: React.FC<OffsetImageHeaderProps> = (props) => {
 
-	const {source, header, subHeader} = props;
+    const {source, header, subHeader, onPress, rightElement} = props;
 
-	return (
-		<View style={[style.view]}>
-			<View style={style.image}>
-				<ProfileImage source={source} mod={0.1}/>
+    const bodyContent: ReactNode = (
+        <View style={{flexDirection: "row", alignItems: "center", width: "100%"}}>
+            <View style={style.image}>
+                <ProfileImage source={source as ImageSourcePropType} mod={0.1}/>
+            </View>
+            <View style={style.body}>
+                <IndoText style={style.header}>{header}</IndoText>
+                {subHeader && <IndoText style={style.subHeader}>{subHeader}</IndoText>}
+            </View>
+            {onPress && (
+                <View style={{justifyContent: "center"}}>
+                    <IndoText style={globalStyles.h4}>{">"}</IndoText>
+                </View>
+            )}
+            {rightElement &&
+                    rightElement
+            }
+        </View>
+    );
+
+    if (onPress) {
+		return (
+			<Pressable onPress={onPress} style={[style.view]}>
+				{bodyContent}
+			</Pressable>
+		);
+	} else {
+		return (
+			<View style={[style.view]}>
+				{bodyContent}
 			</View>
-			<View style={style.body}>
-				<IndoText style={style.header}>{header}</IndoText>
-				<IndoText style={style.subHeader}>{subHeader}</IndoText>
-			</View>
-		</View>
-	);
+		);
+	}
 }
 
 
-OffsetImageHeader.defaultProps = {
-}
+OffsetImageHeader.defaultProps = {}
 
 const style = StyleSheet.create({
-	view: {
-		flexDirection: "row",
-		paddingVertical: 25,
-		minHeight: 100,
-	},
-	body: {
-		flexDirection: "column",
-		width: "80%",
-		paddingHorizontal: 15,
-	},
-	image: {
-	},
-	header: {
-		textAlign: "left",
-		fontWeight: "bold"
-	},
-	subHeader: {
-		textAlign: "left",
-	}
+    view: {
+        flexDirection: "row",
+        paddingVertical: 25,
+        minHeight: 90,
+    },
+    body: {
+        flexDirection: "column",
+        width: "80%",
+        paddingHorizontal: 15,
+    },
+    image: {},
+    header: {
+        textAlign: "left",
+        fontWeight: "bold"
+    },
+    subHeader: {
+        textAlign: "left",
+    }
 });
 
 export default OffsetImageHeader;

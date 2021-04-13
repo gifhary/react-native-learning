@@ -3,10 +3,8 @@ import {Image, ScrollView, StyleSheet, View} from "react-native";
 import IndoText from "../../components/IndoText";
 import globalStyles from "../../theme/globalStyles";
 import SafeAreaView from "react-native-safe-area-view";
-import Svg, {Rect} from "react-native-svg";
 import IndoButton from "../../components/buttons/IndoButton";
 import {StackNavigationProp} from "@react-navigation/stack";
-import {KeyboardAwareScrollView} from "react-native-keyboard-aware-scroll-view";
 
 interface IProps {
 	navigation: StackNavigationProp<any>;

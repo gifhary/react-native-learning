@@ -16,7 +16,7 @@ const ProfileNavigator: React.FC = () => {
 	return (
 		<ProfileStack.Navigator
 			screenOptions={{
-				headerShown: false,
+				headerShown: true,
 			}}
 			initialRouteName="ProfileMain"
 		>
