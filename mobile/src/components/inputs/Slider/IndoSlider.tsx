@@ -17,7 +17,6 @@ interface IProps {
 
 const IndoSlider: React.FC<IProps> = (props) => {
 
-	const window = useWindowDimensions();
 	const {min, max, controlledValue, setValue, label, valueSuffix} = props;
 
 	function setSliderValue(e: any) {
@@ -27,12 +26,12 @@ const IndoSlider: React.FC<IProps> = (props) => {
 
 	return (
 		<>
-			<View style={[style.labelContainer, {width: window.width}]}>
+			<View style={style.labelContainer}>
 				<IndoText style={style.labelStyle}>{label}</IndoText>
 			</View>
 			<Slider
 				{...props}
-				style={{width: (window.width - 25), height: 40}}
+				style={style.slider}
 				minimumValue={min}
 				maximumValue={max}
 				minimumTrackTintColor={colors.yellow}
@@ -40,8 +39,8 @@ const IndoSlider: React.FC<IProps> = (props) => {
 				thumbTintColor={colors.orange}
 				onValueChange={setSliderValue}
 			/>
-			<View style={[style.valueContainer, {width: window.width}]}>
-				<IndoText style={style.valueStyle}>{controlledValue}{valueSuffix}</IndoText>
+			<View style={[style.valueContainer]}>
+				<IndoText style={style.valueStyle}>{controlledValue} {valueSuffix}</IndoText>
 			</View>
 		</>
 	);
@@ -56,14 +55,19 @@ IndoSlider.defaultProps = {
 const style = StyleSheet.create({
 	labelContainer: {
 		alignItems: "flex-end",
+		width: "100%",
 	},
 	labelStyle: {
-		paddingRight: 20,
 		color: colors.black,
 		textDecorationLine: "underline",
 	},
+	slider: {
+		width: "100%",
+		height: 40,
+	},
 	valueContainer: {
 		alignItems: "flex-start",
+		width: "100%"
 	},
 	valueStyle: {
 		paddingLeft: 20,

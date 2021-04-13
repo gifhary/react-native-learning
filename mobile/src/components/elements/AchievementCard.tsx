@@ -14,6 +14,7 @@ interface IProps {
     label: string;
     onPress?: any;
     selected?: boolean;
+    size?: "md" | "lg";
 }
 
 const AchievementCard: React.FC<IProps> = (props) => {
@@ -23,7 +24,7 @@ const AchievementCard: React.FC<IProps> = (props) => {
 
     if (onPress) {
         return (
-            <TouchableOpacity style={[style.view, {borderWidth: props.selected ? 3 : 0}]} onPress={onPress} activeOpacity={0.8}>
+            <TouchableOpacity style={[style.view, {width: (props.size === "md") ? "48%" : "100%", borderWidth: props.selected ? 3 : 0}]} onPress={onPress} activeOpacity={0.8}>
                 <Image source={source}
                        style={[style.image]}
                 />
@@ -35,7 +36,7 @@ const AchievementCard: React.FC<IProps> = (props) => {
     } else {
 
         return (
-            <View style={[style.view, {borderWidth: props.selected ? 3 : 0}]}>
+            <View style={[style.view, {width: (props.size === "md") ? "48%" : "100%", borderWidth: props.selected ? 3 : 0}]}>
                 <Image source={source}
                        style={[style.image]}
                 />
@@ -48,12 +49,13 @@ const AchievementCard: React.FC<IProps> = (props) => {
 }
 
 
-AchievementCard.defaultProps = {}
+AchievementCard.defaultProps = {
+    size: "md",
+}
 
 const style = StyleSheet.create({
     view: {
         height: 200,
-		width: "48%",
         flexDirection: "row",
         justifyContent: "center",
         alignItems: "center",
