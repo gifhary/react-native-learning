@@ -139,6 +139,10 @@ function createAchievementCards(item: any, index: number) {
 
 const DashboardHome: React.FC<IProps> = (props) => {
 
+    function NavigationToDreamCalculatorPage1() {
+        props.navigation.push("DreamCalculatorNavigator");
+    }
+
     return (
         <SafeAreaView style={[globalStyles.safeArea]}>
             <KeyboardAwareScrollView>
@@ -163,7 +167,7 @@ const DashboardHome: React.FC<IProps> = (props) => {
                     value={placeholderNewInvestment.value}
                     bodyText={placeholderNewInvestment.bodyText}
                     backgroundImage={placeholderCar.source}
-                    onPress={() => console.log("hello")}
+                    onPress={NavigationToDreamCalculatorPage1}
                 />
 
                 <ArticleComponent header={placeholder1.header} buttonText={placeholder1.buttonText}
