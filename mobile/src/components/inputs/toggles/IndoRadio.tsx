@@ -6,7 +6,7 @@ import IndoText from "../../IndoText";
 interface IProps {
 	value: boolean;
 	setValue?(): void;
-	children: ReactNode;
+	children?: ReactNode;
 	activeOpacity?: number;
 	style?: ViewStyle;
 	radioAlign?: "flex-start" | "flex-end" | "center" | "stretch" | "baseline" | undefined;

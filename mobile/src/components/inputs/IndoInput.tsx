@@ -34,7 +34,7 @@ const RFIndoTextInput: React.FC<TextInputProps & IOptionalWrappedFieldProps> = (
 const style = StyleSheet.create({
 	view: {
 		width: "100%",
-		padding: 10,
+		paddingVertical: 10,
 	}
 });
 

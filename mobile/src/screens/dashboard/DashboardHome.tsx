@@ -20,8 +20,8 @@ const source = require("../../../assets/icons/Artboard_1_copy_188x.png");
 const car = require("../../../assets/icons/car.jpeg");
 
 const placeholderCar = {
-	source: car,
-	value: 90
+    source: car,
+    value: 90
 }
 
 const placeholderNewInvestment = {
@@ -32,70 +32,70 @@ const placeholderNewInvestment = {
 }
 
 const placeholder1 = {
-	header: "Wall Street's Dilemma: What are Tesla's Shares Worth?",
-	source: "https://via.placeholder.com/300",
-	buttonText: "View Article >",
+    header: "Wall Street's Dilemma: What are Tesla's Shares Worth?",
+    source: "https://via.placeholder.com/300",
+    buttonText: "View Article >",
 };
 
 const placeholder2 = {
-	header: "Try our Launch feature!",
-	subHeader: "Dont just earn money from investing, try our brand new game!",
-	buttonText: "Play now!",
+    header: "Try our Launch feature!",
+    subHeader: "Dont just earn money from investing, try our brand new game!",
+    buttonText: "Play now!",
 };
 
 const placeholder3 = {
-	header: "Saham",
-	subHeader: "Aberdeen Standard Indonesia Equity Fund",
-	leftHeader: "Imbal hasil",
-	leftSubHeader: "2,40%/th",
-	rightHeader: "Harga/unit",
-	rightSubHeader: "Rp 1.944,38",
-	aside: "945",
-	description: "A long standing mutual fund with strong historical performance. Perfect for moderate investors.",
-	composition: {
-		stocks: "40%",
-		bonds: "30%",
-		moneyMarketFunds: "30%",
-	},
+    header: "Saham",
+    subHeader: "Aberdeen Standard Indonesia Equity Fund",
+    leftHeader: "Imbal hasil",
+    leftSubHeader: "2,40%/th",
+    rightHeader: "Harga/unit",
+    rightSubHeader: "Rp 1.944,38",
+    aside: "945",
+    description: "A long standing mutual fund with strong historical performance. Perfect for moderate investors.",
+    composition: {
+        stocks: "40%",
+        bonds: "30%",
+        moneyMarketFunds: "30%",
+    },
 };
 
 const placeholder4 = {
-	header: "Ways to Get Crystals",
-	subHeader: `Earn crystals by completing the tasks below. Tap the "launch" tab to learn more.`,
-	instructions: [
-		{
-			header: "Daily Login",
-			value: "15",
-		},
-		{
-			header: "Invest $1 or more",
-			value: "25",
-		},
-		{
-			header: "Invite a friend",
-			value: "10",
-		},
-	],
+    header: "Ways to Get Crystals",
+    subHeader: `Earn crystals by completing the tasks below. Tap the "launch" tab to learn more.`,
+    instructions: [
+        {
+            header: "Daily Login",
+            value: "15",
+        },
+        {
+            header: "Invest $1 or more",
+            value: "25",
+        },
+        {
+            header: "Invite a friend",
+            value: "10",
+        },
+    ],
 };
 
 const placeholder5 = {
-	profileImage: source,
-	source: car,
-	header: "Saham",
-	subHeader: "Aberdeen Standard Indonesia Equity Fund",
-	labelHeader: "Saham",
-	label: "Aberdeen Standard Indonesia Equity Fund",
-	leftHeader: "Imbal hasil",
-	leftSubHeader: "2,40%/th",
-	rightHeader: "Harga/unit",
-	rightSubHeader: "Rp 1.944,38",
-	aside: "945",
-	description: "A long standing mutual fund with strong historical performance. Perfect for moderate investors.",
-	composition: {
-		stocks: "40%",
-		bonds: "30%",
-		moneyMarketFunds: "30%",
-	},
+    profileImage: source,
+    source: car,
+    header: "Saham",
+    subHeader: "Aberdeen Standard Indonesia Equity Fund",
+    labelHeader: "Saham",
+    label: "Aberdeen Standard Indonesia Equity Fund",
+    leftHeader: "Imbal hasil",
+    leftSubHeader: "2,40%/th",
+    rightHeader: "Harga/unit",
+    rightSubHeader: "Rp 1.944,38",
+    aside: "945",
+    description: "A long standing mutual fund with strong historical performance. Perfect for moderate investors.",
+    composition: {
+        stocks: "40%",
+        bonds: "30%",
+        moneyMarketFunds: "30%",
+    },
 };
 
 const placeholder5Array = [placeholder5, placeholder5];
@@ -105,35 +105,36 @@ interface IProps {
 }
 
 function createCrystalInstructionElement(item: any, index: number) {
-	return (
-		<IndoCheckBox key={`instruction-item-${index}`} value={false} setValue={() => {}}>
-			<View style={style.instructionElement}>
-				<IndoText style={{flex: 1}}>{item.header}</IndoText>
-				<View style={{justifyContent: "center", alignItems: "center", flexDirection: "row", paddingRight: 10}}>
-					<IndoText style={{paddingHorizontal: 15}}>{item.value}</IndoText>
-					<Image style={{width: 20, height: 20}} source={{uri: "https://via.placeholder.com/300"}}/>
-				</View>
-			</View>
-		</IndoCheckBox>
-	);
+    return (
+        <IndoCheckBox key={`instruction-item-${index}`} value={false} setValue={() => {
+        }}>
+            <View style={style.instructionElement}>
+                <IndoText style={{flex: 1}}>{item.header}</IndoText>
+                <View style={{justifyContent: "center", alignItems: "center", flexDirection: "row", paddingRight: 10}}>
+                    <IndoText style={{paddingHorizontal: 15}}>{item.value}</IndoText>
+                    <Image style={{width: 20, height: 20}} source={{uri: "https://via.placeholder.com/300"}}/>
+                </View>
+            </View>
+        </IndoCheckBox>
+    );
 }
 
 function createAchievementCards(item: any, index: number) {
-	return (
-		<AchievementCardDetailed
-			key={`achievement-card-${index}`}
-			profileImage={item.profileImage}
-			source={item.source}
-			header={item.header}
-			subHeader={item.subHeader}
-			labelHeader={item.labelHeader}
-			label={item.label}
-			leftHeader={item.leftHeader}
-			leftSubHeader={item.leftSubHeader}
-			rightHeader={item.rightHeader}
-			rightSubHeader={item.rightSubHeader}
-		/>
-	);
+    return (
+        <AchievementCardDetailed
+            key={`achievement-card-${index}`}
+            profileImage={item.profileImage}
+            source={item.source}
+            header={item.header}
+            subHeader={item.subHeader}
+            labelHeader={item.labelHeader}
+            label={item.label}
+            leftHeader={item.leftHeader}
+            leftSubHeader={item.leftSubHeader}
+            rightHeader={item.rightHeader}
+            rightSubHeader={item.rightSubHeader}
+        />
+    );
 }
 
 const DashboardHome: React.FC<IProps> = (props) => {
@@ -141,7 +142,6 @@ const DashboardHome: React.FC<IProps> = (props) => {
     return (
         <SafeAreaView style={[globalStyles.safeArea]}>
             <KeyboardAwareScrollView>
-
                 <InvestingCard backgroundImage={placeholderCar.source} value={placeholderCar.value} newGoal={false} >
                     <View style={[globalStyles.pagePadding, {backgroundColor: colors.white, width: "100%"}]}>
                         <View style={{flexDirection: "row", justifyContent: "space-between", paddingBottom: 10}}>
