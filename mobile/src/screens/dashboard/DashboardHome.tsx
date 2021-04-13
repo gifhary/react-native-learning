@@ -12,12 +12,23 @@ import BannerInstructions from "../../components/elements/BannerInstructions";
 import IndoCheckBox from "../../components/inputs/toggles/IndoCheckbox";
 import ProductsCard from "../../components/elements/ProductsCard";
 import AchievementCardDetailed from "../../components/elements/AchievementCardDetailed";
+import {connect} from "react-redux";
+import InvestingCard from "../../components/elements/InvestingCard";
+import {StackNavigationProp} from "@react-navigation/stack";
+
 const source = require("../../../assets/icons/Artboard_1_copy_188x.png");
 const car = require("../../../assets/icons/car.jpeg");
 
 const placeholderCar = {
 	source: car,
 	value: 90
+}
+
+const placeholderNewInvestment = {
+    source: car,
+    value: 15,
+    header: "Dream Investing",
+    bodyText: "Have a goal or something you are saving for? Read about how we helped other customers reach their goals.",
 }
 
 const placeholder1 = {
@@ -89,6 +100,10 @@ const placeholder5 = {
 
 const placeholder5Array = [placeholder5, placeholder5];
 
+interface IProps {
+    navigation: StackNavigationProp<any>;
+}
+
 function createCrystalInstructionElement(item: any, index: number) {
 	return (
 		<IndoCheckBox key={`instruction-item-${index}`} value={false} setValue={() => {}}>
@@ -121,99 +136,88 @@ function createAchievementCards(item: any, index: number) {
 	);
 }
 
-const DashboardHome: React.FC = () => {
+const DashboardHome: React.FC<IProps> = (props) => {
 
-	return (
-		<SafeAreaView style={[globalStyles.safeArea]}>
-			<KeyboardAwareScrollView>
+    return (
+        <SafeAreaView style={[globalStyles.safeArea]}>
+            <KeyboardAwareScrollView>
 
-				<View style={{position: "relative"}}>
-					<Image source={placeholderCar.source} style={style.heroImage}/>
-					<View style={style.fuelIcon}>
-						<IndoText style={globalStyles.h4}>{placeholderCar.value}</IndoText>
-						<Image style={{width: 20, height: 20, marginLeft: 10}} source={{uri: "https://via.placeholder.com/50"}} />
-					</View>
-				</View>
+                <InvestingCard backgroundImage={placeholderCar.source} value={placeholderCar.value} newGoal={false} >
+                    <View style={[globalStyles.pagePadding, {backgroundColor: colors.white, width: "100%"}]}>
+                        <View style={{flexDirection: "row", justifyContent: "space-between", paddingBottom: 10}}>
+                            <IndoText>I'm saving for a BMW</IndoText>
+                            <IndoText>Edit {">"}</IndoText>
+                        </View>
+                        <ProgressBar progress={25} total={100}/>
+                        <View>
+                            <IndoText style={globalStyles.h1}>${122}</IndoText>
+                            <IndoText>Balance</IndoText>
+                        </View>
+                    </View>
+                </InvestingCard>
 
-				<View style={[globalStyles.pagePadding, {backgroundColor: colors.white, width: "100%"}]}>
-					<View style={{flexDirection: "row", justifyContent: "space-between", paddingBottom: 10}}>
-						<IndoText>I'm saving for a BMW</IndoText>
-						<IndoText>Edit {">"}</IndoText>
-					</View>
-					<ProgressBar progress={25} total={100}/>
-					<View>
-						<IndoText style={globalStyles.h1}>${122}</IndoText>
-						<IndoText>Balance</IndoText>
-					</View>
-				</View>
+                <InvestingCard
+                    newGoal={true}
+                    header={placeholderNewInvestment.header}
+                    headerColor={colors.white}
+                    value={placeholderNewInvestment.value}
+                    bodyText={placeholderNewInvestment.bodyText}
+                    backgroundImage={placeholderCar.source}
+                    onPress={() => console.log("hello")}
+                />
 
-				<ArticleComponent header={placeholder1.header} buttonText={placeholder1.buttonText} source={placeholder1.source}/>
+                <ArticleComponent header={placeholder1.header} buttonText={placeholder1.buttonText}
+                                  source={placeholder1.source}/>
 
-				<BannerImage
-					header={placeholder2.header}
-					subHeader={placeholder2.subHeader}
-					buttonText={placeholder2.buttonText}
-				/>
+                <BannerImage
+                    header={placeholder2.header}
+                    subHeader={placeholder2.subHeader}
+                    buttonText={placeholder2.buttonText}
+                />
 
-				<View>
-					<IndoText style={[globalStyles.pagePadding, globalStyles.h2]}>My Portfolio</IndoText>
-					<ProductsCard header={placeholder3.header} subHeader={placeholder3.subHeader}
-								  leftSubHeader={placeholder3.leftSubHeader} rightHeader={placeholder3.rightHeader}
-								  leftHeader={placeholder3.leftSubHeader} rightSubHeader={placeholder3.rightSubHeader}/>
-				</View>
+                <View>
+                    <IndoText style={[globalStyles.pagePadding, globalStyles.h2]}>My Portfolio</IndoText>
+                    <ProductsCard header={placeholder3.header} subHeader={placeholder3.subHeader}
+                                  leftSubHeader={placeholder3.leftSubHeader} rightHeader={placeholder3.rightHeader}
+                                  leftHeader={placeholder3.leftSubHeader} rightSubHeader={placeholder3.rightSubHeader}/>
+                </View>
 
-				<BannerInstructions header={placeholder4.header} subHeader={placeholder4.subHeader}>
-					<View style={{justifyContent: "flex-start", width: "100%"}}>
-						{placeholder4.instructions.map(createCrystalInstructionElement)}
-					</View>
-				</BannerInstructions>
+                <BannerInstructions header={placeholder4.header} subHeader={placeholder4.subHeader}>
+                    <View style={{justifyContent: "flex-start", width: "100%"}}>
+                        {placeholder4.instructions.map(createCrystalInstructionElement)}
+                    </View>
+                </BannerInstructions>
 
-				<IndoText style={[globalStyles.h1, {paddingHorizontal: 20, paddingVertical: 10}]}>Recent Goal Achievements</IndoText>
-				<ScrollView horizontal={true} style={[{flexDirection: "row"}]}>
-					{placeholder5Array.map(createAchievementCards)}
-				</ScrollView>
+                <IndoText style={[globalStyles.h1, {paddingHorizontal: 20, paddingVertical: 10}]}>Recent Goal
+                    Achievements</IndoText>
+                <ScrollView horizontal={true} style={[{flexDirection: "row"}]}>
+                    {placeholder5Array.map(createAchievementCards)}
+                </ScrollView>
 
-				<View style={style.footerContainer}>
-					<IndoText style={globalStyles.h4}>News</IndoText>
-					<IndoText style={globalStyles.h4}>News</IndoText>
-					<IndoText style={globalStyles.h4}>News</IndoText>
-					<IndoText style={globalStyles.h4}>News</IndoText>
-					<IndoText style={globalStyles.h4}>News</IndoText>
-					<IndoText style={globalStyles.h4}>News</IndoText>
-				</View>
-			</KeyboardAwareScrollView>
-		</SafeAreaView>
-	);
+                <View style={style.footerContainer}>
+                    <IndoText style={globalStyles.h4}>News</IndoText>
+                    <IndoText style={globalStyles.h4}>News</IndoText>
+                    <IndoText style={globalStyles.h4}>News</IndoText>
+                    <IndoText style={globalStyles.h4}>News</IndoText>
+                    <IndoText style={globalStyles.h4}>News</IndoText>
+                    <IndoText style={globalStyles.h4}>News</IndoText>
+                </View>
+            </KeyboardAwareScrollView>
+        </SafeAreaView>
+    );
 };
 
 const style = StyleSheet.create({
-	heroImage: {
-		width: "100%",
-		height: 250,
-		resizeMode: "cover",
-	},
-	fuelIcon: {
-		position: "absolute",
-		flexDirection: "row",
-		justifyContent: "center",
-		alignItems: "center",
-		top: 20,
-		right: 20,
-		borderRadius: 10,
-		backgroundColor: colors.gray,
-		paddingHorizontal: 10,
-		paddingVertical: 5
-	},
-	instructionElement: {
-		flexDirection: "row",
-		justifyContent: "space-between",
-		width: "100%"
-	},
-	footerContainer: {
-		flexDirection: "row",
-		justifyContent: "space-around",
-		padding: 20,
-		backgroundColor: colors.gray
-	},
+    instructionElement: {
+        flexDirection: "row",
+        justifyContent: "space-between",
+        width: "100%"
+    },
+    footerContainer: {
+        flexDirection: "row",
+        justifyContent: "space-around",
+        padding: 20,
+        backgroundColor: colors.gray
+    },
 })
-export default DashboardHome;
+export default connect()(DashboardHome);
