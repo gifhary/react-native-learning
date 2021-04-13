@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useLayoutEffect, useState} from "react";
 import {View} from "react-native";
 import IndoText from "../../components/IndoText";
 import globalStyles from "../../theme/globalStyles";
@@ -14,6 +14,12 @@ interface IProps {
 const ChangeEmail: React.FC<IProps> = (props) => {
 
 	const [email, setEmail] = useState<string>();
+
+	useLayoutEffect(() => {
+		props.navigation.setOptions({
+			headerTitle: ""
+		});
+	}, [props.navigation]);
 
 	function next() {
 		props.navigation.goBack();

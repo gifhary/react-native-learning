@@ -13,11 +13,12 @@ export interface OffsetImageHeaderProps {
     header: string;
     subHeader?: string;
     onPress?: any;
+    rightElement?: ReactNode;
 }
 
 const OffsetImageHeader: React.FC<OffsetImageHeaderProps> = (props) => {
 
-    const {source, header, subHeader, onPress} = props;
+    const {source, header, subHeader, onPress, rightElement} = props;
 
     const bodyContent: ReactNode = (
         <View style={{flexDirection: "row", alignItems: "center", width: "100%"}}>
@@ -33,6 +34,9 @@ const OffsetImageHeader: React.FC<OffsetImageHeaderProps> = (props) => {
                     <IndoText style={globalStyles.h4}>{">"}</IndoText>
                 </View>
             )}
+            {rightElement &&
+                    rightElement
+            }
         </View>
     );
 

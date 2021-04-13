@@ -69,8 +69,8 @@ const AccountSettings: React.FC<IProps> = (props) => {
 
                 <IndoText style={globalStyles.h1}>Account & Settings</IndoText>
                 <View>
-                    {renderTabs.map((item) =>
-                        <OffsetImageHeader source={{uri: item.source} as ImageSourcePropType} header={item.header}
+                    {renderTabs.map((item, index) =>
+                        <OffsetImageHeader key={`account-settings-${index}`} source={{uri: item.source} as ImageSourcePropType} header={item.header}
                                            subHeader={item.subHeader}
                                            onPress={item.onPress}/>
                     )}

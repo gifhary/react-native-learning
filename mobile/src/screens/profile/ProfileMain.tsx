@@ -74,8 +74,8 @@ const ProfileMain: React.FC<IProps> = (props) => {
                     <IndoText>{placeholder.email}</IndoText>
                 </View>
                 <View>
-                    {renderTabs.map((item) =>
-                        <OffsetImageHeader source={{uri: item.source} as ImageSourcePropType} header={item.header}
+                    {renderTabs.map((item, index) =>
+                        <OffsetImageHeader key={`profile-item-${index}`} source={{uri: item.source} as ImageSourcePropType} header={item.header}
                                            subHeader={item.subHeader}
                                            onPress={item.onPress}/>
                     )}
