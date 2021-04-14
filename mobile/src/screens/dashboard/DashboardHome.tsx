@@ -15,7 +15,6 @@ import AchievementCardDetailed from "../../components/elements/AchievementCardDe
 import {connect} from "react-redux";
 import InvestingCard from "../../components/elements/InvestingCard";
 import {StackNavigationProp} from "@react-navigation/stack";
-import {screen} from "../../utils/getDimensions";
 
 const source = require("../../../assets/icons/Artboard_1_copy_188x.png");
 const car = require("../../../assets/icons/car.jpeg");
@@ -42,6 +41,12 @@ const placeholder2 = {
     header: "Try our Launch feature!",
     subHeader: "Dont just earn money from investing, try our brand new game!",
     buttonText: "Play now!",
+};
+
+const placeholder6 = {
+    header: "Take a Risk Assessment Test",
+    subHeader: "To find out your investment risk",
+    buttonText: "Take a Test",
 };
 
 const placeholder3 = {
@@ -141,7 +146,15 @@ function createAchievementCards(item: any, index: number) {
 const DashboardHome: React.FC<IProps> = (props) => {
 
     function NavigationToDreamCalculatorPage1() {
-        props.navigation.push("DreamCalculatorNavigator");
+        props.navigation.push("DreamCalculatorNavigator", {
+            screen: "DashboardHomeNavigator",
+            params: {
+                screen: "DreamCalculatorNavigator",
+                params: {
+                    screen: "GoalsStep1",
+                },
+            }
+        });
     }
 
     function editGoal() {
@@ -190,6 +203,18 @@ const DashboardHome: React.FC<IProps> = (props) => {
                     header={placeholder2.header}
                     subHeader={placeholder2.subHeader}
                     buttonText={placeholder2.buttonText}
+                />
+
+                <BannerImage
+                    header={placeholder6.header}
+                    subHeader={placeholder6.subHeader}
+                    buttonText={placeholder6.buttonText}
+                    onPress={() => props.navigation.push("AuthenticationNavigator", {
+                        screen: "RiskAssessmentTestNavigator",
+                        params: {
+                            screen: "RiskAssessmentStep1",
+                        },
+                    })}
                 />
 
                 <View>

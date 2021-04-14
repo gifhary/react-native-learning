@@ -39,6 +39,11 @@ const GoalsStep3: React.FC<IProps> = (props) => {
 		// TODO add API here to save goal card and navigate to dashboard?
 		props.navigation.replace("DashboardHome");
 	}
+
+	function newGoal() {
+		props.navigation.push("GoalsStep1");
+	}
+
 	return (
 		<SafeAreaView style={globalStyles.safeArea}>
 			<KeyboardAwareScrollView style={globalStyles.pagePadding}>
@@ -53,7 +58,7 @@ const GoalsStep3: React.FC<IProps> = (props) => {
 
 				<View style={{alignItems: "center", paddingVertical: 30}}>
 					<IndoButton onPress={saveGoal}>Add Goal to My Home</IndoButton>
-					<IndoButton>Select New Goal</IndoButton>
+					<IndoButton onPress={newGoal}>Select New Goal</IndoButton>
 				</View>
 			</KeyboardAwareScrollView>
 		</SafeAreaView>
