@@ -147,9 +147,14 @@ function createAchievementCards(item: any, index: number) {
 const DashboardHome: React.FC<IProps> = (props) => {
 
     const [demoToggle, setDemoToggle] = useState(false);
+    const [demoToggle2, setDemoToggle2] = useState(false);
 
     function toggleDemo() {
         setDemoToggle(!demoToggle);
+    }
+
+    function toggleDemo2() {
+        setDemoToggle2(!demoToggle2);
     }
 
     function NavigationToDreamCalculatorPage1() {
@@ -210,23 +215,31 @@ const DashboardHome: React.FC<IProps> = (props) => {
                 <ArticleComponent header={placeholder1.header} buttonText={placeholder1.buttonText}
                                   source={placeholder1.source}/>
 
-                <BannerImage
-                    header={placeholder2.header}
-                    subHeader={placeholder2.subHeader}
-                    buttonText={placeholder2.buttonText}
-                />
+                {demoToggle2 ? (
+                    <BannerImage
+                        header={placeholder2.header}
+                        subHeader={placeholder2.subHeader}
+                        buttonText={placeholder2.buttonText}
+                    />
+                ) : (
+                    <BannerImage
+                        header={placeholder6.header}
+                        subHeader={placeholder6.subHeader}
+                        buttonText={placeholder6.buttonText}
+                        onPress={() =>
+                            props.navigation.push("AuthenticationNavigator", {
+                                screen: "RiskAssessmentTestNavigator",
+                                params: {
+                                    screen: "RiskAssessmentStep1",
+                                },
+                            })
+                        }
+                    />
+                )}
 
-                <BannerImage
-                    header={placeholder6.header}
-                    subHeader={placeholder6.subHeader}
-                    buttonText={placeholder6.buttonText}
-                    onPress={() => props.navigation.push("AuthenticationNavigator", {
-                        screen: "RiskAssessmentTestNavigator",
-                        params: {
-                            screen: "RiskAssessmentStep1",
-                        },
-                    })}
-                />
+                <View style={{alignItems: "center"}}>
+                    <IndoButton color="outline-orange" onPress={toggleDemo2}>Toggle Above Component</IndoButton>
+                </View>
 
                 <View>
                     <IndoText style={[globalStyles.pagePadding, globalStyles.h2]}>My Portfolio</IndoText>
