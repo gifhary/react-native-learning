@@ -47,7 +47,7 @@ const DemoPage: React.FC = () => {
 
     return (
         <SafeAreaView style={globalStyles.safeArea}>
-            <KeyboardAwareScrollView>
+            <KeyboardAwareScrollView style={globalStyles.pagePadding}>
 
                 <IndoText style={globalStyles.h1}>Buttons</IndoText>
 
@@ -202,6 +202,7 @@ const DemoPage: React.FC = () => {
                     <IndoText style={{paddingBottom: 10}}>Image Picker</IndoText>
                     <IndoImagePicker imageValue={testImageValue} setValue={setTestImageValue} />
                 </View>
+                <View style={{paddingBottom: 50}}/>
 
             </KeyboardAwareScrollView>
         </SafeAreaView>

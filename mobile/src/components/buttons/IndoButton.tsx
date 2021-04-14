@@ -23,7 +23,7 @@ const IndoButton: React.FC<IProps> = (props) => {
 
 	let viewStyle: ViewStyle;
 	let textStyle: TextStyle;
-	let bubbleStyle: ViewStyle = {display: props.bubble ? "flex" : "none", left: 240 - 15};
+	let bubbleStyle: ViewStyle = {display: props.bubble ? "flex" : "none", left: 240 - 25};
 	switch (props.color) {
 		case "orange":
 			viewStyle = {
@@ -129,7 +129,7 @@ const style = StyleSheet.create({
 	view: {
 		justifyContent: "center",
 		alignItems: "center",
-		borderRadius: 7,
+		borderRadius: 20,
 		paddingVertical: 10,
 	},
 	text: {
@@ -137,7 +137,7 @@ const style = StyleSheet.create({
 	},
 	touchable: {
 		padding: 5,
-		borderRadius: 7,
+		borderRadius: 20,
 	},
 	bubble: {
 		backgroundColor: "orange",

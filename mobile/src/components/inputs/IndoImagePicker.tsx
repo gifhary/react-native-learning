@@ -89,9 +89,7 @@ export const IndoImagePicker: React.FC<IProps> = (props) => {
                 <View style={style.imageContainer}>
                     {imageValue ? (
                         <>
-                            <Image
-                                style={style.image}
-                                source={{uri: tempImage}}/>
+                            <Image style={style.image} source={{uri: tempImage}}/>
                             <View style={{position: "absolute", opacity: 0.5}}>
                                 <IndoText style={style.tempPlusIcon}>Plus Icon</IndoText>
                             </View>
@@ -127,10 +125,8 @@ IndoImagePicker.defaultProps = {
 const style = StyleSheet.create({
     view: {
         flex: 1,
-        width: "100%",
-        maxHeight: 250,
         alignItems: "center",
-        paddingHorizontal: 10
+        paddingHorizontal: 10,
     },
     text: {
         flex: 7,
@@ -145,8 +141,8 @@ const style = StyleSheet.create({
 		height: "100%"
 	},
 	tempPlusIconNoImage: {
-		width: 250,
-		height: 250,
+		width: 200,
+		height: 200,
 		backgroundColor: colors.gray,
 		justifyContent: "center",
 		alignItems: "center"
@@ -160,11 +156,11 @@ const style = StyleSheet.create({
 	},
 
 	image: {
-		width: 250,
-		height: 250,
+        width: 200,
+        height: 200,
 		resizeMode: "cover",
 		borderWidth: 1,
-		borderColor: colors.yellow
+		borderColor: colors.yellow,
 	},
 });
 

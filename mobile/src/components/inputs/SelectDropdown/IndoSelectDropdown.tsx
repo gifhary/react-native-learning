@@ -201,7 +201,7 @@ const style = StyleSheet.create({
     },
     shadow: {
         marginTop: 5,
-        borderRadius: 7,
+        borderRadius: 20,
         backgroundColor: colors.white,
         shadowColor: colors.black,
         shadowOffset: {
@@ -231,7 +231,7 @@ const style = StyleSheet.create({
         alignItems: "center",
         paddingVertical: 5,
         paddingHorizontal: 10,
-        borderRadius: 5,
+        borderRadius: 20,
         marginVertical: 5,
         marginRight: 10,
         backgroundColor: colors.orange,

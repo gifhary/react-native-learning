@@ -29,7 +29,7 @@ const AchievementCard: React.FC<IProps> = (props) => {
                        style={[style.image]}
                 />
                 <View style={[style.header]}>
-                    <IndoText style={{textAlign: "center", color: colors.white}}>{label}</IndoText>
+                    <IndoText style={{textAlign: "center", color: colors.black}}>{label}</IndoText>
                 </View>
             </TouchableOpacity>
         );
@@ -55,23 +55,24 @@ AchievementCard.defaultProps = {
 
 const style = StyleSheet.create({
     view: {
-        height: 200,
+        height: 150,
         flexDirection: "row",
         justifyContent: "center",
         alignItems: "center",
         backgroundColor: colors.black,
         overflow: "hidden",
-        borderRadius: 5,
+        borderRadius: 15,
         borderColor: colors.yellow,
 		marginVertical: 5,
     },
     header: {
         flex: 1,
         alignSelf: "flex-end",
-        backgroundColor: `${chroma(colors.yellow).alpha(0.6)}`,
-        minHeight: 55,
-        padding: 15,
+        backgroundColor: `${chroma(colors.white).alpha(0.6)}`,
+        minHeight: 35,
+        padding: 5,
         position: "absolute",
+        borderTopWidth: 1,
         left: 0,
         right: 0,
     },
