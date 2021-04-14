@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import IndoText from "../../components/IndoText";
 import globalStyles from "../../theme/globalStyles";
 import SafeAreaView from "react-native-safe-area-view";
@@ -15,6 +15,7 @@ import AchievementCardDetailed from "../../components/elements/AchievementCardDe
 import {connect} from "react-redux";
 import InvestingCard from "../../components/elements/InvestingCard";
 import {StackNavigationProp} from "@react-navigation/stack";
+import IndoButton from "../../components/buttons/IndoButton";
 
 const source = require("../../../assets/icons/Artboard_1_copy_188x.png");
 const car = require("../../../assets/icons/car.jpeg");
@@ -145,6 +146,12 @@ function createAchievementCards(item: any, index: number) {
 
 const DashboardHome: React.FC<IProps> = (props) => {
 
+    const [demoToggle, setDemoToggle] = useState(false);
+
+    function toggleDemo() {
+        setDemoToggle(!demoToggle);
+    }
+
     function NavigationToDreamCalculatorPage1() {
         props.navigation.push("DreamCalculatorNavigator", {
             screen: "DashboardHomeNavigator",
@@ -172,30 +179,34 @@ const DashboardHome: React.FC<IProps> = (props) => {
     return (
         <SafeAreaView style={[globalStyles.safeArea]}>
             <KeyboardAwareScrollView>
-                <InvestingCard backgroundImage={placeholderCar.source} value={placeholderCar.value} newGoal={false}>
-                    <View style={[globalStyles.pagePadding, {backgroundColor: colors.white, width: "100%"}]}>
-                        <View style={{flexDirection: "row", justifyContent: "space-between", paddingBottom: 10}}>
-                            <IndoText>I'm saving for a BMW</IndoText>
-                            <IndoText onPress={editGoal}>Edit {">"}</IndoText>
+                {demoToggle ? (
+                    <InvestingCard backgroundImage={placeholderCar.source} value={placeholderCar.value} newGoal={false}>
+                        <View style={[globalStyles.pagePadding, {backgroundColor: colors.white, width: "100%"}]}>
+                            <View style={{flexDirection: "row", justifyContent: "space-between", paddingBottom: 10}}>
+                                <IndoText>I'm saving for a BMW</IndoText>
+                                <IndoText onPress={editGoal}>Edit {">"}</IndoText>
+                            </View>
+                            <ProgressBar progress={25} total={100}/>
+                            <View>
+                                <IndoText style={globalStyles.h1}>${122}</IndoText>
+                                <IndoText>Balance</IndoText>
+                            </View>
                         </View>
-                        <ProgressBar progress={25} total={100}/>
-                        <View>
-                            <IndoText style={globalStyles.h1}>${122}</IndoText>
-                            <IndoText>Balance</IndoText>
-                        </View>
-                    </View>
-                </InvestingCard>
-
-                <InvestingCard
-                    newGoal={true}
-                    header={placeholderNewInvestment.header}
-                    headerColor={colors.white}
-                    value={placeholderNewInvestment.value}
-                    bodyText={placeholderNewInvestment.bodyText}
-                    backgroundImage={placeholderCar.source}
-                    onPress={NavigationToDreamCalculatorPage1}
-                />
-
+                    </InvestingCard>
+                ) : (
+                    <InvestingCard
+                        newGoal={true}
+                        header={placeholderNewInvestment.header}
+                        headerColor={colors.white}
+                        value={placeholderNewInvestment.value}
+                        bodyText={placeholderNewInvestment.bodyText}
+                        backgroundImage={placeholderCar.source}
+                        onPress={NavigationToDreamCalculatorPage1}
+                    />
+                )}
+                <View style={{alignItems: "center"}}>
+                    <IndoButton color="outline-orange" onPress={toggleDemo}>Toggle Above Component</IndoButton>
+                </View>
                 <ArticleComponent header={placeholder1.header} buttonText={placeholder1.buttonText}
                                   source={placeholder1.source}/>
 

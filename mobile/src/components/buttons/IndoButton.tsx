@@ -12,7 +12,7 @@ import IndoText from "../IndoText";
 import colors from "../../theme/colors";
 
 interface IProps extends TouchableHighlightProps {
-	color?: "yellow" | "outline-yellow" | "lime" | "outline-lime" | "orange" | "outline-orange" | "gray" | "outline-gray",
+	color?: "yellow" | "outline-yellow" | "orange" | "outline-orange" | "gray" | "outline-gray",
 	viewStyle?: ViewStyle,
 	textStyle?: TextStyle,
 	bubble?: string,
