@@ -186,8 +186,8 @@ const DashboardHome: React.FC<IProps> = (props) => {
             <KeyboardAwareScrollView>
                 {demoToggle ? (
                     <InvestingCard backgroundImage={placeholderCar.source} value={placeholderCar.value} newGoal={false}>
-                        <View style={[globalStyles.pagePadding, {backgroundColor: colors.white, width: "100%"}]}>
-                            <View style={{flexDirection: "row", justifyContent: "space-between", paddingBottom: 10}}>
+                        <View style={[globalStyles.pagePadding, style.investingCardInnerContainer]}>
+                            <View style={style.headerButton}>
                                 <IndoText>I'm saving for a BMW</IndoText>
                                 <IndoText onPress={editGoal}>Edit {">"}</IndoText>
                             </View>
@@ -278,6 +278,15 @@ const style = StyleSheet.create({
         flexDirection: "row",
         justifyContent: "space-between",
         width: "100%"
+    },
+    investingCardInnerContainer: {
+        backgroundColor: colors.white,
+        width: "100%"
+    },
+    headerButton: {
+        flexDirection: "row",
+        justifyContent: "space-between",
+        paddingBottom: 10
     },
     footerContainer: {
         flexDirection: "row",
