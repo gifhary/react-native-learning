@@ -1,5 +1,5 @@
 import {SafeAreaView, View} from "react-native";
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import globalStyles from "../theme/globalStyles";
 import IndoText from "../components/IndoText";
 import IndoButton from "../components/buttons/IndoButton";
@@ -17,6 +17,8 @@ import MessageBubble, {EMessageProfilePosition} from "../components/elements/Mes
 import AchievementCard from "../components/elements/AchievementCard";
 import AchievementCardDetailed from "../components/elements/AchievementCardDetailed";
 import ProductsCard from "../components/elements/ProductsCard";
+import IndoImagePicker from "../components/inputs/IndoImagePicker";
+import {ImagePickerResponse} from "react-native-image-picker";
 
 const profileTest = require("../../assets/icons/Artboard_1_copy_188x.png");
 const car2Test = require("../../assets/icons/download.jpeg");
@@ -41,6 +43,7 @@ const DemoPage: React.FC = () => {
     const [test4, setTest4] = useState<ERadio | undefined>(undefined);
 
     const [sliderTest, setSliderTest] = useState(0);
+    const [testImageValue, setTestImageValue] = useState<ImagePickerResponse>();
 
     return (
         <SafeAreaView style={globalStyles.safeArea}>
@@ -75,8 +78,10 @@ const DemoPage: React.FC = () => {
                         <IndoText style={{paddingVertical: 10}}>Field Inputs</IndoText>
                     </View>
 
-                    <IndoLabel>Test Label</IndoLabel>
-                    <IndoTextInput placeholder="Test Placeholder..."/>
+                    <View style={{paddingHorizontal: 10}} >
+                        <IndoLabel>Test Label</IndoLabel>
+                        <IndoTextInput placeholder="Test Placeholder..."/>
+                    </View>
 
                     <IndoLabel>Test Multi Dropdown</IndoLabel>
                     <IndoSelectDropdown value={test1} setValue={setTest1} data={dummyData} multiSelection={true}
@@ -191,6 +196,11 @@ const DemoPage: React.FC = () => {
                             rightSubHeader="Right SubHeader"
                         />
                     </View>
+                </View>
+
+                <View style={{alignItems: "center"}}>
+                    <IndoText style={{paddingBottom: 10}}>Image Picker</IndoText>
+                    <IndoImagePicker imageValue={testImageValue} setValue={setTestImageValue} />
                 </View>
 
             </KeyboardAwareScrollView>

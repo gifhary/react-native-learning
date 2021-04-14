@@ -15,6 +15,7 @@ interface IProps {
 	subHeader?: string;
 	source?: ImageSourcePropType | any;
 	buttonText?: string;
+	onPress?: () => void;
 }
 
 
@@ -27,7 +28,7 @@ const BannerImage: React.FC<IProps> = (props) => {
 				<Image style={style.image} source={{uri: props.source}} />
 			</View>
 			<IndoText style={[globalStyles.h3, {paddingVertical: 15}]}>{props.subHeader}</IndoText>
-			<IndoButton>{props.buttonText}</IndoButton>
+			<IndoButton onPress={props.onPress}>{props.buttonText}</IndoButton>
 		</View>
 	);
 }

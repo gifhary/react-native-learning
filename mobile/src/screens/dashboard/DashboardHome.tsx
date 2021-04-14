@@ -43,6 +43,12 @@ const placeholder2 = {
     buttonText: "Play now!",
 };
 
+const placeholder6 = {
+    header: "Take a Risk Assessment Test",
+    subHeader: "To find out your investment risk",
+    buttonText: "Take a Test",
+};
+
 const placeholder3 = {
     header: "Saham",
     subHeader: "Aberdeen Standard Indonesia Equity Fund",
@@ -139,14 +145,38 @@ function createAchievementCards(item: any, index: number) {
 
 const DashboardHome: React.FC<IProps> = (props) => {
 
+    function NavigationToDreamCalculatorPage1() {
+        props.navigation.push("DreamCalculatorNavigator", {
+            screen: "DashboardHomeNavigator",
+            params: {
+                screen: "DreamCalculatorNavigator",
+                params: {
+                    screen: "GoalsStep1",
+                },
+            }
+        });
+    }
+
+    function editGoal() {
+        props.navigation.push("DashboardNavigator", {
+            screen: "DashboardHomeNavigator",
+            params: {
+                screen: "DreamCalculatorNavigator",
+                params: {
+                    screen: "AdjustGoal",
+                },
+            }
+        });
+    }
+
     return (
         <SafeAreaView style={[globalStyles.safeArea]}>
             <KeyboardAwareScrollView>
-                <InvestingCard backgroundImage={placeholderCar.source} value={placeholderCar.value} newGoal={false} >
+                <InvestingCard backgroundImage={placeholderCar.source} value={placeholderCar.value} newGoal={false}>
                     <View style={[globalStyles.pagePadding, {backgroundColor: colors.white, width: "100%"}]}>
                         <View style={{flexDirection: "row", justifyContent: "space-between", paddingBottom: 10}}>
                             <IndoText>I'm saving for a BMW</IndoText>
-                            <IndoText>Edit {">"}</IndoText>
+                            <IndoText onPress={editGoal}>Edit {">"}</IndoText>
                         </View>
                         <ProgressBar progress={25} total={100}/>
                         <View>
@@ -163,7 +193,7 @@ const DashboardHome: React.FC<IProps> = (props) => {
                     value={placeholderNewInvestment.value}
                     bodyText={placeholderNewInvestment.bodyText}
                     backgroundImage={placeholderCar.source}
-                    onPress={() => console.log("hello")}
+                    onPress={NavigationToDreamCalculatorPage1}
                 />
 
                 <ArticleComponent header={placeholder1.header} buttonText={placeholder1.buttonText}
@@ -173,6 +203,18 @@ const DashboardHome: React.FC<IProps> = (props) => {
                     header={placeholder2.header}
                     subHeader={placeholder2.subHeader}
                     buttonText={placeholder2.buttonText}
+                />
+
+                <BannerImage
+                    header={placeholder6.header}
+                    subHeader={placeholder6.subHeader}
+                    buttonText={placeholder6.buttonText}
+                    onPress={() => props.navigation.push("AuthenticationNavigator", {
+                        screen: "RiskAssessmentTestNavigator",
+                        params: {
+                            screen: "RiskAssessmentStep1",
+                        },
+                    })}
                 />
 
                 <View>

@@ -13,7 +13,7 @@ const DreamCalculatorNavigator: React.FC = () => {
 	return (
 		<DreamCalculatorStack.Navigator
 			screenOptions={{
-				headerShown: false,
+				headerShown: true,
 			}}
 			initialRouteName="GoalsStep1"
 		>
