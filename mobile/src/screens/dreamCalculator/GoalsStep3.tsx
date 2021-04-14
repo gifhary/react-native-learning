@@ -37,7 +37,7 @@ const GoalsStep3: React.FC<IProps> = (props) => {
 
 	function saveGoal() {
 		// TODO add API here to save goal card and navigate to dashboard?
-		props.navigation.goBack();
+		props.navigation.replace("DashboardHome");
 	}
 	return (
 		<SafeAreaView style={globalStyles.safeArea}>

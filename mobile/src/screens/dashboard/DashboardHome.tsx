@@ -15,6 +15,7 @@ import AchievementCardDetailed from "../../components/elements/AchievementCardDe
 import {connect} from "react-redux";
 import InvestingCard from "../../components/elements/InvestingCard";
 import {StackNavigationProp} from "@react-navigation/stack";
+import {screen} from "../../utils/getDimensions";
 
 const source = require("../../../assets/icons/Artboard_1_copy_188x.png");
 const car = require("../../../assets/icons/car.jpeg");
@@ -143,14 +144,26 @@ const DashboardHome: React.FC<IProps> = (props) => {
         props.navigation.push("DreamCalculatorNavigator");
     }
 
+    function editGoal() {
+        props.navigation.push("DashboardNavigator", {
+            screen: "DashboardHomeNavigator",
+            params: {
+                screen: "DreamCalculatorNavigator",
+                params: {
+                    screen: "AdjustGoal",
+                },
+            }
+        });
+    }
+
     return (
         <SafeAreaView style={[globalStyles.safeArea]}>
             <KeyboardAwareScrollView>
-                <InvestingCard backgroundImage={placeholderCar.source} value={placeholderCar.value} newGoal={false} >
+                <InvestingCard backgroundImage={placeholderCar.source} value={placeholderCar.value} newGoal={false}>
                     <View style={[globalStyles.pagePadding, {backgroundColor: colors.white, width: "100%"}]}>
                         <View style={{flexDirection: "row", justifyContent: "space-between", paddingBottom: 10}}>
                             <IndoText>I'm saving for a BMW</IndoText>
-                            <IndoText>Edit {">"}</IndoText>
+                            <IndoText onPress={editGoal}>Edit {">"}</IndoText>
                         </View>
                         <ProgressBar progress={25} total={100}/>
                         <View>
