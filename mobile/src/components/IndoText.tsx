@@ -57,9 +57,9 @@ IndoText.defaultProps = {
 
 const style = StyleSheet.create({
 	text: {
-		fontFamily: "Titillium Web",
+		fontFamily: "Avenir",
 		fontSize: 16,
-		fontWeight: "normal",
+		fontWeight: "500",
 		textAlign: "left",
 	},
 });
