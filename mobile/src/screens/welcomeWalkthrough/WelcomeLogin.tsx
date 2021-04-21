@@ -35,7 +35,7 @@ const WelcomeLogin: React.FC<IProps> = (props) => {
                     <View style={style.center}>
                         <IndoButton onPress={next}>Sign In</IndoButton>
                         <IndoButton onPress={() => {
-                            Alert.alert("Make sign up")
+                            Alert.alert("Make sign up");
                         }} color="outline-orange">Sign Up</IndoButton>
                     </View>
             </KeyboardAwareScrollView>
