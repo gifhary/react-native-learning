@@ -21,11 +21,10 @@ export enum EMessageProfilePosition {
 
 const MessageBubble: React.FC<IProps> = (props) => {
 
-	const window = useWindowDimensions();
 	const {source, text, imagePosition} = props;
 
 	return (
-		<View style={[style.view, {width: window.width, padding: 15}]}>
+		<View style={[style.view, {width: "100%", paddingVertical: 15}]}>
 			{imagePosition === EMessageProfilePosition.LEFT && <View style={style.image}>
                 <ProfileImage source={source} mod={0.15}/>
             </View>}
