@@ -2,7 +2,7 @@ import React, {useEffect, useRef} from "react";
 import {StyleSheet, View, TouchableOpacity, TouchableOpacityProps, Animated, Easing, Image} from "react-native";
 import colors from "../../../theme/colors";
 import IndoText from "../../IndoText";
-const triangle = require("../../../../assets/icons/Cyan-Triangle.png");
+import Triangle from "../../../../assets/icons/triangle.svg";
 
 interface IProps extends TouchableOpacityProps {
 	placeholder?: string,
@@ -28,7 +28,7 @@ export const IndoSelectButton: React.FC<IProps> = (props) => {
 
 	const spin = rotation.interpolate({
 		inputRange: [0, 1],
-		outputRange: ["0deg", "180deg"],
+		outputRange: ["270deg", "90deg"],
 	});
 
 	return (
@@ -37,12 +37,15 @@ export const IndoSelectButton: React.FC<IProps> = (props) => {
 				<IndoText style={{opacity: value && value.length > 0 ? 1 : 0.5}}>
 					{staticPlaceholder ? placeholder : value && (value.length > 0 ? value[0].label : placeholder)}
 				</IndoText>
-				<Animated.Image style={[{
-					transform: [{ rotate: spin}],
+				<Animated.View style={{
+					justifyContent: "center",
+					alignItems: "center",
 					width: 20,
 					height: 20,
-				}]}
-				source={triangle} />
+					transform: [{ rotate: spin}],
+				}}>
+					<Triangle />
+				</Animated.View>
 			</View>
 		</TouchableOpacity>
 	);
