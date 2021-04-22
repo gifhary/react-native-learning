@@ -1,5 +1,5 @@
 import IndoText from "../../components/IndoText";
-import React, {MutableRefObject, useEffect, useLayoutEffect, useRef, useState} from "react";
+import React, {useEffect, useLayoutEffect, useRef, useState} from "react";
 import globalStyles from "../../theme/globalStyles";
 import SafeAreaView from "react-native-safe-area-view";
 import {StackNavigationProp} from "@react-navigation/stack";
@@ -58,6 +58,7 @@ const MessagesMain: React.FC<IProps> = (props) => {
         });
     }, [props.navigation]);
 
+    // initial render for first message on 
     useEffect(() => {
         setTimeout(() => setMessageList([initialMessageRender]), 1000);
         return () => clearTimeout(setTimeout(() => setMessageList([initialMessageRender]), 1000));
