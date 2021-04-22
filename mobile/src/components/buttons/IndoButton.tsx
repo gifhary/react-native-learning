@@ -95,10 +95,7 @@ const IndoButton: React.FC<IProps> = (props) => {
 			{typeof props.children === "string" ? (
 				<View
 					style={[style.view, viewStyle, props.disabled && {backgroundColor: colors.gray}, props.viewStyle]}>
-					<IndoText style={[style.text, textStyle, props.textStyle, props.disabled && {
-						color: colors.black,
-						opacity: 0.25
-					}]}>{props.children}</IndoText>
+					<IndoText style={[style.text, textStyle, props.textStyle, props.disabled && {color: colors.black, opacity: 0.25}]}>{props.children}</IndoText>
 					{typeof props.bubble !== "undefined" &&
                     <View style={[style.bubble, bubbleStyle]}>
                         <IndoText style={style.bubbleText}>{props.bubble}</IndoText>
