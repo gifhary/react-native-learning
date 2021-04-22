@@ -44,8 +44,7 @@
     "redux-form": "^8.3.7",
     "redux-logger": "^3.0.6",
     "redux-persist": "^6.0.0",
-    "redux-promise": "^0.6.0",
-    "rn-keyboard-sticky-view": "^1.0.4"
+    "redux-promise": "^0.6.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",

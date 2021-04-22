@@ -58,7 +58,6 @@ const style = StyleSheet.create({
 	},
 	talkBubbleRight: {
 		marginHorizontal: 10,
-		minHeight: 80,
 		padding: 15,
 		backgroundColor: colors.white,
 		borderTopLeftRadius: 20,
@@ -74,7 +73,6 @@ const style = StyleSheet.create({
 	},
 	talkBubbleLeft: {
 		marginHorizontal: 10,
-		minHeight: 80,
 		padding: 15,
 		backgroundColor: colors.white,
 		borderTopLeftRadius: 25,
