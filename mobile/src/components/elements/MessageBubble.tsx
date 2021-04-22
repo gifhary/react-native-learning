@@ -1,7 +1,7 @@
 import React from "react";
 import {
 	ImageSourcePropType,
-	StyleSheet, useWindowDimensions,
+	StyleSheet,
 	View,
 } from "react-native";
 import colors from "../../theme/colors";
@@ -24,7 +24,7 @@ const MessageBubble: React.FC<IProps> = (props) => {
 	const {source, text, imagePosition} = props;
 
 	return (
-		<View style={[style.view, {width: "100%", paddingVertical: 15}]}>
+		<View style={[style.view]}>
 			{imagePosition === EMessageProfilePosition.LEFT && <View style={style.image}>
                 <ProfileImage source={source} mod={0.15}/>
             </View>}
@@ -51,6 +51,7 @@ const style = StyleSheet.create({
 		flexDirection: "row",
 		justifyContent: "center",
 		alignItems: "center",
+		paddingVertical: 15,
 	},
 	talkBubble: {
 		flex: 1,
