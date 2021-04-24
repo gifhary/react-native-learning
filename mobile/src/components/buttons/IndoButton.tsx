@@ -23,7 +23,7 @@ const IndoButton: React.FC<IProps> = (props) => {
 
 	let viewStyle: ViewStyle;
 	let textStyle: TextStyle;
-	let bubbleStyle: ViewStyle = {display: props.bubble ? "flex" : "none", left: 240 - 25};
+	let bubbleStyle: ViewStyle = { display: props.bubble ? "flex" : "none", left: 240 - 25 };
 	switch (props.color) {
 		case "orange":
 			viewStyle = {
@@ -90,25 +90,28 @@ const IndoButton: React.FC<IProps> = (props) => {
 			break;
 	}
 
+	//{width: (props.size === "sm" || props.size === "md") ? (props.size === "sm" ? 130 : 240) : props.size}
+
 	return (
-		<Pressable {...props} style={[style.touchable, props.style, {width: (props.size === "sm" || props.size === "md") ? (props.size === "sm" ? 180 : 240) : props.size}]}>
+		<Pressable {...props} style={[style.touchable, props.style, props.size === "sm" ? {}
+			: { width: (props.size === "md" || props.size === "bg") ? (props.size === "md" ? 130 : 240) : props.size }]}>
 			{typeof props.children === "string" ? (
 				<View
-					style={[style.view, viewStyle, props.disabled && {backgroundColor: colors.gray}, props.viewStyle]}>
-					<IndoText style={[style.text, textStyle, props.textStyle, props.disabled && {color: colors.black, opacity: 0.25}]}>{props.children}</IndoText>
+					style={[style.view, viewStyle, props.disabled && { backgroundColor: colors.gray }, props.viewStyle]}>
+					<IndoText style={[style.text, textStyle, props.textStyle, props.disabled && { color: colors.black, opacity: 0.25 }]}>{props.children}</IndoText>
 					{typeof props.bubble !== "undefined" &&
-                    <View style={[style.bubble, bubbleStyle]}>
-                        <IndoText style={style.bubbleText}>{props.bubble}</IndoText>
-                    </View>
+						<View style={[style.bubble, bubbleStyle]}>
+							<IndoText style={style.bubbleText}>{props.bubble}</IndoText>
+						</View>
 					}
 				</View>
 			) : (
 				<React.Fragment>
 					{props.children}
 					{typeof props.bubble !== "undefined" &&
-                    <View style={[style.bubble, bubbleStyle]}>
-                        <IndoText style={style.bubbleText}>{props.bubble}</IndoText>
-                    </View>
+						<View style={[style.bubble, bubbleStyle]}>
+							<IndoText style={style.bubbleText}>{props.bubble}</IndoText>
+						</View>
 					}
 				</React.Fragment>
 			)}
@@ -130,6 +133,7 @@ const style = StyleSheet.create({
 		paddingVertical: 10,
 	},
 	text: {
+		paddingHorizontal: 18,
 		fontWeight: "600",
 	},
 	touchable: {

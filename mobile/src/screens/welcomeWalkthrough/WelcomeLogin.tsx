@@ -33,10 +33,11 @@ const WelcomeLogin: React.FC<IProps> = (props) => {
                         <IndoText style={{textAlign: "center", paddingVertical: 15}}>Forgot Password?</IndoText>
                     </View>
                     <View style={style.center}>
-                        <IndoButton onPress={next}>Sign In</IndoButton>
+                        <IndoButton color = "yellow" size="bg" onPress={next}>Sign In</IndoButton>
                         <IndoButton onPress={() => {
                             Alert.alert("Make sign up");
-                        }} color="outline-orange">Sign Up</IndoButton>
+                        }} color="outline-orange"
+                        size="bg">Sign Up</IndoButton>
                     </View>
             </KeyboardAwareScrollView>
         </SafeAreaView>

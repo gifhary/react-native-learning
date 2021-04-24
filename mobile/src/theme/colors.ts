@@ -1,5 +1,5 @@
 export default {
-	gray: "#EEEEEE",
+	gray: "#A39F91",
 	navy: "#000368",
 	cyan: "#00B4EC",
 	lime: "#00CAE1",
