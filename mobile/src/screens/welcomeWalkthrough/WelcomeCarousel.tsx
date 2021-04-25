@@ -8,8 +8,7 @@ import { StackNavigationProp } from "@react-navigation/stack";
 import Carousel from "react-native-snap-carousel";
 import IndoButton from "../../components/buttons/IndoButton";
 import colors from "../../theme/colors";
-import { Icon } from 'react-native-elements'
-
+import Circle from "../../components/shapes/Circle";
 
 interface IProps {
     navigation: StackNavigationProp<any>;
@@ -19,9 +18,13 @@ interface PageInfo {
     progress: EStepTracker;
     image: string;
     body: string;
-    bodyColor: string;
-    trackerActiveColor: string;
-    trackerInactiveColor: string;
+    mainColor: string;
+    secondColor: string;
+    thirdColor: string;
+    leftCircleScale: number;
+    rightCircleScale: number;
+    leftCirclePos: number;
+    rightCirclePos: number;
 }
 
 /**
@@ -34,6 +37,7 @@ interface PageInfo {
 const WelcomeCarousel: React.FC<IProps> = (props) => {
     const window = useWindowDimensions();
     const [page, setPage] = useState(EStepTracker.START);
+    const [skipColor, setSkipColor] = useState(colors.gray);
 
     const carouselRef = useRef();
 
@@ -46,25 +50,37 @@ const WelcomeCarousel: React.FC<IProps> = (props) => {
             progress: EStepTracker.START,
             image: "https://via.placeholder.com/500",
             body: "We sell Mutual Funds (This is important to mention) Introduction about our Company",
-            bodyColor: colors.white,
-            trackerActiveColor: colors.orange,
-            trackerInactiveColor: colors.gray,
+            mainColor: colors.white,
+            secondColor: colors.orange,
+            thirdColor: colors.gray,
+            leftCircleScale: 4.28,
+            rightCircleScale: 2.45,
+            leftCirclePos: window.height * 0.48,
+            rightCirclePos: window.height * 0.12,
         },
         {
             progress: EStepTracker.MIDDLE,
             image: "https://via.placeholder.com/500",
             body: "Attract users with our attractive reward system. Tell users we will help them achieve their dreams (inspiring way)",
-            bodyColor: colors.orange,
-            trackerActiveColor: colors.white,
-            trackerInactiveColor: colors.yellow,
+            mainColor: colors.orange,
+            secondColor: colors.white,
+            thirdColor: colors.yellow,
+            leftCircleScale: 4.28,
+            rightCircleScale: 1.64,
+            leftCirclePos: window.height * 0.2,
+            rightCirclePos: window.height * 0.6,
         },
         {
             progress: EStepTracker.END,
             image: "https://via.placeholder.com/500",
             body: "About us, we make things simple, easy, safe and fun!",
-            bodyColor: colors.white,
-            trackerActiveColor: colors.orange,
-            trackerInactiveColor: colors.gray,
+            mainColor: colors.white,
+            secondColor: colors.orange,
+            thirdColor: colors.gray,
+            leftCircleScale: 4.28,
+            rightCircleScale: 2.45,
+            leftCirclePos: window.height * 0.48,
+            rightCirclePos: window.height * 0.12,
         },
     ];
 
@@ -75,13 +91,24 @@ const WelcomeCarousel: React.FC<IProps> = (props) => {
     const createPage = (data: any) => {
         const item = data.item;
 
-        return (<View style={{ flex: 1, padding: 5, backgroundColor: item.bodyColor }}>
+        return (<View style={{ flex: 1, padding: 5, backgroundColor: item.mainColor, overflow:"hidden" }}>
             <StatusBar translucent backgroundColor="transparent" />
-            <View style={{ flex: 1, justifyContent: "center" }}>
+            <View style={{ flex: 1, justifyContent: "center", /*zIndex:1*/ }}>
                 <Image source={{ uri: item.image }}
                     style={{ width: "100%", height: window.height / 3, resizeMode: "cover" }} />
             </View>
-            <View style={{ flex: 1, justifyContent: "center" }}>
+            
+            {/* left circle */}
+            <View style = {{position: "absolute", left: -75, top: item.leftCirclePos}}>
+                <Circle color= {item.secondColor} scale = {item.leftCircleScale}/>
+            </View>
+
+            {/* right circle */}
+            <View style = {{position: "absolute", right: -25, top: item.rightCirclePos}}>
+                <Circle color= {item.secondColor} scale = {item.rightCircleScale}/>
+            </View>
+           
+            <View style={{ flex: 1, justifyContent: "center", /*zIndex:1*/}}>
                 <IndoText style={{ textAlign: "center" }}>{item.body}</IndoText>
             </View>
         </View>);
@@ -91,7 +118,7 @@ const WelcomeCarousel: React.FC<IProps> = (props) => {
         <SafeAreaView style={globalStyles.safeArea}>
             <View style={{ left:23, top:50, position: "absolute", zIndex: 1 }}>
                 <TouchableOpacity onPress={navigateToLandingPage} activeOpacity={0.8} style={{ padding: 5 }}>
-                    <IndoText style= {{color:colors.gray}}>Skip</IndoText>
+                    <IndoText style= {{color:skipColor}}>Skip</IndoText>
                 </TouchableOpacity>
             </View>
 
@@ -101,14 +128,21 @@ const WelcomeCarousel: React.FC<IProps> = (props) => {
                 renderItem={createPage}
                 sliderWidth={window.width}
                 itemWidth={window.width}
-                onSnapToItem={e => togglePage(e)}
+                onSnapToItem={e => {
+                    togglePage(e);
+                    if(e === EStepTracker.MIDDLE){
+                        setSkipColor(pageData[e].secondColor);
+                    } else{
+                        setSkipColor(pageData[e].thirdColor);
+                    }
+                }}
             />
 
             <View style={{height:30, left: 20, position: "absolute", zIndex: 1, bottom: 50 }}>
                 <StepTracker
                     progress={page}
-                    activeColor={pageData[page].trackerActiveColor}
-                    inactiveColor={pageData[page].trackerInactiveColor} />
+                    activeColor={pageData[page].secondColor}
+                    inactiveColor={pageData[page].thirdColor} />
             </View>
 
             <View style={{ position: "absolute", zIndex: 1, bottom: 50, right: 20 }}>
