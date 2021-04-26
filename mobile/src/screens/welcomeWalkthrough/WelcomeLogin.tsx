@@ -27,15 +27,15 @@ const WelcomeLogin: React.FC<IProps> = (props) => {
             <StatusBar translucent backgroundColor="transparent" />
             <KeyboardAwareScrollView style={[globalStyles.pagePadding]}>
                 <View style={{ flex: 1, height: window.height / 5 }} />
-                <IndoText style={style.title}>Sign In</IndoText>
+                <IndoText style={[globalStyles.h1, { paddingBottom: 10, }]}>Sign In</IndoText>
 
                 <View style={style.inputGroup}>
-                    <IndoText>Email</IndoText>
+                    <IndoText style={globalStyles.h4}>Email</IndoText>
                     <IndoTextInput value={email} onChangeText={(e) => setEmail(e)} placeholder="Email..." />
                 </View>
 
                 <View style={style.inputGroup}>
-                    <IndoText>Password</IndoText>
+                    <IndoText style={globalStyles.h4}>Password</IndoText>
                     <IndoTextInput secureTextEntry={true} autoCompleteType="password" placeholder="Password..." />
                 </View>
                 <IndoText style={{ color: colors.orange }}>Forgot password?</IndoText>
@@ -62,11 +62,6 @@ const style = StyleSheet.create({
     },
     inputGroup: {
         paddingVertical: 8
-    },
-    title: {
-        fontSize: 30,
-        paddingBottom: 10,
-        fontWeight: "bold"
     },
     button: {
         paddingVertical: 25,

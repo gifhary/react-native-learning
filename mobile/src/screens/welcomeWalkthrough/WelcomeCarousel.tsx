@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import IndoText from "../../components/IndoText";
 import SafeAreaView from "react-native-safe-area-view";
 import globalStyles from "../../theme/globalStyles";
-import { Image, StatusBar, TouchableOpacity, useWindowDimensions, View } from "react-native";
+import { Image, StatusBar, StyleSheet, TouchableOpacity, useWindowDimensions, View } from "react-native";
 import StepTracker, { EStepTracker } from "../../components/elements/StepTracker";
 import { StackNavigationProp } from "@react-navigation/stack";
 import Carousel from "react-native-snap-carousel";
@@ -25,6 +25,7 @@ interface PageInfo {
     rightCircleScale: number;
     leftCirclePos: number;
     rightCirclePos: number;
+    circleOpacity: number;
 }
 
 /**
@@ -59,6 +60,7 @@ const WelcomeCarousel: React.FC<IProps> = (props) => {
             rightCircleScale: 2.45,
             leftCirclePos: window.height * 0.48,
             rightCirclePos: window.height * 0.12,
+            circleOpacity:0.5,
         },
         {
             progress: EStepTracker.MIDDLE,
@@ -71,6 +73,7 @@ const WelcomeCarousel: React.FC<IProps> = (props) => {
             rightCircleScale: 1.64,
             leftCirclePos: window.height * 0.2,
             rightCirclePos: window.height * 0.6,
+            circleOpacity:1,
         },
         {
             progress: EStepTracker.END,
@@ -83,6 +86,7 @@ const WelcomeCarousel: React.FC<IProps> = (props) => {
             rightCircleScale: 2.45,
             leftCirclePos: window.height * 0.48,
             rightCirclePos: window.height * 0.12,
+            circleOpacity:0.5,
         },
     ];
 
@@ -102,23 +106,23 @@ const WelcomeCarousel: React.FC<IProps> = (props) => {
             
             {/* left circle */}
             <View style = {{position: "absolute", left: -75, top: item.leftCirclePos}}>
-                <Circle color= {item.secondColor} scale = {item.leftCircleScale}/>
+                <Circle color= {item.secondColor} scale = {item.leftCircleScale} opacity={item.circleOpacity}/>
             </View>
 
             {/* right circle */}
             <View style = {{position: "absolute", right: -25, top: item.rightCirclePos}}>
-                <Circle color= {item.secondColor} scale = {item.rightCircleScale}/>
+                <Circle color= {item.secondColor} scale = {item.rightCircleScale} opacity={item.circleOpacity}/>
             </View>
            
-            <View style={{ flex: 1, justifyContent: "center", /*zIndex:1*/}}>
-                <IndoText style={{ textAlign: "center" }}>{item.body}</IndoText>
+            <View style={{ flex: 1, justifyContent: "center", alignItems: "center",}}>
+                <IndoText style={[globalStyles.h4,{textAlign: "center", width: window.width * 0.7}]}>{item.body}</IndoText>
             </View>
         </View>);
     }
 
     return (
         <SafeAreaView style={globalStyles.safeArea}>
-            <View style={{ left:23, top:50, position: "absolute", zIndex: 1 }}>
+            <View style={style.skipBtn}>
                 <TouchableOpacity onPress={navigateToLandingPage} activeOpacity={0.8} style={{ padding: 5 }}>
                     <IndoText style= {{color:skipColor}}>Skip</IndoText>
                 </TouchableOpacity>
@@ -133,21 +137,21 @@ const WelcomeCarousel: React.FC<IProps> = (props) => {
                 onSnapToItem={e => {
                     togglePage(e);
                     if(e === EStepTracker.MIDDLE){
-                        setSkipColor(pageData[e].secondColor);
+                        setSkipColor(colors.white);
                     } else{
-                        setSkipColor(pageData[e].thirdColor);
+                        setSkipColor(colors.gray);
                     }
                 }}
             />
 
-            <View style={{height:30, left: 20, position: "absolute", zIndex: 1, bottom: 50 }}>
+            <View style={style.tracker}>
                 <StepTracker
                     progress={page}
                     activeColor={pageData[page].secondColor}
                     inactiveColor={pageData[page].thirdColor} />
             </View>
 
-            <View style={{ position: "absolute", zIndex: 1, bottom: 50, right: 20 }}>
+            <View style={style.bottomRightBtn}>
                 {(page === EStepTracker.END) ? (
                     <IndoButton
                         onPress={navigateToLandingPage}
@@ -164,5 +168,27 @@ const WelcomeCarousel: React.FC<IProps> = (props) => {
         </SafeAreaView>
     );
 };
+
+const style = StyleSheet.create({
+	skipBtn: {
+		left:23,
+        top:50,
+        position: "absolute",
+        zIndex: 1
+	},
+	tracker: {
+		height:30,
+        left: 20,
+        position: "absolute",
+        zIndex: 1,
+        bottom: 50
+	},
+	bottomRightBtn: {
+		position: "absolute",
+        zIndex: 1,
+        bottom: 50,
+        right: 20
+	},
+});
 
 export default WelcomeCarousel;

@@ -133,7 +133,7 @@ const style = StyleSheet.create({
 		paddingVertical: 10,
 	},
 	text: {
-		paddingHorizontal: 18,
+		paddingHorizontal: 16,
 		fontWeight: "600",
 	},
 	touchable: {
