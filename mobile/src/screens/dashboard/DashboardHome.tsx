@@ -1,10 +1,10 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import IndoText from "../../components/IndoText";
 import globalStyles from "../../theme/globalStyles";
 import SafeAreaView from "react-native-safe-area-view";
-import {Image, ScrollView, StyleSheet, View} from "react-native";
+import { Image, ScrollView, StyleSheet, View } from "react-native";
 import colors from "../../theme/colors";
-import {KeyboardAwareScrollView} from "react-native-keyboard-aware-scroll-view";
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import ProgressBar from "../../components/elements/ProgressBar";
 import BannerImage from "../../components/elements/BannerImage";
 import ArticleComponent from "../../components/elements/ArticleComponent";
@@ -12,9 +12,9 @@ import BannerInstructions from "../../components/elements/BannerInstructions";
 import IndoCheckBox from "../../components/inputs/toggles/IndoCheckbox";
 import ProductsCard from "../../components/elements/ProductsCard";
 import AchievementCardDetailed from "../../components/elements/AchievementCardDetailed";
-import {connect} from "react-redux";
+import { connect } from "react-redux";
 import InvestingCard from "../../components/elements/InvestingCard";
-import {StackNavigationProp} from "@react-navigation/stack";
+import { StackNavigationProp } from "@react-navigation/stack";
 import IndoButton from "../../components/buttons/IndoButton";
 
 const source = require("../../../assets/icons/Artboard_1_copy_188x.png");
@@ -73,14 +73,22 @@ const placeholder4 = {
         {
             header: "Daily Login",
             value: "15",
+            check: true,
         },
         {
             header: "Invest $1 or more",
             value: "25",
+            check: false,
         },
         {
             header: "Invite a friend",
             value: "10",
+            check: true,
+        },
+        {
+            header: "Ndas mu abang",
+            value: "100",
+            check: false,
         },
     ],
 };
@@ -113,13 +121,15 @@ interface IProps {
 
 function createCrystalInstructionElement(item: any, index: number) {
     return (
-        <IndoCheckBox key={`instruction-item-${index}`} value={false} setValue={() => {
-        }}>
+        <IndoCheckBox key={`instruction-item-${index}`}
+            value={item.check}
+            setValue={() => {
+            }}>
             <View style={style.instructionElement}>
-                <IndoText style={{flex: 1}}>{item.header}</IndoText>
-                <View style={{justifyContent: "center", alignItems: "center", flexDirection: "row", paddingRight: 10}}>
-                    <IndoText style={{paddingHorizontal: 15}}>{item.value}</IndoText>
-                    <Image style={{width: 20, height: 20}} source={{uri: "https://via.placeholder.com/300"}}/>
+                <IndoText style={{ flex: 1 }}>{item.header}</IndoText>
+                <View style={{ justifyContent: "center", alignItems: "center", flexDirection: "row", paddingRight: 10 }}>
+                    <IndoText style={{ paddingHorizontal: 15 }}>{item.value}</IndoText>
+                    <Image style={{ width: 20, height: 20 }} source={{ uri: "https://via.placeholder.com/300" }} />
                 </View>
             </View>
         </IndoCheckBox>
@@ -191,7 +201,7 @@ const DashboardHome: React.FC<IProps> = (props) => {
                                 <IndoText>I'm saving for a BMW</IndoText>
                                 <IndoText onPress={editGoal}>Edit {">"}</IndoText>
                             </View>
-                            <ProgressBar progress={25} total={100}/>
+                            <ProgressBar progress={25} total={100} />
                             <View>
                                 <IndoText style={globalStyles.h1}>${122}</IndoText>
                                 <IndoText>Balance</IndoText>
@@ -209,11 +219,11 @@ const DashboardHome: React.FC<IProps> = (props) => {
                         onPress={NavigationToDreamCalculatorPage1}
                     />
                 )}
-                <View style={{alignItems: "center"}}>
+                <View style={{ alignItems: "center" }}>
                     <IndoButton color="outline-orange" onPress={toggleDemo}>Toggle Above Component</IndoButton>
                 </View>
                 <ArticleComponent header={placeholder1.header} buttonText={placeholder1.buttonText}
-                                  source={placeholder1.source}/>
+                    source={placeholder1.source} />
 
                 {demoToggle2 ? (
                     <BannerImage
@@ -237,26 +247,26 @@ const DashboardHome: React.FC<IProps> = (props) => {
                     />
                 )}
 
-                <View style={{alignItems: "center"}}>
+                <View style={{ alignItems: "center" }}>
                     <IndoButton color="outline-orange" onPress={toggleDemo2}>Toggle Above Component</IndoButton>
                 </View>
 
                 <View>
                     <IndoText style={[globalStyles.pagePadding, globalStyles.h2]}>My Portfolio</IndoText>
                     <ProductsCard header={placeholder3.header} subHeader={placeholder3.subHeader}
-                                  leftSubHeader={placeholder3.leftSubHeader} rightHeader={placeholder3.rightHeader}
-                                  leftHeader={placeholder3.leftSubHeader} rightSubHeader={placeholder3.rightSubHeader}/>
+                        leftSubHeader={placeholder3.leftSubHeader} rightHeader={placeholder3.rightHeader}
+                        leftHeader={placeholder3.leftSubHeader} rightSubHeader={placeholder3.rightSubHeader} />
                 </View>
 
                 <BannerInstructions header={placeholder4.header} subHeader={placeholder4.subHeader}>
-                    <View style={{justifyContent: "flex-start", width: "100%"}}>
+                    <View style={{ justifyContent: "flex-start", width: "100%" }}>
                         {placeholder4.instructions.map(createCrystalInstructionElement)}
                     </View>
                 </BannerInstructions>
 
-                <IndoText style={[globalStyles.h1, {paddingHorizontal: 20, paddingVertical: 10}]}>Recent Goal
+                <IndoText style={[globalStyles.h1, { paddingHorizontal: 20, paddingVertical: 10 }]}>Recent Goal
                     Achievements</IndoText>
-                <ScrollView horizontal={true} style={[{flexDirection: "row"}]}>
+                <ScrollView horizontal={true} style={[{ flexDirection: "row" }]}>
                     {placeholder5Array.map(createAchievementCards)}
                 </ScrollView>
 

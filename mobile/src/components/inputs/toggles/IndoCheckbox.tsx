@@ -19,7 +19,7 @@ const IndoCheckBox: React.FC<IProps> = (props) => {
 				<View style={[styles.checkbox, {backgroundColor: props.value ? colors.orange : "transparent"}]}>
 					{props.value && (
 						<IndoText style={styles.check} allowFontScaling={false}>
-							✓
+							✔
 						</IndoText>
 					)}
 				</View>

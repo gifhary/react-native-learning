@@ -3,29 +3,30 @@ import {
 	StyleSheet, useWindowDimensions,
 	View,
 } from "react-native";
-import colors from "../../theme/colors";
 
 interface IProps {
 	progress: EStepTracker,
+	activeColor: string,
+	inactiveColor: string,
 }
 
 export enum EStepTracker {
-	START ,
+	START,
 	MIDDLE,
 	END,
 }
 const StepTracker: React.FC<IProps> = (props) => {
 
-	const {progress} = props;
+	const { progress } = props;
 	const window = useWindowDimensions();
 
 	function renderBars(progress: EStepTracker) {
 		const tempArray = [];
 		for (let i = 0; i <= 2; i++) {
-			if (i <= progress) {
-				tempArray.push(<View key={i} style={[style.orangeBox, {width: (window.width / 3 - 15)}]} />);
+			if (i == progress) {
+				tempArray.push(<View key={i} style={[style.activeBox, { width: 35, backgroundColor: props.activeColor, borderColor: props.activeColor }]} />);
 			} else {
-				tempArray.push(<View key={i} style={[style.grayBox, {width: (window.width / 3 - 15)}]} />);
+				tempArray.push(<View key={i} style={[style.inactiveBox, { width: 8, backgroundColor: props.inactiveColor, borderColor: props.inactiveColor}]} />);
 			}
 		}
 		return tempArray;
@@ -48,20 +49,16 @@ const style = StyleSheet.create({
 		flexDirection: "row",
 		height: 15,
 	},
-	grayBox: {
-		marginHorizontal: 5,
-		backgroundColor: colors.gray,
-		height: 3,
+	inactiveBox: {
+		marginHorizontal: 3,
+		height: 8,
 		borderWidth: 1,
-		borderColor: colors.gray,
 		borderRadius: 5,
 	},
-	orangeBox: {
-		marginHorizontal: 5,
-		backgroundColor: colors.yellow,
-		height: 3,
+	activeBox: {
+		marginHorizontal: 3,
+		height: 8,
 		borderWidth: 1,
-		borderColor: colors.yellow,
 		borderRadius: 5,
 	}
 });

@@ -26,6 +26,7 @@ const DemoButtonList: React.FC<IDemoButtonGroup> = (props) => {
 			<IndoButton
 				key={`${props.title}-button_${i}`}
 				onPress={onPress}
+				size="bg"
 			>
 				{button.label}
 			</IndoButton>
