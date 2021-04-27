@@ -108,7 +108,6 @@ const WelcomeCarousel: React.FC<IProps> = (props) => {
             <View style = {{position: "absolute", left: -75, top: item.leftCirclePos}}>
                 <Circle color= {item.secondColor} scale = {item.leftCircleScale} opacity={item.circleOpacity}/>
             </View>
-
             {/* right circle */}
             <View style = {{position: "absolute", right: -25, top: item.rightCirclePos}}>
                 <Circle color= {item.secondColor} scale = {item.rightCircleScale} opacity={item.circleOpacity}/>

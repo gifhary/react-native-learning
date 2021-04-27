@@ -8,6 +8,8 @@ import IndoButton from "../../components/buttons/IndoButton";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import colors from "../../theme/colors";
+import RoundButton from "../../components/buttons/RoundButton";
+import { hasSubmitFailed } from "redux-form";
 
 interface IProps {
     navigation: StackNavigationProp<any>;
@@ -22,12 +24,18 @@ const WelcomeLogin: React.FC<IProps> = (props) => {
         props.navigation.replace("WelcomeLandingPage");
     }
 
+    function ha() {
+        console.log("c");
+    }
+
     return (
         <SafeAreaView style={[globalStyles.safeArea]}>
             <StatusBar translucent backgroundColor="transparent" />
             <KeyboardAwareScrollView style={[globalStyles.pagePadding]}>
                 <View style={{ flex: 1, height: window.height / 5 }} />
                 <IndoText style={[globalStyles.h1, { paddingBottom: 10, }]}>Sign In</IndoText>
+
+                <RoundButton color={colors.orange} onPress={ha}/>
 
                 <View style={style.inputGroup}>
                     <IndoText style={globalStyles.h4}>Email</IndoText>

@@ -3,7 +3,6 @@ import {
 	Pressable,
 	StyleSheet,
 	TextStyle,
-	TouchableHighlight,
 	TouchableHighlightProps,
 	View,
 	ViewStyle
