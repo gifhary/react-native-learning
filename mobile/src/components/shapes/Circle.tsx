@@ -1,12 +1,13 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
-import constant from "./constant";
 
 interface IProps {
     color: string,
     scale?: number,
     opacity?: number,
 }
+
+const size = 50;
 
 const Circle: React.FC<IProps> = (props) => {
     const scale = props.scale ?? 1;
@@ -16,9 +17,9 @@ const Circle: React.FC<IProps> = (props) => {
 
 const style = StyleSheet.create({
     circle: {
-        width: constant.dimension,
-        height: constant.dimension,
-        borderRadius: constant.dimension / 2,
+        width: size,
+        height: size,
+        borderRadius: size / 2,
     },
 });
 

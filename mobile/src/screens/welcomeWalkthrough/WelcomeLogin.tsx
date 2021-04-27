@@ -8,7 +8,7 @@ import IndoButton from "../../components/buttons/IndoButton";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import colors from "../../theme/colors";
-import RoundButton from "../../components/buttons/RoundButton";
+import CircleButton from "../../components/buttons/CircleButton";
 import { hasSubmitFailed } from "redux-form";
 
 interface IProps {
@@ -35,7 +35,8 @@ const WelcomeLogin: React.FC<IProps> = (props) => {
                 <View style={{ flex: 1, height: window.height / 5 }} />
                 <IndoText style={[globalStyles.h1, { paddingBottom: 10, }]}>Sign In</IndoText>
 
-                <RoundButton color={colors.orange} onPress={ha}/>
+                {/* yee haw button test */}
+                <CircleButton color={colors.orange} onPress={ha}>A</CircleButton>
 
                 <View style={style.inputGroup}>
                     <IndoText style={globalStyles.h4}>Email</IndoText>

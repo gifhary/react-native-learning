@@ -1,14 +1,17 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import IndoText from "../../components/IndoText";
 import globalStyles from "../../theme/globalStyles";
 import SafeAreaView from "react-native-safe-area-view";
-import {StackNavigationProp} from "@react-navigation/stack";
-import {RouteProp} from "@react-navigation/native";
-import {EAchievements} from "./GoalsStep1";
-import {StyleSheet, View} from "react-native";
-import {IndoTextInput} from "../../components/inputs/IndoInput";
-import {KeyboardAwareScrollView} from "react-native-keyboard-aware-scroll-view";
+import { StackNavigationProp } from "@react-navigation/stack";
+import { RouteProp } from "@react-navigation/native";
+import { EAchievements } from "./GoalsStep1";
+import { StyleSheet, TouchableWithoutFeedback, View } from "react-native";
+import { IndoTextInput } from "../../components/inputs/IndoInput";
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import IndoButton from "../../components/buttons/IndoButton";
+import CircleButton from "../../components/buttons/CircleButton";
+import colors from "../../theme/colors";
+import NumberKeyboard from "../../components/keyboard/NumberKeyboard";
 
 interface IProps {
     route?: RouteProp<{ choice: EAchievements }, "GoalsStep2">;
@@ -40,46 +43,67 @@ function getValue(choice: EAchievements) {
 const GoalsStep2: React.FC<IProps> = (props) => {
 
     const route = props?.route?.params?.choice;
-	const [investment, setInvestment] = useState<string>();
+    const [investment, setInvestment] = useState("");
+    const [textCursorPosition, setTextCursorPosition] = useState();
 
-	function setInvestmentAmount(e: string) {
-		setInvestment(e);
-	}
+    //if user paste certain thing in the textInput other than number, auto remove
+    function setInvestmentAmount(e: string) {
+        //sanitize, remove non number stuff
+        const onlyNumber = e.replace(/[^0-9]/g, '');
+        setInvestment(onlyNumber);
+    }
 
-	function next(): void {
-		props.navigation.navigate("GoalsStep3", {...props.route?.params, goalAmount: investment});
-	}
+    function next(): void {
+        props.navigation.navigate("GoalsStep3", { ...props.route?.params, goalAmount: investment });
+    }
+
+    function onSelectionChange(e: any) {
+        setTextCursorPosition(e.nativeEvent.selection.start);
+        console.log(e.nativeEvent.selection.start);
+    }
 
     return (
         <SafeAreaView style={globalStyles.safeArea}>
-            <KeyboardAwareScrollView style={[globalStyles.pagePadding]} contentContainerStyle={style.view}>
+            <View style={[globalStyles.pagePadding, style.view]}>
                 <View>
                     <IndoText style={[globalStyles.h1, style.alignCenter]}>How much will your goal cost?</IndoText>
                     <IndoText style={style.bodyText}>We estimate {route} will
                         cost {getValue(route)}</IndoText>
                 </View>
-                <IndoTextInput keyboardType="decimal-pad" value={investment} onChangeText={setInvestmentAmount} />
+
+                <IndoTextInput showSoftInputOnFocus={false}
+                    value={investment}
+                    onChangeText={setInvestmentAmount}
+                    selection={{ start: textCursorPosition ?? 0 }}
+                    onSelectionChange={onSelectionChange} />
+
+                <NumberKeyboard text={investment}
+                    setText={setInvestmentAmount}
+                    textCursor={textCursorPosition}
+                    setTextCursor={setTextCursorPosition} />
+
                 <View style={style.alignCenter}>
-                    <IndoButton disabled={investment === undefined} onPress={next}>Continue</IndoButton>
+                    <IndoButton disabled={investment === ""} onPress={next}>Continue</IndoButton>
                 </View>
-            </KeyboardAwareScrollView>
+            </View>
+
         </SafeAreaView>
     );
 };
 
 const style = StyleSheet.create({
     view: {
-    	width: "100%",
-    	height: "50%",
-		justifyContent: "space-between"
+        width: "100%",
+        height: "50%",
+        justifyContent: "space-between"
     },
-	bodyText: {
-    	textAlign: "center",
-		paddingVertical: 10
-	},
-	alignCenter: {
-    	alignItems: "center",
-	}
+    bodyText: {
+        textAlign: "center",
+        paddingVertical: 10
+    },
+    alignCenter: {
+        alignItems: "center",
+    }
 });
 
 export default GoalsStep2;
