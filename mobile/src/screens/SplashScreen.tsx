@@ -26,7 +26,7 @@ const SplashScreen: React.FC<IProps> = (props) => {
 		<SafeAreaView style={globalStyles.safeArea}>
 			<StatusBar translucent backgroundColor="transparent" />
 			<View style={style.biggerContainer}>
-				<View style={[style.container, { height: window.height * 0.43 }]}>
+				<View style={[style.container, { height: window.height * 0.44 }]}>
 					<Image
 						source={require("../../assets/icons/rocket_icon_logo.png")}
 						style={style.iconLogo}
@@ -37,6 +37,10 @@ const SplashScreen: React.FC<IProps> = (props) => {
 					/>
 					<IndoText style={globalStyles.h4}>Prepare to launch..</IndoText>
 				</View>
+				<Image
+					source={require("../../assets/icons/cloud.png")}
+					style={[style.cloud, { width: window.width, bottom: -window.height * 0.05 }]}
+				/>
 			</View>
 		</SafeAreaView>
 	);
@@ -48,6 +52,7 @@ const style = StyleSheet.create({
 		backgroundColor: colors.orange
 	},
 	container: {
+		zIndex: 1,
 		position: "absolute",
 		bottom: 50,
 		justifyContent: "space-between",
@@ -62,6 +67,9 @@ const style = StyleSheet.create({
 		height: 25,
 		width: 117,
 		resizeMode: "contain",
+	},
+	cloud: {
+		position: "absolute",
 	},
 });
 
