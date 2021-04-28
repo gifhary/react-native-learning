@@ -27,11 +27,17 @@ import CircleButton from "../buttons/CircleButton";
 //     setText={setText}
 //     textCursor={textCursor}
 //     setTextCursor={setTextCursor} />
+
+
+
+
+//buttonColor is optional, default value is orange color if it's isn't provided.
 interface IProps {
     text: string,
     setText: any,
     textCursor?: number,
     setTextCursor?: any,
+    buttonColor?: string,
 }
 
 const ButtonArray = [
@@ -77,7 +83,7 @@ const NumberKeyboard: React.FC<IProps> = (props) => {
                     {row.map((item, key) =>
                         <CircleButton key={`custom-keyboard-row-item-${key}`} color={item === undefined
                             ? "transparent"
-                            : colors.orange}
+                            : props.buttonColor === undefined ? colors.orange : props.buttonColor}
                             disabled={item === undefined
                                 ? true
                                 : false}
