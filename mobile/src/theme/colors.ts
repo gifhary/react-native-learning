@@ -1,4 +1,16 @@
 export default {
+	primary: "",
+	secondary: "",
+	subtleWhite: "",
+	white: "#FFFFFF",
+	border: "",
+	secondDark: "",
+	softPrimary: "",
+	inactiveIcon: "",
+
+	body: "#312F26",
+	disabled: "#888888",
+
 	gray: "#EEEEEE",
 	navy: "#000368",
 	cyan: "#00B4EC",
@@ -7,6 +19,5 @@ export default {
 	orange: "#F99F1E",
 
 	black: "#000000",
-	white: "#FFFFFF",
 	unselectedNavBar: "#7f7f7f",
 }

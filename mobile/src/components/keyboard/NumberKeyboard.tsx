@@ -44,10 +44,11 @@ const ButtonArray = [
     ["1", "2", "3"],
     ["4", "5", "6"],
     ["7", "8", "9"],
-    ["000", "0", 'back'],
+    ["0", "000", 'back'],
 ]
 
 const NumberKeyboard: React.FC<IProps> = (props) => {
+
     function writeText(item: string) {
         const cur = props.textCursor;
 
@@ -59,6 +60,7 @@ const NumberKeyboard: React.FC<IProps> = (props) => {
             if (props.setTextCursor != undefined) {
                 props.setTextCursor(cur + item.length);
             }
+
         }
     }
 
@@ -81,21 +83,23 @@ const NumberKeyboard: React.FC<IProps> = (props) => {
             {ButtonArray.map((row, index) =>
                 <View key={`custom-keyboard-row-${index}`} style={style.row}>
                     {row.map((item, key) =>
-                        <CircleButton key={`custom-keyboard-row-item-${key}`} color={item === undefined
-                            ? "transparent"
-                            : props.buttonColor === undefined ? colors.orange : props.buttonColor}
-                            disabled={item === undefined
-                                ? true
-                                : false}
-                            onPress={() => {
-                                if (item === "back") {
-                                    backSpace();
-                                } else {
-                                    writeText(item);
-                                }
-                            }}
-                            scale={1.2}
-                        >{item}</CircleButton>
+                        <View style={style.item}>
+                            <CircleButton key={`custom-keyboard-row-item-${key}`} color={item === undefined
+                                ? "transparent"
+                                : props.buttonColor === undefined ? colors.orange : props.buttonColor}
+                                disabled={item === undefined
+                                    ? true
+                                    : false}
+                                onPress={() => {
+                                    if (item === "back") {
+                                        backSpace();
+                                    } else {
+                                        writeText(item);
+                                    }
+                                }}
+                                scale={1.2}
+                            >{item}</CircleButton>
+                        </View>
                     )}
                 </View>
             )}
@@ -107,8 +111,10 @@ const style = StyleSheet.create({
     row: {
         flexDirection: "row",
         justifyContent: "space-evenly",
-        paddingVertical: 20,
     },
+    item: {
+        padding: 17,
+    }
 });
 
 export default NumberKeyboard;

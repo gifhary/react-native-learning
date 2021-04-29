@@ -5,13 +5,14 @@ import SafeAreaView from "react-native-safe-area-view";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { RouteProp } from "@react-navigation/native";
 import { EAchievements } from "./GoalsStep1";
-import { StyleSheet, TouchableWithoutFeedback, View } from "react-native";
+import { StyleSheet, TouchableWithoutFeedback, useWindowDimensions, View } from "react-native";
 import { IndoTextInput } from "../../components/inputs/IndoInput";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import IndoButton from "../../components/buttons/IndoButton";
 import CircleButton from "../../components/buttons/CircleButton";
 import colors from "../../theme/colors";
 import NumberKeyboard from "../../components/keyboard/NumberKeyboard";
+import MoneyInput from "../../components/inputs/MoneyInput";
 
 interface IProps {
     route?: RouteProp<{ choice: EAchievements }, "GoalsStep2">;
@@ -41,25 +42,23 @@ function getValue(choice: EAchievements) {
 }
 
 const GoalsStep2: React.FC<IProps> = (props) => {
-
+    const window = useWindowDimensions();
     const route = props?.route?.params?.choice;
     const [investment, setInvestment] = useState("");
-    const [textCursorPosition, setTextCursorPosition] = useState();
+    const amountLimit = 11;
 
     //if user paste certain thing in the textInput other than number, auto remove
     function setInvestmentAmount(e: string) {
         //sanitize, remove non number stuff
         const onlyNumber = e.replace(/[^0-9]/g, '');
-        setInvestment(onlyNumber);
+
+        if (onlyNumber.length <= amountLimit) {
+            setInvestment(onlyNumber);
+        }
     }
 
     function next(): void {
         props.navigation.navigate("GoalsStep3", { ...props.route?.params, goalAmount: investment });
-    }
-
-    function onSelectionChange(e: any) {
-        setTextCursorPosition(e.nativeEvent.selection.start);
-        console.log(e.nativeEvent.selection.start);
     }
 
     return (
@@ -71,16 +70,11 @@ const GoalsStep2: React.FC<IProps> = (props) => {
                         cost {getValue(route)}</IndoText>
                 </View>
 
-                <IndoTextInput showSoftInputOnFocus={false}
-                    value={investment}
-                    onChangeText={setInvestmentAmount}
-                    selection={{ start: textCursorPosition ?? 0 }}
-                    onSelectionChange={onSelectionChange} />
+                <View style={[style.input, { width: window.width * 0.5 }]}>
+                    <MoneyInput amount={investment} />
+                </View>
 
-                <NumberKeyboard text={investment}
-                    setText={setInvestmentAmount}
-                    textCursor={textCursorPosition}
-                    setTextCursor={setTextCursorPosition} />
+                <NumberKeyboard text={investment} setText={setInvestmentAmount} />
 
                 <View style={style.alignCenter}>
                     <IndoButton disabled={investment === ""} onPress={next}>Continue</IndoButton>
@@ -95,7 +89,8 @@ const style = StyleSheet.create({
     view: {
         width: "100%",
         height: "50%",
-        justifyContent: "space-between"
+        justifyContent: "space-between",
+        alignItems: 'center'
     },
     bodyText: {
         textAlign: "center",
@@ -103,7 +98,10 @@ const style = StyleSheet.create({
     },
     alignCenter: {
         alignItems: "center",
-    }
+    },
+    input: {
+        paddingVertical: 15,
+    },
 });
 
 export default GoalsStep2;
