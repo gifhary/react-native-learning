@@ -66,8 +66,6 @@ const NumberKeyboard: React.FC<IProps> = (props) => {
 
     function backSpace() {
         const cur = props.textCursor;
-        console.log("yeeee " + cur);
-
         if (cur === undefined) {
             props.setText(props.text.slice(0, -1));
         } else if (cur > 0) {

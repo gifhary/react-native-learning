@@ -47,13 +47,14 @@ const GoalsStep2: React.FC<IProps> = (props) => {
     const [investment, setInvestment] = useState("");
     const amountLimit = 11;
 
-    //if user paste certain thing in the textInput other than number, auto remove
-    function setInvestmentAmount(e: string) {
-        //sanitize, remove non number stuff
-        const onlyNumber = e.replace(/[^0-9]/g, '');
+    //won't accept number less than 1 as the first input
+    function setInvestmentAmount(item: string) {
 
-        if (onlyNumber.length <= amountLimit) {
-            setInvestment(onlyNumber);
+        if (item.length <= amountLimit) {
+            if (Number(item) > 0 || item === "") {
+                console.log(`item to write ${item}`);
+                setInvestment(item);
+            }
         }
     }
 
